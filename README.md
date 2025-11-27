@@ -4,51 +4,56 @@ An automated system for collecting, enriching, and scoring Reddit posts and user
 
 ## Features
 
-- 🔍 **Data Collection**: Automated Reddit post and user data collection using PRAW
+- 🔍 **Data Collection**: Automated Reddit post and user data collection using web scraping
 - 📊 **Data Enrichment**: Comprehensive user history analysis (2+ months)
-- 🎯 **Risk Scoring**: ML-based hate speech and violence detection
+- 🎯 **Risk Scoring**: Rule-based hate speech and violence detection
 - 📈 **Monitoring**: Daily monitoring of flagged users with alerts
 - 🐳 **Docker Support**: Fully containerized with Docker Compose
-- 📦 **Modern Python**: Uses UV and Poetry for dependency management
+- 📦 **Modern Python**: Uses Poetry for dependency management
+
+## Note on Data Collection
+
+Due to Reddit's recent API policy changes requiring approval for API access, this project uses Reddit's public JSON endpoints for data collection. This approach:
+- ✅ Requires **no API credentials** or approval process
+- ✅ Works with **public data** only
+- ✅ Respects Reddit's rate limits with built-in delays
+- ✅ Suitable for **research and educational purposes**
+- ⚠️ Limited to public posts and user data
 
 ## Quick Start
 
 ### Prerequisites
 
-- Docker and Docker Compose
-- Reddit API credentials ([get them here](https://www.reddit.com/prefs/apps))
+- Docker and Docker Compose OR Python 3.11+
+- No Reddit API credentials needed!
 
-### Setup
+### Setup (Docker - Recommended)
 
-1. **Clone and configure environment**:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your Reddit API credentials
-   ```
-
-2. **Build and run with Docker**:
+1. **Build and run with Docker**:
    ```bash
    docker-compose up --build
    ```
 
+2. **View logs**:
+   ```bash
+   docker-compose logs -f
+   ```
+
+3. **Check collected data**:
+   ```bash
+   ls -lh data/raw/
+   ```
+
 ### Local Development (without Docker)
 
-1. **Install UV** (if not already installed):
+1. **Install dependencies**:
    ```bash
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   ```
-
-2. **Install Poetry** (if not already installed):
-   ```bash
-   pip install poetry
-   ```
-
-3. **Install dependencies**:
-   ```bash
+   pip install -r requirements.txt
+   # OR
    poetry install
    ```
 
-4. **Run the application**:
+2. **Run the application**:
    ```bash
    poetry run python -m src.main
    ```

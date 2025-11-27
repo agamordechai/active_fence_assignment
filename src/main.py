@@ -3,6 +3,8 @@ import logging
 import sys
 from pathlib import Path
 
+from src.pipeline import DataPipeline
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -19,10 +21,37 @@ logger = logging.getLogger(__name__)
 def main():
     """Main application entry point"""
     logger.info("Reddit Hate Speech Detection System starting...")
-    logger.info("System initialized successfully")
 
-    # TODO: Implement data collection, enrichment, and scoring
-    logger.info("Ready to collect and analyze Reddit data")
+    # Define target subreddits for controversial/harmful content monitoring
+    # These are public subreddits where controversial discussions happen
+    target_subreddits = [
+        'news',
+        'worldnews',
+        'politics',
+        'unpopularopinion',
+        'TrueOffMyChest',
+    ]
+
+    # Initialize and run pipeline
+    pipeline = DataPipeline()
+
+    try:
+        results = pipeline.run_full_pipeline(
+            subreddits=target_subreddits,
+            posts_per_subreddit=25,  # 25 posts per subreddit = ~125 total
+            max_users_to_enrich=20   # Enrich top 20 users
+        )
+
+        logger.info("\n✅ Pipeline completed successfully!")
+        logger.info(f"Generated files:")
+        for file_type, file_path in results['files'].items():
+            logger.info(f"  - {file_type}: {file_path}")
+
+    except KeyboardInterrupt:
+        logger.warning("\n⚠️  Pipeline interrupted by user")
+    except Exception as e:
+        logger.error(f"\n❌ Pipeline failed: {e}", exc_info=True)
+        raise
 
 
 if __name__ == "__main__":

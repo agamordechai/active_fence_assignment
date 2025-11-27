@@ -11,17 +11,19 @@ services:
       - ./logs:/app/logs
       - ./config:/app/config
     environment:
-      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
-      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
-      - REDDIT_USER_AGENT=${REDDIT_USER_AGENT}
+      # Web scraping configuration (no API credentials needed!)
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - RATE_LIMIT_DELAY=${RATE_LIMIT_DELAY:-2.0}
+      - POSTS_PER_SUBREDDIT=${POSTS_PER_SUBREDDIT:-25}
+      - MAX_USERS_TO_ENRICH=${MAX_USERS_TO_ENRICH:-20}
+      - RUN_MODE=${RUN_MODE:-single}
     env_file:
       - .env
     restart: unless-stopped
     networks:
       - reddit-network
 
-  # Optional: Add a monitoring service
+  # Optional: Scheduler service for daily monitoring (future enhancement)
   scheduler:
     build:
       context: .
@@ -32,10 +34,8 @@ services:
       - ./logs:/app/logs
       - ./config:/app/config
     environment:
-      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
-      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
-      - REDDIT_USER_AGENT=${REDDIT_USER_AGENT}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - RATE_LIMIT_DELAY=${RATE_LIMIT_DELAY:-2.0}
       - RUN_MODE=scheduler
     env_file:
       - .env
@@ -43,6 +43,8 @@ services:
     restart: unless-stopped
     networks:
       - reddit-network
+    profiles:
+      - monitoring  # Only start with: docker-compose --profile monitoring up
 
 networks:
   reddit-network:

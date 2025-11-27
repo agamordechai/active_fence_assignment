@@ -18,6 +18,8 @@ spacy>=3.7.2
 # HTTP requests
 requests>=2.31.0
 aiohttp>=3.9.1
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
 
 # Configuration
 python-dotenv>=1.0.0
