@@ -3,13 +3,12 @@ import json
 import sys
 from pathlib import Path
 from datetime import datetime
-import logging
 
+from src.config import setup_logging
 from src.database.database import get_db_context, init_db
 from src.database import crud
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = setup_logging()
 
 
 def convert_post_data(post_data: dict) -> dict:
@@ -40,29 +39,49 @@ def convert_post_data(post_data: dict) -> dict:
 
 def convert_user_data(user_data: dict) -> dict:
     """Convert user data from JSON format to database format"""
-    # Remove fields that don't exist in the model
-    user_data.pop('enrichment_timestamp', None)
-    user_data.pop('post_history', None)
-    user_data.pop('comment_history', None)
+    # Extract base fields
+    converted = {
+        'username': user_data.get('username'),
+        'account_created_utc': user_data.get('account_created_utc'),
+        'link_karma': user_data.get('link_karma', 0),
+        'comment_karma': user_data.get('comment_karma', 0),
+        'is_gold': user_data.get('is_gold', False),
+        'is_mod': user_data.get('is_mod', False),
+        'has_verified_email': user_data.get('has_verified_email', False),
+    }
 
     # Convert account_created_date string to datetime if needed
     account_created = user_data.get('account_created_date')
     if account_created and isinstance(account_created, str):
-        user_data['account_created_date'] = datetime.fromisoformat(account_created.replace('Z', '+00:00'))
+        converted['account_created_date'] = datetime.fromisoformat(account_created.replace('Z', '+00:00'))
     elif isinstance(account_created, (int, float)):
-        user_data['account_created_date'] = datetime.fromtimestamp(account_created)
+        converted['account_created_date'] = datetime.fromtimestamp(account_created)
+    else:
+        converted['account_created_date'] = account_created
 
     # Convert scored_at string to datetime if needed
     scored_at = user_data.get('scored_at')
     if scored_at and isinstance(scored_at, str):
-        user_data['scored_at'] = datetime.fromisoformat(scored_at.replace('Z', '+00:00'))
+        converted['scored_at'] = datetime.fromisoformat(scored_at.replace('Z', '+00:00'))
+    else:
+        converted['scored_at'] = scored_at
 
     # Convert collected_at string to datetime if needed
     collected_at = user_data.get('collected_at')
     if collected_at and isinstance(collected_at, str):
-        user_data['collected_at'] = datetime.fromisoformat(collected_at.replace('Z', '+00:00'))
+        converted['collected_at'] = datetime.fromisoformat(collected_at.replace('Z', '+00:00'))
+    else:
+        converted['collected_at'] = collected_at
 
-    return user_data
+    # Extract risk_assessment if present (keep as dict, crud.create_user will handle it)
+    if 'risk_assessment' in user_data:
+        converted['risk_assessment'] = user_data['risk_assessment']
+
+    # Extract statistics if present (keep as dict, crud.create_user will handle it)
+    if 'statistics' in user_data:
+        converted['statistics'] = user_data['statistics']
+
+    return converted
 
 
 def import_posts_from_json(json_file_path: str):

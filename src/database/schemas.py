@@ -203,11 +203,11 @@ class StatisticsResponse(BaseModel):
     """Schema for statistics responses"""
     total_posts: int
     total_users: int
-    total_alerts: int
     high_risk_posts: int
     high_risk_users: int
+    posts_by_risk: dict  # {"critical": int, "high": int, "medium": int}
+    users_by_risk: dict  # {"critical": int, "high": int, "medium": int}
     monitored_users: int
-    active_alerts: int
     timestamp: str
 
 

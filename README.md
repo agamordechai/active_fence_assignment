@@ -12,6 +12,45 @@ An automated system for collecting, enriching, and scoring Reddit posts and user
 - 🐳 **Docker Support**: Fully containerized with Docker Compose
 - 📦 **Modern Python**: Uses Poetry for dependency management
 
+## Execution Modes
+
+The system supports three execution modes via Docker profiles:
+
+### 🔄 Single Mode
+```bash
+docker-compose --profile single up
+```
+- **Runs once** and exits
+- Perfect for **testing** or **manual runs**
+- Container stops automatically when complete
+- No automatic restart
+
+### ⏰ Scheduler Mode
+```bash
+docker-compose --profile scheduler up -d
+```
+- **Runs every 2 hours** continuously
+- Perfect for **production monitoring**
+- Automatically restarts if crashes
+- Runs in background
+
+### ⚡ Continuous Mode
+```bash
+docker-compose --profile continuous up -d
+```
+- **Runs every 5 minutes** continuously
+- Perfect for **intensive monitoring**
+- Automatically restarts if crashes
+- Runs in background
+
+### 🌐 API Only
+```bash
+docker-compose up -d
+```
+- Just the **API server** (no scraper)
+- Access at http://localhost:8000
+- Perfect for querying existing data
+
 ## Note on Data Collection
 
 Due to Reddit's recent API policy changes requiring approval for API access, this project uses Reddit's public JSON endpoints for data collection. This approach:
@@ -73,47 +112,6 @@ Due to Reddit's recent API policy changes requiring approval for API access, thi
 **Note:** Data is automatically imported to the database in TWO ways:
 - ✅ **After scraper completes** - Pipeline automatically imports collected data
 - ✅ **When API starts** - API imports any existing data files on startup
-
-### Verifying Auto-Import is Working
-
-After starting the services, the auto-import should happen automatically. Here's how to verify:
-
-**1. Watch for auto-import messages (takes 3-5 minutes):**
-```bash
-docker-compose logs -f reddit-scraper
-
-# You should see:
-# ================================================================================
-# [AUTO-IMPORT] Importing data to database...
-# ================================================================================
-#   ✓ Database initialized
-#   📥 Importing posts from data/processed/posts_scored_*.json...
-#   ✓ Posts: 125 created, 0 skipped
-#   📥 Importing users from data/processed/users_scored_*.json...
-#   ✓ Users: 20 created, 0 skipped
-# ================================================================================
-# ✅ DATABASE IMPORT COMPLETED!
-# ================================================================================
-```
-
-**2. Check database was populated:**
-```bash
-curl http://localhost:8000/statistics
-
-# Should show real numbers:
-# {"total_posts": 125, "total_users": 20, ...}
-```
-
-**3. If auto-import didn't run:**
-```bash
-# Rebuild with latest code
-docker-compose down
-docker-compose build --no-cache
-docker-compose up -d
-
-# Or manually import
-python3 manual_import.py
-```
 
 ## Troubleshooting
 
@@ -317,22 +315,52 @@ docker-compose restart reddit-scraper
 
 ## Docker Commands
 
-```bash
-# Build and start services
-docker-compose up --build
+### Basic Commands
 
-# Run in background
+```bash
+# Single run (runs once and stops)
+docker-compose --profile single up
+
+# Scheduler mode (runs every 2 hours, background)
+docker-compose --profile scheduler up -d
+
+# Continuous mode (runs every 5 minutes, background)
+docker-compose --profile continuous up -d
+
+# API only (no scraper)
 docker-compose up -d
 
-# View logs
-docker-compose logs -f
-
-# Stop services
+# Stop everything
 docker-compose down
 
-# Rebuild after code changes
-docker-compose up --build --force-recreate
+# View logs
+docker-compose logs -f                              # All services
+docker-compose logs -f api                          # API only
+docker-compose logs -f reddit-scraper-single        # Single mode
+docker-compose logs -f reddit-scraper-scheduler     # Scheduler mode
+docker-compose logs -f reddit-scraper-continuous    # Continuous mode
 ```
+
+### Advanced Commands
+
+```bash
+# Rebuild after code changes
+docker-compose build --no-cache
+docker-compose --profile single up --build
+
+# Force recreate containers
+docker-compose up --force-recreate
+
+# Remove all containers and volumes
+docker-compose down -v
+
+# Check running containers
+docker-compose ps
+```
+
+### Quick Reference
+
+Run `./docker-commands.sh` for a quick command reference cheat sheet.
 
 ## Development
 

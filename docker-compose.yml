@@ -1,28 +1,75 @@
 
 services:
-  reddit-scraper:
+  # Single Run Mode - runs once and stops
+  reddit-scraper-single:
+    profiles: ["single"]
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: reddit-scraper
+    container_name: reddit-scraper-single
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
       - ./config:/app/config
     environment:
-      # Web scraping configuration (no API credentials needed!)
-      - LOG_LEVEL=${LOG_LEVEL:-WARNING}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
       - RATE_LIMIT_DELAY=${RATE_LIMIT_DELAY:-2.0}
-      - POSTS_PER_SUBREDDIT=${POSTS_PER_SUBREDDIT:-25}
+      - POSTS_PER_SUBREDDIT=${POSTS_PER_SUBREDDIT:-10}
       - MAX_USERS_TO_ENRICH=${MAX_USERS_TO_ENRICH:-20}
-      - TARGET_SUBREDDITS=${TARGET_SUBREDDITS:-news,worldnews,politics,unpopularopinion,TrueOffMyChest}
-      - RUN_MODE=${RUN_MODE:-single}
+      - TARGET_SUBREDDITS=${TARGET_SUBREDDITS:-news,politics,unpopularopinion,racism,goodanimemes,RoastMe}
+      - RUN_MODE=single
       - DATABASE_URL=sqlite:////app/data/reddit_detection.db
-    restart: unless-stopped
+    restart: "no"  # Don't restart - run once only
     networks:
       - reddit-network
 
-  # API service for querying and managing data
+  # Scheduler Mode - runs every 2 hours
+  reddit-scraper-scheduler:
+    profiles: ["scheduler"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reddit-scraper-scheduler
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - RATE_LIMIT_DELAY=${RATE_LIMIT_DELAY:-2.0}
+      - POSTS_PER_SUBREDDIT=${POSTS_PER_SUBREDDIT:-10}
+      - MAX_USERS_TO_ENRICH=${MAX_USERS_TO_ENRICH:-20}
+      - TARGET_SUBREDDITS=${TARGET_SUBREDDITS:-news,politics,unpopularopinion,racism,goodanimemes,RoastMe}
+      - RUN_MODE=scheduler
+      - DATABASE_URL=sqlite:////app/data/reddit_detection.db
+    restart: unless-stopped  # Restart if crashes
+    networks:
+      - reddit-network
+
+  # Continuous Mode - runs every 5 minutes
+  reddit-scraper-continuous:
+    profiles: ["continuous"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reddit-scraper-continuous
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - RATE_LIMIT_DELAY=${RATE_LIMIT_DELAY:-2.0}
+      - POSTS_PER_SUBREDDIT=${POSTS_PER_SUBREDDIT:-10}
+      - MAX_USERS_TO_ENRICH=${MAX_USERS_TO_ENRICH:-20}
+      - TARGET_SUBREDDITS=${TARGET_SUBREDDITS:-news,politics,unpopularopinion,racism,goodanimemes,RoastMe}
+      - RUN_MODE=continuous
+      - DATABASE_URL=sqlite:////app/data/reddit_detection.db
+    restart: unless-stopped  # Restart if crashes
+    networks:
+      - reddit-network
+
+  # API service (starts by default, no profile needed)
   api:
     build:
       context: .

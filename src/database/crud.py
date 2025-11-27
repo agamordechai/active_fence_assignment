@@ -309,22 +309,39 @@ def get_statistics(db: Session) -> Dict[str, Any]:
     """Get overall system statistics"""
     total_posts = db.query(func.count(Post.id)).scalar()
     total_users = db.query(func.count(User.username)).scalar()
-    total_alerts = db.query(func.count(Alert.id)).scalar()
 
-    high_risk_posts = db.query(func.count(Post.id)).filter(Post.risk_score >= 5).scalar()
-    high_risk_users = db.query(func.count(User.username)).filter(User.risk_score >= 5).scalar()
+    # Use HIGH_RISK_THRESHOLD (50) for consistency
+    high_risk_posts = db.query(func.count(Post.id)).filter(Post.risk_score >= 50).scalar()
+    high_risk_users = db.query(func.count(User.username)).filter(User.risk_score >= 50).scalar()
+
+    # Risk level distribution for posts
+    critical_posts = db.query(func.count(Post.id)).filter(Post.risk_level == 'critical').scalar()
+    high_posts = db.query(func.count(Post.id)).filter(Post.risk_level == 'high').scalar()
+    medium_posts = db.query(func.count(Post.id)).filter(Post.risk_level == 'medium').scalar()
+
+    # Risk level distribution for users
+    critical_users = db.query(func.count(User.username)).filter(User.risk_level == 'critical').scalar()
+    high_users = db.query(func.count(User.username)).filter(User.risk_level == 'high').scalar()
+    medium_users = db.query(func.count(User.username)).filter(User.risk_level == 'medium').scalar()
 
     monitored_users = db.query(func.count(User.username)).filter(User.is_monitored == True).scalar()
-    active_alerts = db.query(func.count(Alert.id)).filter(Alert.status == 'new').scalar()
 
     return {
         "total_posts": total_posts,
         "total_users": total_users,
-        "total_alerts": total_alerts,
         "high_risk_posts": high_risk_posts,
         "high_risk_users": high_risk_users,
+        "posts_by_risk": {
+            "critical": critical_posts,
+            "high": high_posts,
+            "medium": medium_posts
+        },
+        "users_by_risk": {
+            "critical": critical_users,
+            "high": high_users,
+            "medium": medium_users
+        },
         "monitored_users": monitored_users,
-        "active_alerts": active_alerts,
         "timestamp": datetime.utcnow().isoformat()
     }
 

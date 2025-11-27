@@ -1,59 +1,26 @@
 """Main entry point for the Reddit Hate Speech Detection System"""
-import logging
 import sys
-import os
+import time
 from pathlib import Path
-from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
-
+from src.config import Config, setup_logging
 from src.pipeline import DataPipeline
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.StreamHandler(sys.stdout),
-        logging.FileHandler('logs/app.log', mode='a')
-    ]
-)
-
-logger = logging.getLogger(__name__)
+# Setup logging from config
+logger = setup_logging()
 
 
-def main():
-    """Main application entry point"""
-    logger.info("Reddit Hate Speech Detection System starting...")
+def run_single():
+    """Run pipeline once and exit"""
+    logger.info("Running in SINGLE mode - will execute once and exit")
 
-    # Load configuration from environment variables
-    target_subreddits_str = os.getenv('TARGET_SUBREDDITS', 'news,worldnews,politics,unpopularopinion,TrueOffMyChest')
-    target_subreddits = [s.strip() for s in target_subreddits_str.split(',')]
-
-    posts_per_subreddit = int(os.getenv('POSTS_PER_SUBREDDIT', '25'))
-    max_users_to_enrich = int(os.getenv('MAX_USERS_TO_ENRICH', '20'))
-
-    # Print configuration (always visible)
-    print("\n" + "=" * 80, flush=True)
-    print("📋 CONFIGURATION", flush=True)
-    print("=" * 80, flush=True)
-    print(f"  Target subreddits: {target_subreddits}", flush=True)
-    print(f"  Posts per subreddit: {posts_per_subreddit}", flush=True)
-    print(f"  Max users to enrich: {max_users_to_enrich}", flush=True)
-    print("=" * 80, flush=True)
-    print("", flush=True)
-
-    logger.info(f"Configuration loaded: {len(target_subreddits)} subreddits, {posts_per_subreddit} posts each")
-
-    # Initialize and run pipeline
     pipeline = DataPipeline()
 
     try:
         results = pipeline.run_full_pipeline(
-            subreddits=target_subreddits,
-            posts_per_subreddit=posts_per_subreddit,
-            max_users_to_enrich=max_users_to_enrich
+            subreddits=Config.TARGET_SUBREDDITS,
+            posts_per_subreddit=Config.POSTS_PER_SUBREDDIT,
+            max_users_to_enrich=Config.MAX_USERS_TO_ENRICH
         )
 
         print("\n" + "=" * 80, flush=True)
@@ -63,11 +30,108 @@ def main():
         for file_type, file_path in results['files'].items():
             logger.info(f"  - {file_type}: {file_path}")
 
+        return results
+
     except KeyboardInterrupt:
         logger.warning("\n⚠️  Pipeline interrupted by user")
     except Exception as e:
         logger.error(f"\n❌ Pipeline failed: {e}", exc_info=True)
         raise
+
+
+def run_scheduler():
+    """Run pipeline on a schedule (every 2 hours)"""
+    logger.info("Running in SCHEDULER mode - will execute every 2 hours")
+    logger.info("Press Ctrl+C to stop")
+
+    pipeline = DataPipeline()
+    run_count = 0
+
+    try:
+        while True:
+            run_count += 1
+            logger.info(f"\n{'=' * 80}")
+            logger.info(f"Starting scheduled run #{run_count}")
+            logger.info(f"{'=' * 80}")
+
+            try:
+                results = pipeline.run_full_pipeline(
+                    subreddits=Config.TARGET_SUBREDDITS,
+                    posts_per_subreddit=Config.POSTS_PER_SUBREDDIT,
+                    max_users_to_enrich=Config.MAX_USERS_TO_ENRICH
+                )
+                logger.info(f"✅ Scheduled run #{run_count} completed successfully")
+
+            except Exception as e:
+                logger.error(f"❌ Scheduled run #{run_count} failed: {e}", exc_info=True)
+
+            # Wait 2 hours before next run
+            wait_seconds = 2 * 60 * 60  # 2 hours
+            logger.info(f"Waiting 2 hours until next run...")
+            logger.info(f"Next run scheduled at: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time() + wait_seconds))}")
+            time.sleep(wait_seconds)
+
+    except KeyboardInterrupt:
+        logger.warning("\n⚠️  Scheduler stopped by user")
+        logger.info(f"Total runs completed: {run_count}")
+
+
+def run_continuous():
+    """Run pipeline continuously with minimal delay"""
+    logger.info("Running in CONTINUOUS mode - will execute repeatedly")
+    logger.info("Press Ctrl+C to stop")
+
+    pipeline = DataPipeline()
+    run_count = 0
+
+    try:
+        while True:
+            run_count += 1
+            logger.info(f"\n{'=' * 80}")
+            logger.info(f"Starting continuous run #{run_count}")
+            logger.info(f"{'=' * 80}")
+
+            try:
+                results = pipeline.run_full_pipeline(
+                    subreddits=Config.TARGET_SUBREDDITS,
+                    posts_per_subreddit=Config.POSTS_PER_SUBREDDIT,
+                    max_users_to_enrich=Config.MAX_USERS_TO_ENRICH
+                )
+                logger.info(f"✅ Continuous run #{run_count} completed successfully")
+
+            except Exception as e:
+                logger.error(f"❌ Continuous run #{run_count} failed: {e}", exc_info=True)
+
+            # Short delay before next run (5 minutes)
+            wait_seconds = 5 * 60
+            logger.info(f"Waiting 5 minutes before next run...")
+            time.sleep(wait_seconds)
+
+    except KeyboardInterrupt:
+        logger.warning("\n⚠️  Continuous mode stopped by user")
+        logger.info(f"Total runs completed: {run_count}")
+
+
+def main():
+    """Main application entry point"""
+    logger.info("Reddit Hate Speech Detection System starting...")
+
+    # Print configuration
+    Config.print_config()
+
+    logger.info(f"Configuration loaded: {len(Config.TARGET_SUBREDDITS)} subreddits, "
+               f"{Config.POSTS_PER_SUBREDDIT} posts each")
+
+    # Execute based on RUN_MODE
+    if Config.RUN_MODE == 'single':
+        run_single()
+    elif Config.RUN_MODE == 'scheduler':
+        run_scheduler()
+    elif Config.RUN_MODE == 'continuous':
+        run_continuous()
+    else:
+        logger.error(f"Invalid RUN_MODE: {Config.RUN_MODE}. Must be 'single', 'scheduler', or 'continuous'")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

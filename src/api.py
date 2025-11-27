@@ -3,14 +3,13 @@ from fastapi import FastAPI, Depends, HTTPException, Query, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List, Optional
-import logging
 
+from src.config import setup_logging
 from src.database.database import get_db, init_db
 from src.database import crud, schemas
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = setup_logging()
 
 # Create FastAPI app
 app = FastAPI(
@@ -227,11 +226,11 @@ async def get_users(
 
 @app.get("/users/high-risk", response_model=List[schemas.UserResponse], tags=["Users"])
 async def get_high_risk_users(
-    min_score: int = Query(5, ge=0),
+    min_score: int = Query(50, ge=0),
     limit: int = Query(100, ge=1, le=1000),
     db: Session = Depends(get_db)
 ):
-    """Get high-risk users"""
+    """Get high-risk users (default threshold: 50)"""
     return crud.get_high_risk_users(db, min_score=min_score, limit=limit)
 
 
