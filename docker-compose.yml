@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   reddit-scraper:
@@ -12,39 +11,37 @@ services:
       - ./config:/app/config
     environment:
       # Web scraping configuration (no API credentials needed!)
-      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - LOG_LEVEL=${LOG_LEVEL:-WARNING}
       - RATE_LIMIT_DELAY=${RATE_LIMIT_DELAY:-2.0}
       - POSTS_PER_SUBREDDIT=${POSTS_PER_SUBREDDIT:-25}
       - MAX_USERS_TO_ENRICH=${MAX_USERS_TO_ENRICH:-20}
+      - TARGET_SUBREDDITS=${TARGET_SUBREDDITS:-news,worldnews,politics,unpopularopinion,TrueOffMyChest}
       - RUN_MODE=${RUN_MODE:-single}
-    env_file:
-      - .env
+      - DATABASE_URL=sqlite:////app/data/reddit_detection.db
     restart: unless-stopped
     networks:
       - reddit-network
 
-  # Optional: Scheduler service for daily monitoring (future enhancement)
-  scheduler:
+  # API service for querying and managing data
+  api:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: reddit-scheduler
+    container_name: reddit-api
+    ports:
+      - "8000:8000"
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
       - ./config:/app/config
     environment:
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
-      - RATE_LIMIT_DELAY=${RATE_LIMIT_DELAY:-2.0}
-      - RUN_MODE=scheduler
-    env_file:
-      - .env
-    command: python -m src.scheduler
+      - DATABASE_URL=sqlite:////app/data/reddit_detection.db
+    command: uvicorn src.api:app --host 0.0.0.0 --port 8000 --reload
     restart: unless-stopped
     networks:
       - reddit-network
-    profiles:
-      - monitoring  # Only start with: docker-compose --profile monitoring up
+
 
 networks:
   reddit-network:
