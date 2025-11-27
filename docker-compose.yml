@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  reddit-scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reddit-scraper
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    environment:
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      - REDDIT_USER_AGENT=${REDDIT_USER_AGENT}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - reddit-network
+
+  # Optional: Add a monitoring service
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reddit-scheduler
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    environment:
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      - REDDIT_USER_AGENT=${REDDIT_USER_AGENT}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - RUN_MODE=scheduler
+    env_file:
+      - .env
+    command: python -m src.scheduler
+    restart: unless-stopped
+    networks:
+      - reddit-network
+
+networks:
+  reddit-network:
+    driver: bridge
+
+volumes:
+  data:
+  logs:
+
