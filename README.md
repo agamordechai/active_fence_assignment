@@ -6,7 +6,8 @@ An automated system for collecting, enriching, and scoring Reddit posts and user
 
 - 🔍 **Data Collection**: Automated Reddit post and user data collection using web scraping
 - 📊 **Data Enrichment**: Comprehensive user history analysis (2+ months)
-- 🎯 **Risk Scoring**: Rule-based hate speech and violence detection
+- 🎯 **Risk Scoring**: Rule-based hate speech and violence detection with HurtLex database
+- 📖 **HurtLex Integration**: Research-backed multilingual lexicon (114+ categorized keywords)
 - 🗄️ **Database & API**: SQLite database with FastAPI REST API (30+ endpoints)
 - 📚 **Interactive Docs**: Auto-generated API documentation with Swagger UI
 - 🐳 **Docker Support**: Fully containerized with Docker Compose
@@ -284,6 +285,53 @@ reddit-hate-speech-detector/
 ├── docker-compose.yml       # Docker Compose configuration
 └── pyproject.toml           # Project metadata and dependencies (uv)
 ```
+
+## HurtLex Integration
+
+The system uses **HurtLex**, a research-backed multilingual lexicon of offensive and hateful words for hate speech detection.
+
+### About HurtLex
+
+- **Source**: https://github.com/valeriobasile/hurtlex
+- **License**: CC-BY-SA 4.0
+- **Research**: Peer-reviewed academic lexicon
+- **Coverage**: 114+ categorized keywords
+
+### Lexicon Statistics
+
+- **Hate Keywords**: 68 words
+  - Extreme: 21 (ethnic slurs, genocide terms)
+  - High: 28 (sexual slurs, discriminatory terms)
+  - Medium: 19 (offensive language)
+  
+- **Violence Keywords**: 46 words
+  - Extreme: 18 (kill, murder, torture)
+  - High: 15 (attack, assault, abuse)
+  - Medium: 13 (threatening, intimidate)
+
+- **Slur Patterns**: 12 regex patterns for obfuscated terms
+
+### Benefits Over Hardcoded Words
+
+- **+280% more keywords** (114 vs 30 hardcoded)
+- **Research-backed** peer-reviewed lexicon
+- **Categorized by severity** for nuanced detection
+- **Context-aware** reduces false positives
+- **Maintainable** easy to update from source
+
+### Usage
+
+The scorer automatically loads HurtLex:
+
+```python
+from src.scorers.hate_speech_scorer import HateSpeechScorer
+
+scorer = HateSpeechScorer()  # Loads HurtLex automatically
+result = scorer.score_text("Some text to analyze")
+print(f"Risk: {result['risk_score']} - {result['risk_level']}")
+```
+
+See `HURTLEX_INTEGRATION.md` for detailed documentation.
 
 ## Configuration
 

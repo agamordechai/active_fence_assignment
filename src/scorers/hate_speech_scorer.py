@@ -1,8 +1,10 @@
 """Risk scoring module for hate speech and violent content detection"""
 import logging
 import re
+import json
 from typing import Dict, List
 from datetime import datetime
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -13,36 +15,40 @@ class HateSpeechScorer:
 
     This is a simplified rule-based approach. In production, this would use
     ML models like BERT, RoBERTa, or specialized hate speech detection models.
+
+    Keywords are loaded from HurtLex database - a multilingual lexicon of
+    offensive, aggressive, and hateful words.
+    Source: https://github.com/valeriobasile/hurtlex
     """
 
-    def __init__(self):
-        # Hate speech keywords (simplified set)
-        self.hate_keywords = {
-            'extreme': ['kill', 'murder', 'eliminate', 'exterminate', 'genocide', 'lynch'],
-            'high': ['hate', 'racist', 'nazi', 'supremacist', 'terrorist', 'radical'],
-            'medium': ['stupid', 'idiot', 'moron', 'scum', 'trash', 'disgusting'],
-        }
+    def __init__(self, lexicon_path: str = None):
+        """
+        Initialize the scorer with HurtLex-based lexicon
 
-        # Violence-related keywords
-        self.violence_keywords = {
-            'extreme': ['bomb', 'shoot', 'attack', 'massacre', 'slaughter', 'execute'],
-            'high': ['violence', 'assault', 'fight', 'punch', 'kick', 'hurt'],
-            'medium': ['angry', 'rage', 'furious', 'destroy', 'crush'],
-        }
+        Args:
+            lexicon_path: Optional path to custom lexicon file.
+                         If None, uses HurtLex-based lexicon from data directory.
+        """
+        # Load lexicon from HurtLex-based database
+        if lexicon_path is None:
+            # Use HurtLex-based lexicon path
+            base_dir = Path(__file__).parent.parent.parent
+            lexicon_path = base_dir / "data" / "hurtlex_processed.json"
 
-        # Slurs and derogatory terms (sanitized examples)
-        self.slur_patterns = [
-            r'\b(f[*@#]g|f[*@#]ggot)\b',
-            r'\b(n[*@#]gg[*@#]r|n[*@#]gga)\b',
-            r'\b(r[*@#]tard)\b',
-        ]
+        with open(lexicon_path, 'r', encoding='utf-8') as f:
+            lexicon = json.load(f)
 
-        # Context indicators (mitigating factors)
-        self.context_indicators = {
-            'discussion': ['discuss', 'debate', 'opinion', 'think', 'believe', 'perspective'],
-            'quotation': ['quote', 'said', 'according', 'reported', 'claimed'],
-            'negation': ['not', "don't", "doesn't", "didn't", "isn't", "aren't", "won't"],
-        }
+        self.hate_keywords = lexicon.get('hate_keywords', {})
+        self.violence_keywords = lexicon.get('violence_keywords', {})
+        self.slur_patterns = lexicon.get('slur_patterns', [])
+        self.context_indicators = lexicon.get('context_indicators', {})
+
+        logger.info(f"Loaded HurtLex-based lexicon from {lexicon_path}")
+        logger.info(f"  - Hate keywords: {sum(len(v) for v in self.hate_keywords.values())} total")
+        logger.info(f"  - Violence keywords: {sum(len(v) for v in self.violence_keywords.values())} total")
+        logger.info(f"  - Slur patterns: {len(self.slur_patterns)}")
+        logger.info(f"  - Source: {lexicon.get('source', 'Unknown')}")
+
 
     def score_text(self, text: str) -> Dict:
         """

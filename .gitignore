@@ -45,13 +45,28 @@ htmlcov/
 .tox/
 .hypothesis/
 
-# Data and logs
-data/
+# Data and logs - Allow HurtLex JSON but ignore other data
+data/raw/
+data/processed/
+data/hurtlex/
+data/*.db
+data/*.sqlite
+data/*.tsv
+data/*.txt
+data/curse_words.json
+data/profanity_words.csv
+data/hate_speech_words.txt
+data/hate_speech_lexicon.json
+!data/hurtlex_processed.json
+!data/README.md
 logs/
 *.csv
-*.json
 *.db
 *.sqlite
+# Ignore JSON data dumps but not config/documentation
+data/*_scored_*.json
+data/posts_*.json
+data/users_*.json
 
 # Environment
 .env
