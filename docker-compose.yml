@@ -1,15 +1,34 @@
-
 services:
-  # Continuous Mode - runs every 5 minutes
-  reddit-scraper:
+  # API service
+  api:
     build:
-      context: .
+      context: ./services/api
+      dockerfile: Dockerfile
+    container_name: reddit-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - DATABASE_URL=sqlite:////app/data/reddit_detection.db
+    env_file:
+      - ./services/api/.env
+    command: uvicorn src.api:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+    networks:
+      - reddit-network
+
+  # Scraper service - runs every 5 minutes in continuous mode
+  scraper:
+    build:
+      context: ./services/scraper
       dockerfile: Dockerfile
     container_name: reddit-scraper
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
-      - ./config:/app/config
     environment:
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
       - RATE_LIMIT_DELAY=${RATE_LIMIT_DELAY:-2.0}
@@ -18,29 +37,11 @@ services:
       - TARGET_SUBREDDITS=${TARGET_SUBREDDITS:-news,politics,unpopularopinion,racism,goodanimemes,RoastMe}
       - RUN_MODE=continuous
       - API_URL=http://api:8000
-    restart: unless-stopped  # Restart if crashes
+    env_file:
+      - ./services/scraper/.env
+    restart: unless-stopped
     depends_on:
       - api
-    networks:
-      - reddit-network
-
-  # API service (starts by default, no profile needed)
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: reddit-api
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./data:/app/data
-      - ./logs:/app/logs
-      - ./config:/app/config
-    environment:
-      - LOG_LEVEL=${LOG_LEVEL:-INFO}
-      - DATABASE_URL=sqlite:////app/data/reddit_detection.db
-    command: uvicorn src.api:app --host 0.0.0.0 --port 8000 --reload
-    restart: unless-stopped
     networks:
       - reddit-network
 
@@ -52,4 +53,3 @@ networks:
 volumes:
   data:
   logs:
-
