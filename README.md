@@ -64,7 +64,8 @@ Due to Reddit's recent API policy changes requiring approval for API access, thi
 
 ### Prerequisites
 
-- Docker and Docker Compose OR Python 3.11+
+- **For Docker**: Docker and Docker Compose (recommended)
+- **For Local Development**: Python 3.11+ and [uv](https://docs.astral.sh/uv/) package manager
 - No Reddit API credentials needed!
 
 ### Setup (Docker - Recommended)
@@ -281,8 +282,7 @@ reddit-hate-speech-detector/
 ├── config/                  # Configuration files
 ├── Dockerfile               # Docker container definition
 ├── docker-compose.yml       # Docker Compose configuration
-├── requirements.txt         # Python dependencies
-└── pyproject.toml           # Project metadata
+└── pyproject.toml           # Project metadata and dependencies (uv)
 ```
 
 ## Configuration
@@ -383,11 +383,20 @@ poetry run pytest
 ### Using UV
 
 ```bash
-# Install with UV
-uv pip install -r requirements.txt
+# Install dependencies with uv
+uv sync
+
+# Install with dev dependencies
+uv sync --all-extras
 
 # Add a package
-uv pip install package-name
+uv add package-name
+
+# Add a dev package
+uv add --dev package-name
+
+# Run a command in the uv environment
+uv run python -m src.main
 ```
 
 ## Testing

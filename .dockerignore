@@ -4,15 +4,14 @@ __pycache__/
 *$py.class
 *.so
 .Python
-*.egg-info/
-dist/
-build/
-
-# Virtual environments
-venv/
 env/
+venv/
 ENV/
 .venv
+
+# uv
+.venv/
+uv.lock
 
 # IDE
 .vscode/
@@ -21,41 +20,27 @@ ENV/
 *.swo
 *~
 
-# Git
-.git/
-.gitignore
-.gitattributes
-
-# Docker
-Dockerfile
-docker-compose.yml
-.dockerignore
-
-# Data and logs (shouldn't be in image)
-data/
-logs/
-*.log
-
-# Documentation
-README.md
-*.md
-docs/
-
-# Tests
-tests/
+# Testing
 .pytest_cache/
 .coverage
 htmlcov/
+*.cover
 
-# Environment files
-.env
-.env.*
-!.env.example
+# Data and logs (don't copy to image, use volumes)
+data/
+logs/
+*.db
+*.log
 
-# UV/Poetry cache
-.uv/
-.poetry/
+# Git
+.git/
+.gitignore
 
-# OS files
+# Documentation (but keep README.md as it's needed by pyproject.toml)
+assignment.md
+
+# Other
+.env.example
 .DS_Store
-Thumbs.db
+*.backup
+
