@@ -13,6 +13,7 @@ RUN mkdir -p src && touch src/__init__.py
 RUN uv pip install --system --no-cache .
 # Now copy the actual source code (this layer changes more frequently)
 COPY src/ ./src/
-# Set Python path
+# Set Python path and disable output buffering for Docker logs
 ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
 CMD ["python", "-m", "src.main"]

@@ -147,9 +147,9 @@ class DataPipeline:
         logger.info("=" * 80)
 
         # Send data to API
-        print("\n" + "=" * 80, flush=True)
-        print("[API EXPORT] Sending data to API...", flush=True)
-        print("=" * 80, flush=True)
+        logger.info("\n" + "=" * 80)
+        logger.info("[API EXPORT] Sending data to API...")
+        logger.info("=" * 80)
         self._send_to_api(scored_posts, scored_users, posts_file, scored_posts_file,
                           raw_users_file, scored_users_file)
 
@@ -170,65 +170,61 @@ class DataPipeline:
         try:
             # Check if API is available
             if not self.api_client.health_check():
-                print("  ⚠️  API is not available. Data saved to JSON files.", flush=True)
                 logger.warning("API health check failed. Data not sent to API.")
                 return
 
-            print("  ✓ API connection verified", flush=True)
+            logger.info("API connection verified")
 
             # Send posts
-            print(f"  📤 Sending {len(scored_posts)} posts to API...", flush=True)
+            logger.info(f"Sending {len(scored_posts)} posts to API...")
             posts_result = self.api_client.send_posts(scored_posts)
-            print(f"  ✓ Posts: {posts_result['created']} created, "
-                  f"{posts_result['skipped']} skipped, {posts_result['errors']} errors", flush=True)
+            logger.info(f"Posts: {posts_result.created} created, "
+                        f"{posts_result.skipped} skipped, {posts_result.errors} errors")
 
             # Send users
-            print(f"  📤 Sending {len(scored_users)} users to API...", flush=True)
+            logger.info(f"Sending {len(scored_users)} users to API...")
             users_result = self.api_client.send_users(scored_users)
-            print(f"  ✓ Users: {users_result['created']} created, "
-                  f"{users_result['skipped']} skipped, {users_result['errors']} errors", flush=True)
+            logger.info(f"Users: {users_result.created} created, "
+                        f"{users_result.skipped} skipped, {users_result.errors} errors")
 
-            print("=" * 80, flush=True)
-            print("✅ API EXPORT COMPLETED!", flush=True)
-            print("=" * 80, flush=True)
+            logger.info("=" * 80)
+            logger.info("API EXPORT COMPLETED!")
+            logger.info("=" * 80)
 
             # Delete JSON files after successful API send
-            print("  🗑️  Cleaning up JSON files...", flush=True)
+            logger.info("Cleaning up JSON files...")
             try:
                 # Delete processed files
                 if os.path.exists(scored_posts_file):
                     os.remove(scored_posts_file)
-                    print(f"  ✓ Deleted {os.path.basename(str(scored_posts_file))}", flush=True)
+                    logger.debug(f"Deleted {os.path.basename(str(scored_posts_file))}")
 
                 if os.path.exists(scored_users_file):
                     os.remove(scored_users_file)
-                    print(f"  ✓ Deleted {os.path.basename(str(scored_users_file))}", flush=True)
+                    logger.debug(f"Deleted {os.path.basename(str(scored_users_file))}")
 
                 # Also delete corresponding raw files
                 if os.path.exists(posts_file):
                     os.remove(posts_file)
-                    print(f"  ✓ Deleted {os.path.basename(str(posts_file))}", flush=True)
+                    logger.debug(f"Deleted {os.path.basename(str(posts_file))}")
 
                 if os.path.exists(raw_users_file):
                     os.remove(raw_users_file)
-                    print(f"  ✓ Deleted {os.path.basename(str(raw_users_file))}", flush=True)
+                    logger.debug(f"Deleted {os.path.basename(str(raw_users_file))}")
 
                 # Delete summary report
                 summary_file = str(scored_posts_file).replace('posts_scored_', 'summary_report_')
                 if os.path.exists(summary_file):
                     os.remove(summary_file)
-                    print(f"  ✓ Deleted {os.path.basename(summary_file)}", flush=True)
+                    logger.debug(f"Deleted {os.path.basename(summary_file)}")
 
-                print("  ✓ Cleanup complete - data sent to API", flush=True)
+                logger.info("Cleanup complete - data sent to API")
 
             except Exception as cleanup_error:
                 logger.warning(f"Failed to delete some JSON files: {cleanup_error}")
-                print(f"  ⚠️  Could not delete all files: {cleanup_error}", flush=True)
 
         except Exception as e:
-            print(f"⚠️  API export failed: {e}", flush=True)
-            print("   Data is still saved in JSON files.", flush=True)
-            logger.error(f"API export error: {e}", exc_info=True)
+            logger.error(f"API export failed: {e}. Data is still saved in JSON files.", exc_info=True)
 
     def _generate_summary_report(self, timestamp, all_posts, scored_posts, high_risk_posts,
                                 scored_users, risk_distribution, posts_file, scored_posts_file,
