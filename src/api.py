@@ -1,6 +1,5 @@
 """FastAPI application for Reddit Hate Speech Detection System API"""
 from fastapi import FastAPI, Depends, HTTPException, Query, status
-from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
@@ -20,15 +19,6 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# Configure CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Configure appropriately for production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 # ==================== Startup/Shutdown Events ====================
 
@@ -37,7 +27,7 @@ async def startup_event():
     """Initialize database on startup"""
     logger.info("Starting up API server...")
     init_db()
-    logger.info("Database initialized - ready to receive data from scraper")
+    logger.info("Database initialized")
 
 
 @app.on_event("shutdown")
@@ -46,28 +36,7 @@ async def shutdown_event():
     logger.info("Shutting down API server...")
 
 
-# ==================== Root Endpoint ====================
-
-@app.get("/", tags=["Root"])
-async def root():
-    """Root endpoint with API information"""
-    return {
-        "name": "Reddit Hate Speech Detection API",
-        "version": "1.0.0",
-        "status": "running",
-        "endpoints": {
-            "docs": "/docs",
-            "redoc": "/redoc",
-            "statistics": "/statistics",
-            "posts": "/posts",
-            "users": "/users",
-            "alerts": "/alerts",
-            "monitoring": "/monitoring"
-        }
-    }
-
-
-@app.get("/health", tags=["Root"])
+@app.get("/health", tags=["Health"])
 async def health_check():
     """Health check endpoint"""
     return {"status": "healthy"}
@@ -262,105 +231,6 @@ async def delete_user(username: str, db: Session = Depends(get_db)):
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"User {username} not found"
         )
-
-
-# ==================== Alert Endpoints ====================
-
-@app.post("/alerts", response_model=schemas.AlertResponse, status_code=status.HTTP_201_CREATED, tags=["Alerts"])
-async def create_alert(alert: schemas.AlertCreate, db: Session = Depends(get_db)):
-    """Create a new alert"""
-    return crud.create_alert(db, alert.model_dump())
-
-
-@app.get("/alerts", response_model=List[schemas.AlertResponse], tags=["Alerts"])
-async def get_alerts(
-    skip: int = Query(0, ge=0),
-    limit: int = Query(100, ge=1, le=1000),
-    username: Optional[str] = None,
-    severity: Optional[str] = None,
-    status: Optional[str] = None,
-    days_back: Optional[int] = None,
-    db: Session = Depends(get_db)
-):
-    """Get alerts with optional filtering"""
-    alerts = crud.get_alerts(
-        db,
-        skip=skip,
-        limit=limit,
-        username=username,
-        severity=severity,
-        status=status,
-        days_back=days_back
-    )
-    return alerts
-
-
-@app.get("/alerts/{alert_id}", response_model=schemas.AlertResponse, tags=["Alerts"])
-async def get_alert(alert_id: int, db: Session = Depends(get_db)):
-    """Get a specific alert by ID"""
-    alert = crud.get_alert(db, alert_id)
-    if not alert:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Alert {alert_id} not found"
-        )
-    return alert
-
-
-@app.patch("/alerts/{alert_id}", response_model=schemas.AlertResponse, tags=["Alerts"])
-async def update_alert(
-    alert_id: int,
-    alert_update: schemas.AlertUpdate,
-    db: Session = Depends(get_db)
-):
-    """Update an alert (e.g., mark as reviewed)"""
-    updated_alert = crud.update_alert(db, alert_id, alert_update.model_dump(exclude_unset=True))
-    if not updated_alert:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Alert {alert_id} not found"
-        )
-    return updated_alert
-
-
-@app.delete("/alerts/{alert_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Alerts"])
-async def delete_alert(alert_id: int, db: Session = Depends(get_db)):
-    """Delete an alert"""
-    success = crud.delete_alert(db, alert_id)
-    if not success:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Alert {alert_id} not found"
-        )
-
-
-# ==================== Monitoring Log Endpoints ====================
-
-@app.post("/monitoring", response_model=schemas.MonitoringLogResponse, status_code=status.HTTP_201_CREATED, tags=["Monitoring"])
-async def create_monitoring_log(log: schemas.MonitoringLogCreate, db: Session = Depends(get_db)):
-    """Create a monitoring log entry"""
-    return crud.create_monitoring_log(db, log.model_dump())
-
-
-@app.get("/monitoring", response_model=List[schemas.MonitoringLogResponse], tags=["Monitoring"])
-async def get_monitoring_logs(
-    username: Optional[str] = None,
-    activity_type: Optional[str] = None,
-    days_back: int = Query(7, ge=1),
-    skip: int = Query(0, ge=0),
-    limit: int = Query(100, ge=1, le=1000),
-    db: Session = Depends(get_db)
-):
-    """Get monitoring logs with optional filtering"""
-    logs = crud.get_monitoring_logs(
-        db,
-        username=username,
-        activity_type=activity_type,
-        days_back=days_back,
-        skip=skip,
-        limit=limit
-    )
-    return logs
 
 
 # ==================== Bulk Import Endpoints ====================
