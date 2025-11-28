@@ -23,10 +23,12 @@ def run_single():
             max_users_to_enrich=Config.MAX_USERS_TO_ENRICH
         )
 
-        print("\n" + "=" * 80, flush=True)
-        print("✅ PIPELINE COMPLETED SUCCESSFULLY!", flush=True)
-        print("=" * 80, flush=True)
-        logger.info(f"Processed {len(results['posts'])} posts and {len(results['users'])} users")
+        logger.info("=" * 80)
+        logger.info("PIPELINE COMPLETED SUCCESSFULLY!")
+        logger.info("=" * 80)
+        logger.info("Generated files:")
+        for file_type, file_path in results['files'].items():
+            logger.info(f"  - {file_type}: {file_path}")
 
         return results
 

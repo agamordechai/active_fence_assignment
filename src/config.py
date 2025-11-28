@@ -1,93 +1,159 @@
 """Configuration management for the Reddit Hate Speech Detection System"""
-import os
 import logging
+from enum import StrEnum
+from functools import cached_property
 from pathlib import Path
-from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-class Config:
-    """Application configuration from environment variables"""
+class LogLevel(StrEnum):
+    """Log level options"""
+    DEBUG = "DEBUG"
+    INFO = "INFO"
+    WARNING = "WARNING"
+    ERROR = "ERROR"
+    CRITICAL = "CRITICAL"
+
+
+class RunMode(StrEnum):
+    """Run mode options"""
+    SINGLE = "single"
+    SCHEDULER = "scheduler"
+    CONTINUOUS = "continuous"
+
+
+class Settings(BaseSettings):
+    """Application settings from environment variables"""
+
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=False,
+        extra="ignore",
+    )
 
     # Logging
-    LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO').upper()
-    LOG_LEVEL_MAP = {
-        'DEBUG': logging.DEBUG,
-        'INFO': logging.INFO,
-        'WARNING': logging.WARNING,
-        'ERROR': logging.ERROR,
-        'CRITICAL': logging.CRITICAL
-    }
+    log_level: LogLevel = LogLevel.INFO
+
+    # Run Mode
+    run_mode: RunMode = RunMode.SINGLE
+
+    # Web Scraping Settings
+    rate_limit_delay: float = 2.0
+    request_timeout: int = 10
+    user_agent: str = "Mozilla/5.0"
+
+    # Data Collection Settings (target_subreddits as comma-separated string)
+    target_subreddits: str = "news,politics,unpopularopinion,racism,goodanimemes,RoastMe"
+    posts_per_subreddit: int = 10
+    max_users_to_enrich: int = 20
+    user_history_days: int = 60
+    max_user_content: int = 100
+
+    @cached_property
+    def subreddits_list(self) -> list[str]:
+        """Get target subreddits as a list"""
+        return [s.strip() for s in self.target_subreddits.split(",")]
+
+    # Risk Score Configuration
+    critical_risk_threshold: int = 70
+    high_risk_threshold: int = 50
+    medium_risk_threshold: int = 30
+    low_risk_threshold: int = 10
+
+    # Output Settings
+    save_raw_data: bool = True
+    save_processed_data: bool = True
+    generate_reports: bool = True
+    output_format: str = "json"
+
+    # Performance & Resource Limits
+    max_concurrent_requests: int = 5
+    max_memory_mb: int = 2048
+    debug_mode: bool = False
+
+    # Retry settings
+    max_retries: int = 3
+    retry_delay: int = 5
+
+    # Content filtering
+    min_post_length: int = 10
+    filter_bots: bool = True
+    filter_deleted: bool = True
+
+    # API settings
+    api_url: str = "http://localhost:8000"
+    api_timeout: int = 30
+
+    def get_log_level_int(self) -> int:
+        """Get logging level as integer"""
+        return getattr(logging, self.log_level.value)
+
+    def print_config(self, logger: logging.Logger) -> None:
+        """Print current configuration"""
+        logger.info("=" * 80)
+        logger.info("CONFIGURATION")
+        logger.info("=" * 80)
+        logger.info(f"  Run Mode: {self.run_mode}")
+        logger.info(f"  Log Level: {self.log_level}")
+        logger.info(f"  Target subreddits: {self.subreddits_list}")
+        logger.info(f"  Posts per subreddit: {self.posts_per_subreddit}")
+        logger.info(f"  Max users to enrich: {self.max_users_to_enrich}")
+        logger.info(f"  User history lookback: {self.user_history_days} days")
+        logger.info(f"  Rate limit delay: {self.rate_limit_delay}s")
+        logger.info("=" * 80)
+
+
+# Global settings instance
+settings = Settings()
+
+
+# Backwards compatibility aliases
+class Config:
+    """Backwards compatibility wrapper for Settings"""
+
+    LOG_LEVEL = settings.log_level.value
+    RUN_MODE = settings.run_mode.value
+    RATE_LIMIT_DELAY = settings.rate_limit_delay
+    REQUEST_TIMEOUT = settings.request_timeout
+    USER_AGENT = settings.user_agent
+    TARGET_SUBREDDITS = settings.subreddits_list
+    POSTS_PER_SUBREDDIT = settings.posts_per_subreddit
+    MAX_USERS_TO_ENRICH = settings.max_users_to_enrich
+    USER_HISTORY_DAYS = settings.user_history_days
+    MAX_USER_CONTENT = settings.max_user_content
+    CRITICAL_RISK_THRESHOLD = settings.critical_risk_threshold
+    HIGH_RISK_THRESHOLD = settings.high_risk_threshold
+    MEDIUM_RISK_THRESHOLD = settings.medium_risk_threshold
+    LOW_RISK_THRESHOLD = settings.low_risk_threshold
+    SAVE_RAW_DATA = settings.save_raw_data
+    SAVE_PROCESSED_DATA = settings.save_processed_data
+    GENERATE_REPORTS = settings.generate_reports
+    OUTPUT_FORMAT = settings.output_format
+    MAX_CONCURRENT_REQUESTS = settings.max_concurrent_requests
+    MAX_MEMORY_MB = settings.max_memory_mb
+    DEBUG_MODE = settings.debug_mode
+    MAX_RETRIES = settings.max_retries
+    RETRY_DELAY = settings.retry_delay
+    MIN_POST_LENGTH = settings.min_post_length
+    FILTER_BOTS = settings.filter_bots
+    FILTER_DELETED = settings.filter_deleted
 
     @classmethod
     def get_log_level(cls):
-        """Get logging level as integer"""
-        return cls.LOG_LEVEL_MAP.get(cls.LOG_LEVEL, logging.INFO)
-
-    # Run Mode
-    RUN_MODE = os.getenv('RUN_MODE', 'single').lower()  # single, scheduler, continuous
-
-    # Web Scraping Settings
-    RATE_LIMIT_DELAY = float(os.getenv('RATE_LIMIT_DELAY', '2.0'))
-    REQUEST_TIMEOUT = int(os.getenv('REQUEST_TIMEOUT', '10'))
-    USER_AGENT = os.getenv('USER_AGENT', 'Mozilla/5.0')
-
-    # Data Collection Settings
-    TARGET_SUBREDDITS = [s.strip() for s in os.getenv('TARGET_SUBREDDITS',
-                         'news,politics,unpopularopinion,racism,goodanimemes,RoastMe').split(',')]
-    POSTS_PER_SUBREDDIT = int(os.getenv('POSTS_PER_SUBREDDIT', '10'))
-    MAX_USERS_TO_ENRICH = int(os.getenv('MAX_USERS_TO_ENRICH', '20'))
-    USER_HISTORY_DAYS = int(os.getenv('USER_HISTORY_DAYS', '60'))
-    MAX_USER_CONTENT = int(os.getenv('MAX_USER_CONTENT', '100'))
-
-    # Risk Score Configuration
-    CRITICAL_RISK_THRESHOLD = int(os.getenv('CRITICAL_RISK_THRESHOLD', '70'))
-    HIGH_RISK_THRESHOLD = int(os.getenv('HIGH_RISK_THRESHOLD', '50'))
-    MEDIUM_RISK_THRESHOLD = int(os.getenv('MEDIUM_RISK_THRESHOLD', '30'))
-    LOW_RISK_THRESHOLD = int(os.getenv('LOW_RISK_THRESHOLD', '10'))
-
-    # Output Settings
-    SAVE_RAW_DATA = os.getenv('SAVE_RAW_DATA', 'true').lower() == 'true'
-    SAVE_PROCESSED_DATA = os.getenv('SAVE_PROCESSED_DATA', 'true').lower() == 'true'
-    GENERATE_REPORTS = os.getenv('GENERATE_REPORTS', 'true').lower() == 'true'
-    OUTPUT_FORMAT = os.getenv('OUTPUT_FORMAT', 'json').lower()
-
-    # Performance & Resource Limits
-    MAX_CONCURRENT_REQUESTS = int(os.getenv('MAX_CONCURRENT_REQUESTS', '5'))
-    MAX_MEMORY_MB = int(os.getenv('MAX_MEMORY_MB', '2048'))
-    DEBUG_MODE = os.getenv('DEBUG_MODE', 'false').lower() == 'true'
-
-    # Retry settings
-    MAX_RETRIES = int(os.getenv('MAX_RETRIES', '3'))
-    RETRY_DELAY = int(os.getenv('RETRY_DELAY', '5'))
-
-    # Content filtering
-    MIN_POST_LENGTH = int(os.getenv('MIN_POST_LENGTH', '10'))
-    FILTER_BOTS = os.getenv('FILTER_BOTS', 'true').lower() == 'true'
-    FILTER_DELETED = os.getenv('FILTER_DELETED', 'true').lower() == 'true'
+        return settings.get_log_level_int()
 
     @classmethod
     def print_config(cls):
-        """Print current configuration"""
-        print("\n" + "=" * 80)
-        print("📋 CONFIGURATION")
-        print("=" * 80)
-        print(f"  Run Mode: {cls.RUN_MODE}")
-        print(f"  Log Level: {cls.LOG_LEVEL}")
-        print(f"  Target subreddits: {cls.TARGET_SUBREDDITS}")
-        print(f"  Posts per subreddit: {cls.POSTS_PER_SUBREDDIT}")
-        print(f"  Max users to enrich: {cls.MAX_USERS_TO_ENRICH}")
-        print(f"  User history lookback: {cls.USER_HISTORY_DAYS} days")
-        print(f"  Rate limit delay: {cls.RATE_LIMIT_DELAY}s")
-        print("=" * 80)
-        print("")
+        """Print config using a temporary logger"""
+        logger = logging.getLogger(__name__)
+        settings.print_config(logger)
 
 
-def setup_logging():
-    """Setup logging configuration from environment variables"""
-    log_level = Config.get_log_level()
+def setup_logging() -> logging.Logger:
+    """Setup logging configuration from settings"""
+    log_level = settings.get_log_level_int()
 
     # Create logs directory
     Path("logs").mkdir(parents=True, exist_ok=True)
@@ -95,16 +161,15 @@ def setup_logging():
     # Configure logging
     logging.basicConfig(
         level=log_level,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
         handlers=[
             logging.StreamHandler(),
-            logging.FileHandler('logs/app.log', mode='a')
+            logging.FileHandler("logs/app.log", mode="a"),
         ],
-        force=True  # Force reconfiguration if already configured
+        force=True,
     )
 
     logger = logging.getLogger(__name__)
-    logger.info(f"Logging configured with level: {Config.LOG_LEVEL}")
+    logger.info(f"Logging configured with level: {settings.log_level}")
 
     return logger
-
