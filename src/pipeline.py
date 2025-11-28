@@ -1,12 +1,14 @@
 """Complete data processing pipeline: collect -> enrich -> score"""
 import logging
 import json
+import os
 from pathlib import Path
 from datetime import datetime
 
 from src.collectors.reddit_scraper import RedditScraper
 from src.enrichers.user_enricher import UserEnricher
 from src.scorers.hate_speech_scorer import HateSpeechScorer
+from src.api_client import APIClient
 
 logger = logging.getLogger(__name__)
 
@@ -18,6 +20,7 @@ class DataPipeline:
         self.scraper = RedditScraper(rate_limit_delay=2.0)
         self.enricher = UserEnricher()
         self.scorer = HateSpeechScorer()
+        self.api_client = APIClient()
 
         # Create output directories
         Path("data/raw").mkdir(parents=True, exist_ok=True)
@@ -143,11 +146,12 @@ class DataPipeline:
         logger.info("PIPELINE COMPLETED SUCCESSFULLY")
         logger.info("=" * 80)
 
-        # Auto-import to database
+        # Send data to API
         print("\n" + "=" * 80, flush=True)
-        print("[AUTO-IMPORT] Importing data to database...", flush=True)
+        print("[API EXPORT] Sending data to API...", flush=True)
         print("=" * 80, flush=True)
-        self._import_to_database(scored_posts_file, scored_users_file)
+        self._send_to_api(scored_posts, scored_users, posts_file, scored_posts_file,
+                          raw_users_file, scored_users_file)
 
         return {
             'posts': scored_posts,
@@ -160,134 +164,71 @@ class DataPipeline:
             }
         }
 
-    def _import_to_database(self, posts_file, users_file):
-        """Import scored data directly to database"""
+    def _send_to_api(self, scored_posts, scored_users, posts_file, scored_posts_file,
+                      raw_users_file, scored_users_file):
+        """Send scored data to the API"""
         try:
-            from src.database.database import get_db_context, init_db
-            from src.database import crud
-            import json
-            from datetime import datetime
+            # Check if API is available
+            if not self.api_client.health_check():
+                print("  ⚠️  API is not available. Data saved to JSON files.", flush=True)
+                logger.warning("API health check failed. Data not sent to API.")
+                return
 
-            # Initialize database
-            init_db()
-            print("  ✓ Database initialized", flush=True)
+            print("  ✓ API connection verified", flush=True)
 
-            # Import posts
-            print(f"  📥 Importing posts from {posts_file}...", flush=True)
-            with open(posts_file, 'r') as f:
-                posts_data = json.load(f)
+            # Send posts
+            print(f"  📤 Sending {len(scored_posts)} posts to API...", flush=True)
+            posts_result = self.api_client.send_posts(scored_posts)
+            print(f"  ✓ Posts: {posts_result['created']} created, "
+                  f"{posts_result['skipped']} skipped, {posts_result['errors']} errors", flush=True)
 
-            with get_db_context() as db:
-                created_posts = 0
-                skipped_posts = 0
-
-                for post_data in posts_data:
-                    try:
-                        # Remove unsupported fields
-                        post_data.pop('enrichment_timestamp', None)
-
-                        # Convert date strings to datetime objects
-                        if isinstance(post_data.get('created_date'), str):
-                            post_data['created_date'] = datetime.fromisoformat(post_data['created_date'])
-                        if isinstance(post_data.get('scored_at'), str):
-                            post_data['scored_at'] = datetime.fromisoformat(post_data['scored_at'])
-                        if isinstance(post_data.get('collected_at'), str):
-                            post_data['collected_at'] = datetime.fromisoformat(post_data['collected_at'])
-
-                        post_id = post_data.get('id')
-                        existing_post = crud.get_post(db, post_id)
-
-                        if not existing_post:
-                            crud.create_post(db, post_data)
-                            created_posts += 1
-                        else:
-                            skipped_posts += 1
-                    except Exception as e:
-                        logger.debug(f"Error importing post {post_data.get('id')}: {e}")
-
-                print(f"  ✓ Posts: {created_posts} created, {skipped_posts} skipped", flush=True)
-
-            # Import users
-            print(f"  📥 Importing users from {users_file}...", flush=True)
-            with open(users_file, 'r') as f:
-                users_data = json.load(f)
-
-            with get_db_context() as db:
-                created_users = 0
-                skipped_users = 0
-
-                for user_data in users_data:
-                    try:
-                        # Remove unsupported fields
-                        user_data.pop('enrichment_timestamp', None)
-                        user_data.pop('post_history', None)
-                        user_data.pop('comment_history', None)
-
-                        # Convert date strings to datetime objects
-                        if isinstance(user_data.get('scored_at'), str):
-                            user_data['scored_at'] = datetime.fromisoformat(user_data['scored_at'])
-                        if isinstance(user_data.get('collected_at'), str):
-                            user_data['collected_at'] = datetime.fromisoformat(user_data['collected_at'])
-                        if isinstance(user_data.get('account_created_date'), str):
-                            user_data['account_created_date'] = datetime.fromisoformat(user_data['account_created_date'])
-
-                        username = user_data.get('username')
-                        existing_user = crud.get_user(db, username)
-
-                        if not existing_user:
-                            crud.create_user(db, user_data)
-                            created_users += 1
-                        else:
-                            skipped_users += 1
-                    except Exception as e:
-                        logger.debug(f"Error importing user {user_data.get('username')}: {e}")
-
-                print(f"  ✓ Users: {created_users} created, {skipped_users} skipped", flush=True)
+            # Send users
+            print(f"  📤 Sending {len(scored_users)} users to API...", flush=True)
+            users_result = self.api_client.send_users(scored_users)
+            print(f"  ✓ Users: {users_result['created']} created, "
+                  f"{users_result['skipped']} skipped, {users_result['errors']} errors", flush=True)
 
             print("=" * 80, flush=True)
-            print("✅ DATABASE IMPORT COMPLETED!", flush=True)
+            print("✅ API EXPORT COMPLETED!", flush=True)
             print("=" * 80, flush=True)
 
-            # Delete JSON files after successful import
-            import os
+            # Delete JSON files after successful API send
             print("  🗑️  Cleaning up JSON files...", flush=True)
             try:
                 # Delete processed files
-                if os.path.exists(posts_file):
-                    os.remove(posts_file)
-                    print(f"  ✓ Deleted {os.path.basename(posts_file)}", flush=True)
+                if os.path.exists(scored_posts_file):
+                    os.remove(scored_posts_file)
+                    print(f"  ✓ Deleted {os.path.basename(str(scored_posts_file))}", flush=True)
 
-                if os.path.exists(users_file):
-                    os.remove(users_file)
-                    print(f"  ✓ Deleted {os.path.basename(users_file)}", flush=True)
+                if os.path.exists(scored_users_file):
+                    os.remove(scored_users_file)
+                    print(f"  ✓ Deleted {os.path.basename(str(scored_users_file))}", flush=True)
 
                 # Also delete corresponding raw files
-                raw_posts_file = str(posts_file).replace('processed/posts_scored_', 'raw/posts_')
-                raw_users_file = str(users_file).replace('processed/users_scored_', 'raw/users_')
-                summary_file = str(posts_file).replace('posts_scored_', 'summary_report_')
-
-                if os.path.exists(raw_posts_file):
-                    os.remove(raw_posts_file)
-                    print(f"  ✓ Deleted {os.path.basename(raw_posts_file)}", flush=True)
+                if os.path.exists(posts_file):
+                    os.remove(posts_file)
+                    print(f"  ✓ Deleted {os.path.basename(str(posts_file))}", flush=True)
 
                 if os.path.exists(raw_users_file):
                     os.remove(raw_users_file)
-                    print(f"  ✓ Deleted {os.path.basename(raw_users_file)}", flush=True)
+                    print(f"  ✓ Deleted {os.path.basename(str(raw_users_file))}", flush=True)
 
+                # Delete summary report
+                summary_file = str(scored_posts_file).replace('posts_scored_', 'summary_report_')
                 if os.path.exists(summary_file):
                     os.remove(summary_file)
                     print(f"  ✓ Deleted {os.path.basename(summary_file)}", flush=True)
 
-                print("  ✓ Cleanup complete - data now stored in database only", flush=True)
+                print("  ✓ Cleanup complete - data sent to API", flush=True)
 
             except Exception as cleanup_error:
                 logger.warning(f"Failed to delete some JSON files: {cleanup_error}")
                 print(f"  ⚠️  Could not delete all files: {cleanup_error}", flush=True)
 
         except Exception as e:
-            print(f"⚠️  Database import failed: {e}", flush=True)
-            print("   Data is still saved in JSON files and can be imported manually.", flush=True)
-            logger.error(f"Database import error: {e}", exc_info=True)
+            print(f"⚠️  API export failed: {e}", flush=True)
+            print("   Data is still saved in JSON files.", flush=True)
+            logger.error(f"API export error: {e}", exc_info=True)
 
     def _generate_summary_report(self, timestamp, all_posts, scored_posts, high_risk_posts,
                                 scored_users, risk_distribution, posts_file, scored_posts_file,

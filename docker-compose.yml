@@ -17,8 +17,10 @@ services:
       - MAX_USERS_TO_ENRICH=${MAX_USERS_TO_ENRICH:-20}
       - TARGET_SUBREDDITS=${TARGET_SUBREDDITS:-news,politics,unpopularopinion,racism,goodanimemes,RoastMe}
       - RUN_MODE=continuous
-      - DATABASE_URL=sqlite:////app/data/reddit_detection.db
+      - API_URL=http://api:8000
     restart: unless-stopped  # Restart if crashes
+    depends_on:
+      - api
     networks:
       - reddit-network
 
