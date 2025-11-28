@@ -1,9 +1,5 @@
 """Complete data processing pipeline: collect -> enrich -> score"""
 import logging
-import json
-import os
-from pathlib import Path
-from datetime import datetime
 
 from src.collectors.reddit_scraper import RedditScraper
 from src.enrichers.user_enricher import UserEnricher
@@ -22,9 +18,6 @@ class DataPipeline:
         self.scorer = HateSpeechScorer()
         self.api_client = APIClient()
 
-        # Create output directories
-        Path("data/raw").mkdir(parents=True, exist_ok=True)
-        Path("data/processed").mkdir(parents=True, exist_ok=True)
 
     def run_full_pipeline(self, subreddits: list, posts_per_subreddit: int = 25,
                          max_users_to_enrich: int = 20):
@@ -36,8 +29,6 @@ class DataPipeline:
             posts_per_subreddit: Number of posts per subreddit
             max_users_to_enrich: Maximum number of users to enrich with history
         """
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-
         logger.info("=" * 80)
         logger.info("STARTING DATA PROCESSING PIPELINE")
         logger.info("=" * 80)
@@ -50,12 +41,6 @@ class DataPipeline:
         )
         logger.info(f"✓ Collected {len(all_posts)} posts")
 
-        # Save raw posts
-        posts_file = Path(f"data/raw/posts_{timestamp}.json")
-        with open(posts_file, 'w', encoding='utf-8') as f:
-            json.dump(all_posts, f, indent=2, ensure_ascii=False)
-        logger.info(f"✓ Saved raw posts to {posts_file}")
-
         # Step 2: Score posts
         logger.info(f"\n[STEP 2/5] Scoring {len(all_posts)} posts for hate speech and violence...")
         scored_posts = self.scorer.score_multiple_posts(all_posts)
@@ -65,11 +50,6 @@ class DataPipeline:
                           if p['risk_assessment']['risk_score'] >= 50]
         logger.info(f"✓ Scored all posts. Found {len(high_risk_posts)} high-risk posts")
 
-        # Save scored posts
-        scored_posts_file = Path(f"data/processed/posts_scored_{timestamp}.json")
-        with open(scored_posts_file, 'w', encoding='utf-8') as f:
-            json.dump(scored_posts, f, indent=2, ensure_ascii=False)
-        logger.info(f"✓ Saved scored posts to {scored_posts_file}")
 
         # Step 3: Extract authors and enrich
         logger.info(f"\n[STEP 3/5] Extracting unique authors...")
@@ -101,11 +81,6 @@ class DataPipeline:
             user_history = self.scraper.get_user_history(username, limit=100)
             raw_user_data.append(user_history)
 
-        # Save raw user data
-        raw_users_file = Path(f"data/raw/users_{timestamp}.json")
-        with open(raw_users_file, 'w', encoding='utf-8') as f:
-            json.dump(raw_user_data, f, indent=2, ensure_ascii=False)
-        logger.info(f"✓ Saved raw user data to {raw_users_file}")
 
         # Enrich user data with metrics
         enriched_users = self.enricher.enrich_multiple_users(raw_user_data)
@@ -129,18 +104,9 @@ class DataPipeline:
 
         logger.info(f"✓ User risk distribution: {risk_distribution}")
 
-        # Save scored users
-        scored_users_file = Path(f"data/processed/users_scored_{timestamp}.json")
-        with open(scored_users_file, 'w', encoding='utf-8') as f:
-            json.dump(scored_users, f, indent=2, ensure_ascii=False)
-        logger.info(f"✓ Saved scored users to {scored_users_file}")
-
-        # Generate summary report
-        self._generate_summary_report(
-            timestamp, all_posts, scored_posts, high_risk_posts,
-            scored_users, risk_distribution, posts_file, scored_posts_file,
-            raw_users_file, scored_users_file
-        )
+        # Generate summary report (in memory only)
+        self._log_summary_report(all_posts, scored_posts, high_risk_posts,
+                                scored_users, risk_distribution)
 
         logger.info("\n" + "=" * 80)
         logger.info("PIPELINE COMPLETED SUCCESSFULLY")
@@ -150,22 +116,14 @@ class DataPipeline:
         logger.info("\n" + "=" * 80)
         logger.info("[API EXPORT] Sending data to API...")
         logger.info("=" * 80)
-        self._send_to_api(scored_posts, scored_users, posts_file, scored_posts_file,
-                          raw_users_file, scored_users_file)
+        self._send_to_api(scored_posts, scored_users)
 
         return {
             'posts': scored_posts,
             'users': scored_users,
-            'files': {
-                'raw_posts': str(posts_file),
-                'scored_posts': str(scored_posts_file),
-                'raw_users': str(raw_users_file),
-                'scored_users': str(scored_users_file),
-            }
         }
 
-    def _send_to_api(self, scored_posts, scored_users, posts_file, scored_posts_file,
-                      raw_users_file, scored_users_file):
+    def _send_to_api(self, scored_posts, scored_users):
         """Send scored data to the API"""
         try:
             # Check if API is available
@@ -191,100 +149,25 @@ class DataPipeline:
             logger.info("API EXPORT COMPLETED!")
             logger.info("=" * 80)
 
-            # Delete JSON files after successful API send
-            logger.info("Cleaning up JSON files...")
-            try:
-                # Delete processed files
-                if os.path.exists(scored_posts_file):
-                    os.remove(scored_posts_file)
-                    logger.debug(f"Deleted {os.path.basename(str(scored_posts_file))}")
-
-                if os.path.exists(scored_users_file):
-                    os.remove(scored_users_file)
-                    logger.debug(f"Deleted {os.path.basename(str(scored_users_file))}")
-
-                # Also delete corresponding raw files
-                if os.path.exists(posts_file):
-                    os.remove(posts_file)
-                    logger.debug(f"Deleted {os.path.basename(str(posts_file))}")
-
-                if os.path.exists(raw_users_file):
-                    os.remove(raw_users_file)
-                    logger.debug(f"Deleted {os.path.basename(str(raw_users_file))}")
-
-                # Delete summary report
-                summary_file = str(scored_posts_file).replace('posts_scored_', 'summary_report_')
-                if os.path.exists(summary_file):
-                    os.remove(summary_file)
-                    logger.debug(f"Deleted {os.path.basename(summary_file)}")
-
-                logger.info("Cleanup complete - data sent to API")
-
-            except Exception as cleanup_error:
-                logger.warning(f"Failed to delete some JSON files: {cleanup_error}")
-
         except Exception as e:
-            logger.error(f"API export failed: {e}. Data is still saved in JSON files.", exc_info=True)
+            logger.error(f"API export failed: {e}", exc_info=True)
 
-    def _generate_summary_report(self, timestamp, all_posts, scored_posts, high_risk_posts,
-                                scored_users, risk_distribution, posts_file, scored_posts_file,
-                                raw_users_file, scored_users_file):
-        """Generate a summary report"""
+    def _log_summary_report(self, all_posts, scored_posts, high_risk_posts,
+                           scored_users, risk_distribution):
+        """Log summary report to console"""
+        high_risk_percentage = round(len(high_risk_posts) / len(all_posts) * 100, 2) if all_posts else 0
 
-        report = {
-            'pipeline_run': {
-                'timestamp': timestamp,
-                'completion_time': datetime.now().isoformat(),
-            },
-            'posts_analysis': {
-                'total_posts_collected': len(all_posts),
-                'posts_scored': len(scored_posts),
-                'high_risk_posts': len(high_risk_posts),
-                'high_risk_percentage': round(len(high_risk_posts) / len(all_posts) * 100, 2) if all_posts else 0,
-            },
-            'users_analysis': {
-                'total_users_analyzed': len(scored_users),
-                'risk_distribution': risk_distribution,
-                'critical_users': risk_distribution.get('critical', 0),
-                'high_risk_users': risk_distribution.get('high', 0),
-            },
-            'output_files': {
-                'raw_posts': str(posts_file),
-                'scored_posts': str(scored_posts_file),
-                'raw_users': str(raw_users_file),
-                'scored_users': str(scored_users_file),
-            },
-            'top_risk_users': [
-                {
-                    'username': user['username'],
-                    'risk_score': user['risk_assessment']['overall_risk_score'],
-                    'risk_level': user['risk_assessment']['risk_level'],
-                    'explanation': user['risk_assessment']['explanation'][:200] + '...',
-                }
-                for user in scored_users[:10]
-            ]
-        }
-
-        # Save summary report
-        report_file = Path(f"data/processed/summary_report_{timestamp}.json")
-        with open(report_file, 'w', encoding='utf-8') as f:
-            json.dump(report, f, indent=2, ensure_ascii=False)
-
-        logger.info(f"\n✓ Generated summary report: {report_file}")
-
-        # Print summary to console
         logger.info("\n" + "=" * 80)
         logger.info("SUMMARY REPORT")
         logger.info("=" * 80)
         logger.info(f"\nPosts Analysis:")
-        logger.info(f"  • Total posts collected: {report['posts_analysis']['total_posts_collected']}")
-        logger.info(f"  • High-risk posts: {report['posts_analysis']['high_risk_posts']} "
-                   f"({report['posts_analysis']['high_risk_percentage']}%)")
+        logger.info(f"  • Total posts collected: {len(all_posts)}")
+        logger.info(f"  • High-risk posts: {len(high_risk_posts)} ({high_risk_percentage}%)")
 
         logger.info(f"\nUsers Analysis:")
-        logger.info(f"  • Total users analyzed: {report['users_analysis']['total_users_analyzed']}")
-        logger.info(f"  • Critical risk: {report['users_analysis']['critical_users']}")
-        logger.info(f"  • High risk: {report['users_analysis']['high_risk_users']}")
+        logger.info(f"  • Total users analyzed: {len(scored_users)}")
+        logger.info(f"  • Critical risk: {risk_distribution.get('critical', 0)}")
+        logger.info(f"  • High risk: {risk_distribution.get('high', 0)}")
         logger.info(f"  • Risk distribution: {risk_distribution}")
 
         if scored_users:
@@ -294,10 +177,4 @@ class DataPipeline:
                 logger.info(f"  {i}. u/{user['username']}: {risk['overall_risk_score']:.1f}/100 "
                            f"({risk['risk_level'].upper()})")
 
-        logger.info(f"\nOutput Files:")
-        logger.info(f"  • {posts_file}")
-        logger.info(f"  • {scored_posts_file}")
-        logger.info(f"  • {raw_users_file}")
-        logger.info(f"  • {scored_users_file}")
-        logger.info(f"  • {report_file}")
 

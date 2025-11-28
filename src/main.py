@@ -26,9 +26,7 @@ def run_single():
         print("\n" + "=" * 80, flush=True)
         print("✅ PIPELINE COMPLETED SUCCESSFULLY!", flush=True)
         print("=" * 80, flush=True)
-        logger.info("Generated files:")
-        for file_type, file_path in results['files'].items():
-            logger.info(f"  - {file_type}: {file_path}")
+        logger.info(f"Processed {len(results['posts'])} posts and {len(results['users'])} users")
 
         return results
 
