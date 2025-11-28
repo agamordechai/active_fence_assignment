@@ -136,8 +136,6 @@ def main():
 
 if __name__ == "__main__":
     # Create necessary directories
-    Path("data/raw").mkdir(parents=True, exist_ok=True)
-    Path("data/processed").mkdir(parents=True, exist_ok=True)
     Path("logs").mkdir(parents=True, exist_ok=True)
 
     main()

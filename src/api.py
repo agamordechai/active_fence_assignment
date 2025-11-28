@@ -37,22 +37,7 @@ async def startup_event():
     """Initialize database on startup"""
     logger.info("Starting up API server...")
     init_db()
-    logger.info("Database initialized")
-
-    # Auto-import latest data on startup
-    try:
-        from pathlib import Path
-        from src.import_data import import_all_from_directory
-
-        data_dir = Path("data/processed")
-        if data_dir.exists() and list(data_dir.glob("posts_scored_*.json")):
-            logger.info("Auto-importing latest data...")
-            import_all_from_directory(str(data_dir), cleanup=True)  # Cleanup JSON files after import
-            logger.info("Data import completed (JSON files cleaned up)")
-        else:
-            logger.info("No data files found to import")
-    except Exception as e:
-        logger.warning(f"Data import failed: {e}. Database will be empty until data is manually imported.")
+    logger.info("Database initialized - ready to receive data from scraper")
 
 
 @app.on_event("shutdown")
