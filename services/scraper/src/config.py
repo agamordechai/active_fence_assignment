@@ -16,12 +16,6 @@ class LogLevel(StrEnum):
     CRITICAL = "CRITICAL"
 
 
-class RunMode(StrEnum):
-    """Run mode options"""
-    SINGLE = "single"
-    SCHEDULER = "scheduler"
-    CONTINUOUS = "continuous"
-
 
 class Settings(BaseSettings):
     """Scraper service settings from environment variables"""
@@ -36,8 +30,6 @@ class Settings(BaseSettings):
     # Logging
     log_level: LogLevel = LogLevel.INFO
 
-    # Run Mode
-    run_mode: RunMode = RunMode.SINGLE
 
     # Web Scraping Settings
     rate_limit_delay: float = 2.0
@@ -105,7 +97,6 @@ class Settings(BaseSettings):
         logger.info("=" * 80)
         logger.info("SCRAPER CONFIGURATION")
         logger.info("=" * 80)
-        logger.info(f"  Run Mode: {self.run_mode}")
         logger.info(f"  Log Level: {self.log_level}")
         logger.info(f"  Target subreddits: {self.subreddits_list}")
         logger.info(f"  Posts per subreddit: {self.posts_per_subreddit}")
@@ -118,50 +109,6 @@ class Settings(BaseSettings):
 
 # Global settings instance
 settings = Settings()
-
-
-# Backwards compatibility aliases
-class Config:
-    """Backwards compatibility wrapper for Settings"""
-
-    LOG_LEVEL = settings.log_level.value
-    RUN_MODE = settings.run_mode.value
-    RATE_LIMIT_DELAY = settings.rate_limit_delay
-    REQUEST_TIMEOUT = settings.request_timeout
-    USER_AGENT = settings.user_agent
-    TARGET_SUBREDDITS = settings.subreddits_list
-    POSTS_PER_SUBREDDIT = settings.posts_per_subreddit
-    MAX_USERS_TO_ENRICH = settings.max_users_to_enrich
-    USER_HISTORY_DAYS = settings.user_history_days
-    MAX_USER_CONTENT = settings.max_user_content
-    CRITICAL_RISK_THRESHOLD = settings.critical_risk_threshold
-    HIGH_RISK_THRESHOLD = settings.high_risk_threshold
-    MEDIUM_RISK_THRESHOLD = settings.medium_risk_threshold
-    LOW_RISK_THRESHOLD = settings.low_risk_threshold
-    SAVE_RAW_DATA = settings.save_raw_data
-    SAVE_PROCESSED_DATA = settings.save_processed_data
-    GENERATE_REPORTS = settings.generate_reports
-    OUTPUT_FORMAT = settings.output_format
-    MAX_CONCURRENT_REQUESTS = settings.max_concurrent_requests
-    MAX_MEMORY_MB = settings.max_memory_mb
-    DEBUG_MODE = settings.debug_mode
-    MAX_RETRIES = settings.max_retries
-    RETRY_DELAY = settings.retry_delay
-    MIN_POST_LENGTH = settings.min_post_length
-    FILTER_BOTS = settings.filter_bots
-    FILTER_DELETED = settings.filter_deleted
-    SEARCH_TERMS = settings.search_terms_list
-    POSTS_PER_SEARCH = settings.posts_per_search
-
-    @classmethod
-    def get_log_level(cls):
-        return settings.get_log_level_int()
-
-    @classmethod
-    def print_config(cls):
-        """Print config using a temporary logger"""
-        logger = logging.getLogger(__name__)
-        settings.print_config(logger)
 
 
 def setup_logging() -> logging.Logger:

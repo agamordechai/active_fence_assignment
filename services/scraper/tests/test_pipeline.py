@@ -4,6 +4,7 @@ from unittest.mock import patch, MagicMock, call
 
 from src.pipeline import DataPipeline
 from src.api_client import BulkResult
+from src.config import settings
 
 
 class TestDataPipelineInit:
@@ -149,7 +150,7 @@ class TestRunFullPipeline:
 
                         # Only real_user should be enriched (not [deleted] or AutoModerator)
                         assert mock_scraper.get_user_history.call_count == 1
-                        mock_scraper.get_user_history.assert_called_with("real_user", limit=100)
+                        mock_scraper.get_user_history.assert_called_with("real_user", limit=settings.max_user_content)
 
     def test_run_full_pipeline_prioritizes_high_risk_authors(self):
         """Test that high-risk authors are prioritized for enrichment"""
@@ -213,7 +214,7 @@ class TestRunFullPipeline:
                         )
 
                         # High risk user should be prioritized
-                        mock_scraper.get_user_history.assert_called_with("high_risk_user", limit=100)
+                        mock_scraper.get_user_history.assert_called_with("high_risk_user", limit=settings.max_user_content)
 
 
 class TestSendToAPI:
