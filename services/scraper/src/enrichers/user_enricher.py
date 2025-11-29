@@ -9,8 +9,15 @@ logger = logging.getLogger(__name__)
 class UserEnricher:
     """Enriches user data with additional metadata and analysis"""
 
-    def __init__(self):
-        self.two_months_ago = (datetime.now() - timedelta(days=60)).timestamp()
+    def __init__(self, user_history_days: int = 60):
+        """
+        Initialize UserEnricher
+
+        Args:
+            user_history_days: Number of days to consider for recent activity (default: 60)
+        """
+        self.user_history_days = user_history_days
+        self.history_cutoff = (datetime.now() - timedelta(days=user_history_days)).timestamp()
 
     def enrich_user_data(self, user_data: Dict) -> Dict:
         """
@@ -26,9 +33,9 @@ class UserEnricher:
         posts = user_data.get('posts', [])
         comments = user_data.get('comments', [])
 
-        # Filter to last 2 months
-        recent_posts = [p for p in posts if p.get('created_utc', 0) >= self.two_months_ago]
-        recent_comments = [c for c in comments if c.get('created_utc', 0) >= self.two_months_ago]
+        # Filter to recent history based on configured days
+        recent_posts = [p for p in posts if p.get('created_utc', 0) >= self.history_cutoff]
+        recent_comments = [c for c in comments if c.get('created_utc', 0) >= self.history_cutoff]
 
         # Calculate activity metrics
         total_activity = len(recent_posts) + len(recent_comments)
@@ -43,8 +50,7 @@ class UserEnricher:
         unique_subreddits = subreddits_posted.union(subreddits_commented)
 
         # Calculate activity frequency (posts/comments per day)
-        days_active = 60  # Last 2 months
-        activity_per_day = total_activity / days_active if days_active > 0 else 0
+        activity_per_day = total_activity / self.user_history_days if self.user_history_days > 0 else 0
 
         # Collect all text content for later scoring
         all_text = []

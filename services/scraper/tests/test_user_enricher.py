@@ -9,12 +9,21 @@ from src.enrichers.user_enricher import UserEnricher
 class TestUserEnricherInit:
     """Tests for UserEnricher initialization"""
 
-    def test_init_sets_two_months_ago(self):
-        """Test that two_months_ago is set correctly"""
+    def test_init_sets_history_cutoff(self):
+        """Test that history_cutoff is set correctly with default 60 days"""
         enricher = UserEnricher()
         expected = (datetime.now() - timedelta(days=60)).timestamp()
         # Allow 1 second tolerance
-        assert abs(enricher.two_months_ago - expected) < 1
+        assert abs(enricher.history_cutoff - expected) < 1
+        assert enricher.user_history_days == 60
+
+    def test_init_with_custom_days(self):
+        """Test that history_cutoff is set correctly with custom days"""
+        enricher = UserEnricher(user_history_days=30)
+        expected = (datetime.now() - timedelta(days=30)).timestamp()
+        # Allow 1 second tolerance
+        assert abs(enricher.history_cutoff - expected) < 1
+        assert enricher.user_history_days == 30
 
 
 class TestEnrichUserData:

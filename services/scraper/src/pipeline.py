@@ -16,7 +16,7 @@ class DataPipeline:
 
     def __init__(self):
         self.scraper = RedditScraper(rate_limit_delay=2.0)
-        self.enricher = UserEnricher()
+        self.enricher = UserEnricher(user_history_days=settings.user_history_days)
         self.scorer = HateSpeechScorer()
         self.api_client = APIClient()
 
