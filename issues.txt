@@ -1,3 +1,0 @@
-- documentation(md, pdf)
-- export db
-- fix readme and architecture(how to setup[including explaining .env], how to run, how to test and how to export db, add link to API)
