@@ -1,0 +1,2163 @@
+[
+  {
+    "id": 1,
+    "username": "MissSaucy_22",
+    "post_id": "1oosjix",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: I hate this world and don’t know how much more I can take….",
+    "details": {
+      "subreddit": "racism",
+      "risk_level": "high",
+      "hate_score": 36.0,
+      "violence_score": 27.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "High violence keyword: 'hurt'",
+        "Medium violence keyword: 'angry'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.445844",
+    "updated_at": "2025-11-29 15:54:02.445845"
+  },
+  {
+    "id": 2,
+    "username": "lexie_2410",
+    "post_id": "1p9s1mu",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 70,
+    "description": "High-risk post detected: Someone might kill me because this post",
+    "details": {
+      "subreddit": "Wednesday",
+      "risk_level": "critical",
+      "hate_score": 0,
+      "violence_score": 70.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'harm'",
+        "High violence keyword: 'abuse'",
+        "Medium violence keyword: 'rage'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.495659",
+    "updated_at": "2025-11-29 15:54:02.495660"
+  },
+  {
+    "id": 3,
+    "username": "John3262005",
+    "post_id": "1p9rsn2",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 55,
+    "description": "High-risk post detected: Hegseth defends strikes after WaPo ‘kill everybody’ story: ‘Fake news’",
+    "details": {
+      "subreddit": "WhatTrumpHasDone",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 55.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'murder'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'violence'",
+        "Medium violence keyword: 'destroy'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.545103",
+    "updated_at": "2025-11-29 15:54:02.545105"
+  },
+  {
+    "id": 4,
+    "username": "JakeTinsleyWbc",
+    "post_id": "1p9rn93",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 85,
+    "description": "High-risk post detected: JAB-76842 chapter 1",
+    "details": {
+      "subreddit": "DarkTales",
+      "risk_level": "critical",
+      "hate_score": 20.0,
+      "violence_score": 65.0,
+      "flags": [
+        "Medium hate keyword: 'hell'",
+        "Medium hate keyword: 'shit'",
+        "Medium hate keyword: 'filth'",
+        "Medium hate keyword: 'disgusting'",
+        "High violence keyword: 'assault'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.595260",
+    "updated_at": "2025-11-29 15:54:02.595262"
+  },
+  {
+    "id": 5,
+    "username": "Trivialisttb",
+    "post_id": "1p9rmnt",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 84,
+    "description": "High-risk post detected: Murderers need to be extensively studied more",
+    "details": {
+      "subreddit": "TrueUnpopularOpinion",
+      "risk_level": "critical",
+      "hate_score": 7.0,
+      "violence_score": 77.0,
+      "flags": [
+        "Medium hate keyword: 'hell'",
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'shoot'",
+        "High violence keyword: 'violence'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.646565",
+    "updated_at": "2025-11-29 15:54:02.646567"
+  },
+  {
+    "id": 6,
+    "username": "MMON_ALMonline",
+    "post_id": "1p9rahc",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 55,
+    "description": "High-risk post detected: Post-Separation Abuse. Systemic Failures.",
+    "details": {
+      "subreddit": "Post_SeparationAbuse",
+      "risk_level": "high",
+      "hate_score": 10.0,
+      "violence_score": 45.0,
+      "flags": [
+        "High hate keyword: 'discrimination'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'harm'",
+        "High violence keyword: 'abuse'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.696935",
+    "updated_at": "2025-11-29 15:54:02.696938"
+  },
+  {
+    "id": 7,
+    "username": "AAAStarTrader",
+    "post_id": "1p9r5rp",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 72,
+    "description": "High-risk post detected: Understanding NHI Behaviour - Explaining why historical evidence and whistle-blower leaks suggest NH",
+    "details": {
+      "subreddit": "UFOB",
+      "risk_level": "critical",
+      "hate_score": 17.5,
+      "violence_score": 55.0,
+      "flags": [
+        "Extreme hate keyword: 'exterminate'",
+        "Extreme violence keyword: 'exterminate'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'abuse'",
+        "Medium violence keyword: 'destroy'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.749217",
+    "updated_at": "2025-11-29 15:54:02.749220"
+  },
+  {
+    "id": 8,
+    "username": "DumbMoneyMedia",
+    "post_id": "1p9rq1f",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 54,
+    "description": "High-risk post detected: \"Kill Everybody\": Hegseth Accused Of War Crimes After Ordering Navy To Finish Off Defenseless Men In",
+    "details": {
+      "subreddit": "Destiny",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 54.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'execute'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.801952",
+    "updated_at": "2025-11-29 15:54:02.801955"
+  },
+  {
+    "id": 9,
+    "username": "Alimonemi",
+    "post_id": "1p9rt56",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 50,
+    "description": "High-risk post detected: What are your 10 favorite anime Waifus of all time",
+    "details": {
+      "subreddit": "characters",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 50,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "High violence keyword: 'punch'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.856853",
+    "updated_at": "2025-11-29 15:54:02.856857"
+  },
+  {
+    "id": 10,
+    "username": "mkutlutas",
+    "post_id": "1p9rskq",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: At last, 100. First time in BF and I love it!",
+    "details": {
+      "subreddit": "Battlefield",
+      "risk_level": "high",
+      "hate_score": 7.0,
+      "violence_score": 56.0,
+      "flags": [
+        "Medium hate keyword: 'damn'",
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'shoot'",
+        "High violence keyword: 'assault'",
+        "Quotation context detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.911836",
+    "updated_at": "2025-11-29 15:54:02.911839"
+  },
+  {
+    "id": 11,
+    "username": "Flashy_Philosophy576",
+    "post_id": "1p9rzpy",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 56,
+    "description": "High-risk post detected: My idea for a Zelda game (Just story)",
+    "details": {
+      "subreddit": "videogameideas",
+      "risk_level": "high",
+      "hate_score": 14.0,
+      "violence_score": 42.0,
+      "flags": [
+        "High hate keyword: 'hate'",
+        "High violence keyword: 'strike'",
+        "High violence keyword: 'fight'",
+        "Medium violence keyword: 'break'",
+        "Medium violence keyword: 'rage'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:02.967885",
+    "updated_at": "2025-11-29 15:54:02.967887"
+  },
+  {
+    "id": 12,
+    "username": "Patcheko_",
+    "post_id": "1p9rf1m",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 50,
+    "description": "High-risk post detected: Le Spectre de Rêves",
+    "details": {
+      "subreddit": "drawing",
+      "risk_level": "high",
+      "hate_score": 10.0,
+      "violence_score": 40.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'shoot'",
+        "Medium violence keyword: 'break'",
+        "Medium violence keyword: 'angry'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:03.022687",
+    "updated_at": "2025-11-29 15:54:03.022690"
+  },
+  {
+    "id": 13,
+    "username": "LouisscienceCalm",
+    "post_id": "1p9q0sb",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 87,
+    "description": "High-risk post detected: I (25 Gay Man) feel increasingly politically disconnected from the LGBTQ+ community",
+    "details": {
+      "subreddit": "AskGayConservatives",
+      "risk_level": "critical",
+      "hate_score": 52.5,
+      "violence_score": 35.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'discrimination'",
+        "Extreme violence keyword: 'genocide'",
+        "High violence keyword: 'fight'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:03.080039",
+    "updated_at": "2025-11-29 15:54:03.080043"
+  },
+  {
+    "id": 14,
+    "username": "Violentlyepic",
+    "post_id": "1p9pv1o",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 70,
+    "description": "High-risk post detected: Peter's Bigass Patreon FAQ",
+    "details": {
+      "subreddit": "SarahBooneContinued",
+      "risk_level": "critical",
+      "hate_score": 25.0,
+      "violence_score": 45.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "Medium hate keyword: 'stupid'",
+        "Extreme violence keyword: 'murder'",
+        "High violence keyword: 'violence'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:03.137488",
+    "updated_at": "2025-11-29 15:54:03.137492"
+  },
+  {
+    "id": 15,
+    "username": "_marti_89",
+    "post_id": "1p9q8gp",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "TrueCrimeMystery",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:03.196215",
+    "updated_at": "2025-11-29 15:54:03.196219"
+  },
+  {
+    "id": 16,
+    "username": "_marti_89",
+    "post_id": "1p9q6r0",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "PodcastPromoting",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:03.252319",
+    "updated_at": "2025-11-29 15:54:03.252323"
+  },
+  {
+    "id": 17,
+    "username": "_marti_89",
+    "post_id": "1p9q5p8",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "Promote_Your_Channel",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:03.309635",
+    "updated_at": "2025-11-29 15:54:03.309638"
+  },
+  {
+    "id": 18,
+    "username": "LedofZeppelin",
+    "post_id": "1p9k9g3",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Helmut Kohl’s politician grandson is ‘ashamed’ of Germany’s response to antisemitism",
+    "details": {
+      "subreddit": "BeneiYisraelNews",
+      "risk_level": "high",
+      "hate_score": 25.0,
+      "violence_score": 35.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'racist'",
+        "Extreme violence keyword: 'genocide'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'violence'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:03.364653",
+    "updated_at": "2025-11-29 15:54:03.364657"
+  },
+  {
+    "id": 19,
+    "username": "hyeran_jainros_fc",
+    "post_id": "1p9jb7s",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 95,
+    "description": "High-risk post detected: Stans bullied Kpop Demon Hunters creator Maggie Kang off X: because social media's totalitarian ideo",
+    "details": {
+      "subreddit": "u_hyeran_jainros_fc",
+      "risk_level": "critical",
+      "hate_score": 35.0,
+      "violence_score": 60.0,
+      "flags": [
+        "Extreme hate keyword: 'savage'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "Extreme violence keyword: 'kill'",
+        "High violence keyword: 'violence'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:54:03.419374",
+    "updated_at": "2025-11-29 15:54:03.419378"
+  },
+  {
+    "id": 20,
+    "username": "PhoemixFox2728",
+    "post_id": "1p9s5xk",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 100,
+    "description": "High-risk post detected: The Fairest Essay in the Land? RWBY Analysis Part 2 of 2.",
+    "details": {
+      "subreddit": "CharacterRant",
+      "risk_level": "critical",
+      "hate_score": 117.5,
+      "violence_score": 150.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'bitch'",
+        "High hate keyword: 'dick'",
+        "High hate keyword: 'cock'",
+        "High hate keyword: 'racist'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.293592",
+    "updated_at": "2025-11-29 15:59:31.293595"
+  },
+  {
+    "id": 21,
+    "username": "lexie_2410",
+    "post_id": "1p9s1mu",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 70,
+    "description": "High-risk post detected: Someone might kill me because this post",
+    "details": {
+      "subreddit": "Wednesday",
+      "risk_level": "critical",
+      "hate_score": 0,
+      "violence_score": 70.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'harm'",
+        "High violence keyword: 'abuse'",
+        "Medium violence keyword: 'rage'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.343551",
+    "updated_at": "2025-11-29 15:59:31.343554"
+  },
+  {
+    "id": 22,
+    "username": "John3262005",
+    "post_id": "1p9rsn2",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 55,
+    "description": "High-risk post detected: Hegseth defends strikes after WaPo ‘kill everybody’ story: ‘Fake news’",
+    "details": {
+      "subreddit": "WhatTrumpHasDone",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 55.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'murder'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'violence'",
+        "Medium violence keyword: 'destroy'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.391857",
+    "updated_at": "2025-11-29 15:59:31.391860"
+  },
+  {
+    "id": 23,
+    "username": "JakeTinsleyWbc",
+    "post_id": "1p9rn93",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 85,
+    "description": "High-risk post detected: JAB-76842 chapter 1",
+    "details": {
+      "subreddit": "DarkTales",
+      "risk_level": "critical",
+      "hate_score": 20.0,
+      "violence_score": 65.0,
+      "flags": [
+        "Medium hate keyword: 'hell'",
+        "Medium hate keyword: 'shit'",
+        "Medium hate keyword: 'filth'",
+        "Medium hate keyword: 'disgusting'",
+        "High violence keyword: 'assault'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.441144",
+    "updated_at": "2025-11-29 15:59:31.441147"
+  },
+  {
+    "id": 24,
+    "username": "Trivialisttb",
+    "post_id": "1p9rmnt",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 84,
+    "description": "High-risk post detected: Murderers need to be extensively studied more",
+    "details": {
+      "subreddit": "TrueUnpopularOpinion",
+      "risk_level": "critical",
+      "hate_score": 7.0,
+      "violence_score": 77.0,
+      "flags": [
+        "Medium hate keyword: 'hell'",
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'shoot'",
+        "High violence keyword: 'violence'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.489699",
+    "updated_at": "2025-11-29 15:59:31.489702"
+  },
+  {
+    "id": 25,
+    "username": "MMON_ALMonline",
+    "post_id": "1p9rahc",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 55,
+    "description": "High-risk post detected: Post-Separation Abuse. Systemic Failures.",
+    "details": {
+      "subreddit": "Post_SeparationAbuse",
+      "risk_level": "high",
+      "hate_score": 10.0,
+      "violence_score": 45.0,
+      "flags": [
+        "High hate keyword: 'discrimination'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'harm'",
+        "High violence keyword: 'abuse'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.540388",
+    "updated_at": "2025-11-29 15:59:31.540391"
+  },
+  {
+    "id": 26,
+    "username": "AAAStarTrader",
+    "post_id": "1p9r5rp",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 72,
+    "description": "High-risk post detected: Understanding NHI Behaviour - Explaining why historical evidence and whistle-blower leaks suggest NH",
+    "details": {
+      "subreddit": "UFOB",
+      "risk_level": "critical",
+      "hate_score": 17.5,
+      "violence_score": 55.0,
+      "flags": [
+        "Extreme hate keyword: 'exterminate'",
+        "Extreme violence keyword: 'exterminate'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'abuse'",
+        "Medium violence keyword: 'destroy'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.590330",
+    "updated_at": "2025-11-29 15:59:31.590333"
+  },
+  {
+    "id": 27,
+    "username": "DumbMoneyMedia",
+    "post_id": "1p9rq1f",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 54,
+    "description": "High-risk post detected: \"Kill Everybody\": Hegseth Accused Of War Crimes After Ordering Navy To Finish Off Defenseless Men In",
+    "details": {
+      "subreddit": "Destiny",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 54.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'execute'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.642996",
+    "updated_at": "2025-11-29 15:59:31.643000"
+  },
+  {
+    "id": 28,
+    "username": "InverseFlash",
+    "post_id": "1p9s6fx",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 81,
+    "description": "High-risk post detected: Respect Gotham and Gotham Girl! (DC Comics, Post-Flashpoint)",
+    "details": {
+      "subreddit": "respectthreads",
+      "risk_level": "critical",
+      "hate_score": 0,
+      "violence_score": 81.0,
+      "flags": [
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'punch'",
+        "High violence keyword: 'strike'",
+        "High violence keyword: 'weapon'",
+        "Medium violence keyword: 'break'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.696716",
+    "updated_at": "2025-11-29 15:59:31.696720"
+  },
+  {
+    "id": 29,
+    "username": "Flashy_Philosophy576",
+    "post_id": "1p9rzpy",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 56,
+    "description": "High-risk post detected: My idea for a Zelda game (Just story)",
+    "details": {
+      "subreddit": "videogameideas",
+      "risk_level": "high",
+      "hate_score": 14.0,
+      "violence_score": 42.0,
+      "flags": [
+        "High hate keyword: 'hate'",
+        "High violence keyword: 'strike'",
+        "High violence keyword: 'fight'",
+        "Medium violence keyword: 'break'",
+        "Medium violence keyword: 'rage'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.753215",
+    "updated_at": "2025-11-29 15:59:31.753218"
+  },
+  {
+    "id": 30,
+    "username": "Patcheko_",
+    "post_id": "1p9rf1m",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 50,
+    "description": "High-risk post detected: Le Spectre de Rêves",
+    "details": {
+      "subreddit": "drawing",
+      "risk_level": "high",
+      "hate_score": 10.0,
+      "violence_score": 40.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'shoot'",
+        "Medium violence keyword: 'break'",
+        "Medium violence keyword: 'angry'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.808380",
+    "updated_at": "2025-11-29 15:59:31.808384"
+  },
+  {
+    "id": 31,
+    "username": "LouisscienceCalm",
+    "post_id": "1p9q0sb",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 87,
+    "description": "High-risk post detected: I (25 Gay Man) feel increasingly politically disconnected from the LGBTQ+ community",
+    "details": {
+      "subreddit": "AskGayConservatives",
+      "risk_level": "critical",
+      "hate_score": 52.5,
+      "violence_score": 35.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'discrimination'",
+        "Extreme violence keyword: 'genocide'",
+        "High violence keyword: 'fight'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.863079",
+    "updated_at": "2025-11-29 15:59:31.863084"
+  },
+  {
+    "id": 32,
+    "username": "Violentlyepic",
+    "post_id": "1p9pv1o",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 70,
+    "description": "High-risk post detected: Peter's Bigass Patreon FAQ",
+    "details": {
+      "subreddit": "SarahBooneContinued",
+      "risk_level": "critical",
+      "hate_score": 25.0,
+      "violence_score": 45.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "Medium hate keyword: 'stupid'",
+        "Extreme violence keyword: 'murder'",
+        "High violence keyword: 'violence'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.916560",
+    "updated_at": "2025-11-29 15:59:31.916563"
+  },
+  {
+    "id": 33,
+    "username": "_marti_89",
+    "post_id": "1p9q8gp",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "TrueCrimeMystery",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:31.967652",
+    "updated_at": "2025-11-29 15:59:31.967656"
+  },
+  {
+    "id": 34,
+    "username": "_marti_89",
+    "post_id": "1p9q6r0",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "PodcastPromoting",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:32.020866",
+    "updated_at": "2025-11-29 15:59:32.020869"
+  },
+  {
+    "id": 35,
+    "username": "_marti_89",
+    "post_id": "1p9q5p8",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "Promote_Your_Channel",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:32.071881",
+    "updated_at": "2025-11-29 15:59:32.071884"
+  },
+  {
+    "id": 36,
+    "username": "LedofZeppelin",
+    "post_id": "1p9k9g3",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Helmut Kohl’s politician grandson is ‘ashamed’ of Germany’s response to antisemitism",
+    "details": {
+      "subreddit": "BeneiYisraelNews",
+      "risk_level": "high",
+      "hate_score": 25.0,
+      "violence_score": 35.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'racist'",
+        "Extreme violence keyword: 'genocide'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'violence'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:32.123736",
+    "updated_at": "2025-11-29 15:59:32.123739"
+  },
+  {
+    "id": 37,
+    "username": "hyeran_jainros_fc",
+    "post_id": "1p9jb7s",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 95,
+    "description": "High-risk post detected: Stans bullied Kpop Demon Hunters creator Maggie Kang off X: because social media's totalitarian ideo",
+    "details": {
+      "subreddit": "u_hyeran_jainros_fc",
+      "risk_level": "critical",
+      "hate_score": 35.0,
+      "violence_score": 60.0,
+      "flags": [
+        "Extreme hate keyword: 'savage'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "Extreme violence keyword: 'kill'",
+        "High violence keyword: 'violence'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 15:59:32.177889",
+    "updated_at": "2025-11-29 15:59:32.177892"
+  },
+  {
+    "id": 38,
+    "username": "MissSaucy_22",
+    "post_id": "1oosjix",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: I hate this world and don’t know how much more I can take….",
+    "details": {
+      "subreddit": "racism",
+      "risk_level": "high",
+      "hate_score": 36.0,
+      "violence_score": 27.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "High violence keyword: 'hurt'",
+        "Medium violence keyword: 'angry'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:55.646101",
+    "updated_at": "2025-11-29 16:38:55.646103"
+  },
+  {
+    "id": 39,
+    "username": "chrizkayriko",
+    "post_id": "1p9sx2r",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 98,
+    "description": "High-risk post detected: Scars (Fictional Narrative Essay)",
+    "details": {
+      "subreddit": "Essays",
+      "risk_level": "critical",
+      "hate_score": 0,
+      "violence_score": 98.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'behead'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'strike'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:55.696425",
+    "updated_at": "2025-11-29 16:38:55.696426"
+  },
+  {
+    "id": 40,
+    "username": "TrumpCringe",
+    "post_id": "1p9ssd8",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 54,
+    "description": "High-risk post detected: If Trump doesn't want to be compared to Hitler, he should stop imitating Hitler. Fascists use lies a",
+    "details": {
+      "subreddit": "MarchAgainstNazis",
+      "risk_level": "high",
+      "hate_score": 18.0,
+      "violence_score": 36.0,
+      "flags": [
+        "High hate keyword: 'hate'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'weapon'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:55.744030",
+    "updated_at": "2025-11-29 16:38:55.744031"
+  },
+  {
+    "id": 41,
+    "username": "Feteo",
+    "post_id": "1p9sdm7",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 90,
+    "description": "High-risk post detected: Cherry50 since yesterday!",
+    "details": {
+      "subreddit": "ufo50",
+      "risk_level": "critical",
+      "hate_score": 30.0,
+      "violence_score": 60.0,
+      "flags": [
+        "High hate keyword: 'hate'",
+        "Medium hate keyword: 'damn'",
+        "Medium hate keyword: 'hell'",
+        "Medium hate keyword: 'shit'",
+        "Medium hate keyword: 'stupid'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:55.794735",
+    "updated_at": "2025-11-29 16:38:55.794737"
+  },
+  {
+    "id": 42,
+    "username": "gamerz0111",
+    "post_id": "1p9sczl",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 56,
+    "description": "High-risk post detected: Not sure but I am starting to think that Picard is an unreliable narrator for the UFP",
+    "details": {
+      "subreddit": "ShittyDaystrom",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 56.0,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'rape'",
+        "High violence keyword: 'violence'",
+        "Discussion context detected",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:55.846727",
+    "updated_at": "2025-11-29 16:38:55.846731"
+  },
+  {
+    "id": 43,
+    "username": "Mcfreely2",
+    "post_id": "1p9sr45",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 54,
+    "description": "High-risk post detected: \"Kill Everybody\": Hegseth Accused Of War Crimes After Ordering Navy To Finish Off Defenseless Men In",
+    "details": {
+      "subreddit": "u_Mcfreely2",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 54.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'execute'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:55.900395",
+    "updated_at": "2025-11-29 16:38:55.900398"
+  },
+  {
+    "id": 44,
+    "username": "ExcavalierKY",
+    "post_id": "1p9sxjw",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: Guide vs Mr ??? + Croc",
+    "details": {
+      "subreddit": "HugoVladMains",
+      "risk_level": "high",
+      "hate_score": 7.0,
+      "violence_score": 56.0,
+      "flags": [
+        "Medium hate keyword: 'ass'",
+        "Extreme violence keyword: 'kill'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'fight'",
+        "Medium violence keyword: 'smash'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:55.953997",
+    "updated_at": "2025-11-29 16:38:55.954000"
+  },
+  {
+    "id": 45,
+    "username": "LeviahRose",
+    "post_id": "1p9sxj0",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 65,
+    "description": "High-risk post detected: Just got out of psych ward. Kicked out of house. Not ready to live alone, but can't sign myself into",
+    "details": {
+      "subreddit": "troubledteens",
+      "risk_level": "high",
+      "hate_score": 10.0,
+      "violence_score": 55.0,
+      "flags": [
+        "Medium hate keyword: 'shit'",
+        "Medium hate keyword: 'trash'",
+        "Extreme violence keyword: 'kill'",
+        "High violence keyword: 'hurt'",
+        "High violence keyword: 'fight'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.007164",
+    "updated_at": "2025-11-29 16:38:56.007167"
+  },
+  {
+    "id": 46,
+    "username": "Frack_Nugget",
+    "post_id": "1p9t379",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: Tips for the annoying mini boss in the 3rd Area of Hades 2?",
+    "details": {
+      "subreddit": "HadesTheGame",
+      "risk_level": "high",
+      "hate_score": 9.0,
+      "violence_score": 54.0,
+      "flags": [
+        "Medium hate keyword: 'hell'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'beat'",
+        "High violence keyword: 'weapon'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.062509",
+    "updated_at": "2025-11-29 16:38:56.062512"
+  },
+  {
+    "id": 47,
+    "username": "Patcheko_",
+    "post_id": "1p9swdk",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 50,
+    "description": "High-risk post detected: I wanna give up on love but",
+    "details": {
+      "subreddit": "offmychest",
+      "risk_level": "high",
+      "hate_score": 10.0,
+      "violence_score": 40.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'shoot'",
+        "Medium violence keyword: 'break'",
+        "Medium violence keyword: 'angry'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.113552",
+    "updated_at": "2025-11-29 16:38:56.113554"
+  },
+  {
+    "id": 48,
+    "username": "Patcheko_",
+    "post_id": "1p9su5f",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 50,
+    "description": "High-risk post detected: Le Spectre de Rêves",
+    "details": {
+      "subreddit": "Illustration",
+      "risk_level": "high",
+      "hate_score": 10.0,
+      "violence_score": 40.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'shoot'",
+        "Medium violence keyword: 'break'",
+        "Medium violence keyword: 'angry'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.163344",
+    "updated_at": "2025-11-29 16:38:56.163347"
+  },
+  {
+    "id": 49,
+    "username": "Waddledeedingus",
+    "post_id": "1p9su59",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 84,
+    "description": "High-risk post detected: A family dinner turned into a disturbing confession am I overreacting?",
+    "details": {
+      "subreddit": "AmIOverreacting",
+      "risk_level": "critical",
+      "hate_score": 49.0,
+      "violence_score": 35.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "Extreme violence keyword: 'genocide'",
+        "High violence keyword: 'assault'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.214034",
+    "updated_at": "2025-11-29 16:38:56.214036"
+  },
+  {
+    "id": 50,
+    "username": "_exboyfriendmaterial",
+    "post_id": "1p9stiy",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: privilege of family",
+    "details": {
+      "subreddit": "BlackMentalHealth",
+      "risk_level": "high",
+      "hate_score": 36.0,
+      "violence_score": 27.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "Medium hate keyword: 'hell'",
+        "Medium hate keyword: 'shit'",
+        "High violence keyword: 'hurt'",
+        "Medium violence keyword: 'angry'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.265246",
+    "updated_at": "2025-11-29 16:38:56.265250"
+  },
+  {
+    "id": 51,
+    "username": "shsl_diver",
+    "post_id": "1p9snkp",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 94,
+    "description": "High-risk post detected: I genuinely believe Juzo Sakakura from Danganronpa is the worst character in Fiction.",
+    "details": {
+      "subreddit": "CharacterRant",
+      "risk_level": "critical",
+      "hate_score": 66.5,
+      "violence_score": 28.0,
+      "flags": [
+        "High hate keyword: 'bitch'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "Medium hate keyword: 'shit'",
+        "Medium hate keyword: 'trash'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.319900",
+    "updated_at": "2025-11-29 16:38:56.319903"
+  },
+  {
+    "id": 52,
+    "username": "Scramjet1",
+    "post_id": "1p9skas",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 56,
+    "description": "High-risk post detected: Are guys going to pushback against bodyshaming that has been normalised against us ?",
+    "details": {
+      "subreddit": "askteenboys",
+      "risk_level": "high",
+      "hate_score": 49.0,
+      "violence_score": 7.0,
+      "flags": [
+        "High hate keyword: 'dick'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'bigot'",
+        "Medium hate keyword: 'asshole'",
+        "Medium violence keyword: 'aggressive'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.373562",
+    "updated_at": "2025-11-29 16:38:56.373565"
+  },
+  {
+    "id": 53,
+    "username": "LouisscienceCalm",
+    "post_id": "1p9s6av",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 87,
+    "description": "High-risk post detected: I (25 Gay Man) feel increasingly politically disconnected from the LGBTQ+ community",
+    "details": {
+      "subreddit": "AITAH",
+      "risk_level": "critical",
+      "hate_score": 52.5,
+      "violence_score": 35.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'discrimination'",
+        "Extreme violence keyword: 'genocide'",
+        "High violence keyword: 'fight'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.429554",
+    "updated_at": "2025-11-29 16:38:56.429558"
+  },
+  {
+    "id": 54,
+    "username": "PhoemixFox2728",
+    "post_id": "1p9s5xk",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 100,
+    "description": "High-risk post detected: The Fairest Essay in the Land? RWBY Analysis Part 2 of 2.",
+    "details": {
+      "subreddit": "CharacterRant",
+      "risk_level": "critical",
+      "hate_score": 117.5,
+      "violence_score": 150.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'bitch'",
+        "High hate keyword: 'dick'",
+        "High hate keyword: 'cock'",
+        "High hate keyword: 'racist'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.486928",
+    "updated_at": "2025-11-29 16:38:56.486931"
+  },
+  {
+    "id": 55,
+    "username": "_marti_89",
+    "post_id": "1p9q8gp",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "TrueCrimeMystery",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.542420",
+    "updated_at": "2025-11-29 16:38:56.542423"
+  },
+  {
+    "id": 56,
+    "username": "_marti_89",
+    "post_id": "1p9q6r0",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "PodcastPromoting",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.600035",
+    "updated_at": "2025-11-29 16:38:56.600038"
+  },
+  {
+    "id": 57,
+    "username": "_marti_89",
+    "post_id": "1p9q5p8",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "Promote_Your_Channel",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.654656",
+    "updated_at": "2025-11-29 16:38:56.654694"
+  },
+  {
+    "id": 58,
+    "username": "LedofZeppelin",
+    "post_id": "1p9k9g3",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Helmut Kohl’s politician grandson is ‘ashamed’ of Germany’s response to antisemitism",
+    "details": {
+      "subreddit": "BeneiYisraelNews",
+      "risk_level": "high",
+      "hate_score": 25.0,
+      "violence_score": 35.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'racist'",
+        "Extreme violence keyword: 'genocide'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'violence'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:38:56.708022",
+    "updated_at": "2025-11-29 16:38:56.708025"
+  },
+  {
+    "id": 59,
+    "username": "MissSaucy_22",
+    "post_id": "1oosjix",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: I hate this world and don’t know how much more I can take….",
+    "details": {
+      "subreddit": "racism",
+      "risk_level": "high",
+      "hate_score": 36.0,
+      "violence_score": 27.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "High violence keyword: 'hurt'",
+        "Medium violence keyword: 'angry'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:04.629064",
+    "updated_at": "2025-11-29 16:48:04.629066"
+  },
+  {
+    "id": 60,
+    "username": "chrizkayriko",
+    "post_id": "1p9sx2r",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 98,
+    "description": "High-risk post detected: Scars (Fictional Narrative Essay)",
+    "details": {
+      "subreddit": "Essays",
+      "risk_level": "critical",
+      "hate_score": 0,
+      "violence_score": 98.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'behead'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'strike'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:04.677812",
+    "updated_at": "2025-11-29 16:48:04.677814"
+  },
+  {
+    "id": 61,
+    "username": "TrumpCringe",
+    "post_id": "1p9ssd8",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 54,
+    "description": "High-risk post detected: If Trump doesn't want to be compared to Hitler, he should stop imitating Hitler. Fascists use lies a",
+    "details": {
+      "subreddit": "MarchAgainstNazis",
+      "risk_level": "high",
+      "hate_score": 18.0,
+      "violence_score": 36.0,
+      "flags": [
+        "High hate keyword: 'hate'",
+        "High violence keyword: 'violence'",
+        "High violence keyword: 'weapon'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:04.726332",
+    "updated_at": "2025-11-29 16:48:04.726334"
+  },
+  {
+    "id": 62,
+    "username": "Feteo",
+    "post_id": "1p9sdm7",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 90,
+    "description": "High-risk post detected: Cherry50 since yesterday!",
+    "details": {
+      "subreddit": "ufo50",
+      "risk_level": "critical",
+      "hate_score": 30.0,
+      "violence_score": 60.0,
+      "flags": [
+        "High hate keyword: 'hate'",
+        "Medium hate keyword: 'damn'",
+        "Medium hate keyword: 'hell'",
+        "Medium hate keyword: 'shit'",
+        "Medium hate keyword: 'stupid'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:04.775294",
+    "updated_at": "2025-11-29 16:48:04.775296"
+  },
+  {
+    "id": 63,
+    "username": "gamerz0111",
+    "post_id": "1p9sczl",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 56,
+    "description": "High-risk post detected: Not sure but I am starting to think that Picard is an unreliable narrator for the UFP",
+    "details": {
+      "subreddit": "ShittyDaystrom",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 56.0,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'rape'",
+        "High violence keyword: 'violence'",
+        "Discussion context detected",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:04.826805",
+    "updated_at": "2025-11-29 16:48:04.826808"
+  },
+  {
+    "id": 64,
+    "username": "mhthakidd",
+    "post_id": "1p9tc45",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 54,
+    "description": "High-risk post detected: Arc Raiders Needs Better Mechanics For Both PVP and PVE.",
+    "details": {
+      "subreddit": "arcraiderscirclejerk",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 54.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'murder'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:04.879593",
+    "updated_at": "2025-11-29 16:48:04.879596"
+  },
+  {
+    "id": 65,
+    "username": "Successful-Annual379",
+    "post_id": "1p9t5ce",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 75,
+    "description": "High-risk post detected: Smallen",
+    "details": {
+      "subreddit": "u_Successful-Annual379",
+      "risk_level": "critical",
+      "hate_score": 35.0,
+      "violence_score": 40.0,
+      "flags": [
+        "Extreme hate keyword: 'parasite'",
+        "High hate keyword: 'whore'",
+        "Medium hate keyword: 'hell'",
+        "Medium hate keyword: 'worthless'",
+        "Extreme violence keyword: 'kill'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:04.934011",
+    "updated_at": "2025-11-29 16:48:04.934014"
+  },
+  {
+    "id": 66,
+    "username": "Mcfreely2",
+    "post_id": "1p9sr45",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 54,
+    "description": "High-risk post detected: \"Kill Everybody\": Hegseth Accused Of War Crimes After Ordering Navy To Finish Off Defenseless Men In",
+    "details": {
+      "subreddit": "u_Mcfreely2",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 54.0,
+      "flags": [
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'execute'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:04.989906",
+    "updated_at": "2025-11-29 16:48:04.989909"
+  },
+  {
+    "id": 67,
+    "username": "OkCherry7433",
+    "post_id": "1p9tahe",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: 22M's Decade-Long Crush on 23F: Shy Kid in Tuition to a College Stalking Slip-Up That Got Me Blocked",
+    "details": {
+      "subreddit": "Advice",
+      "risk_level": "high",
+      "hate_score": 28.0,
+      "violence_score": 35.0,
+      "flags": [
+        "Medium hate keyword: 'damn'",
+        "Medium hate keyword: 'shit'",
+        "Medium hate keyword: 'fuck'",
+        "Medium hate keyword: 'dumb'",
+        "Extreme violence keyword: 'kill'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.042667",
+    "updated_at": "2025-11-29 16:48:05.042669"
+  },
+  {
+    "id": 68,
+    "username": "Frack_Nugget",
+    "post_id": "1p9t379",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: Tips for the annoying mini boss in the 3rd Area of Hades 2?",
+    "details": {
+      "subreddit": "HadesTheGame",
+      "risk_level": "high",
+      "hate_score": 9.0,
+      "violence_score": 54.0,
+      "flags": [
+        "Medium hate keyword: 'hell'",
+        "High violence keyword: 'attack'",
+        "High violence keyword: 'beat'",
+        "High violence keyword: 'weapon'",
+        "Negation detected"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.091660",
+    "updated_at": "2025-11-29 16:48:05.091662"
+  },
+  {
+    "id": 69,
+    "username": "Patcheko_",
+    "post_id": "1p9swdk",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 50,
+    "description": "High-risk post detected: I wanna give up on love but",
+    "details": {
+      "subreddit": "offmychest",
+      "risk_level": "high",
+      "hate_score": 10.0,
+      "violence_score": 40.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'shoot'",
+        "Medium violence keyword: 'break'",
+        "Medium violence keyword: 'angry'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.140347",
+    "updated_at": "2025-11-29 16:48:05.140349"
+  },
+  {
+    "id": 70,
+    "username": "Patcheko_",
+    "post_id": "1p9su5f",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 50,
+    "description": "High-risk post detected: Le Spectre de Rêves",
+    "details": {
+      "subreddit": "Illustration",
+      "risk_level": "high",
+      "hate_score": 10.0,
+      "violence_score": 40.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "Extreme violence keyword: 'kill'",
+        "Extreme violence keyword: 'shoot'",
+        "Medium violence keyword: 'break'",
+        "Medium violence keyword: 'angry'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.188355",
+    "updated_at": "2025-11-29 16:48:05.188356"
+  },
+  {
+    "id": 71,
+    "username": "Waddledeedingus",
+    "post_id": "1p9su59",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 84,
+    "description": "High-risk post detected: A family dinner turned into a disturbing confession am I overreacting?",
+    "details": {
+      "subreddit": "AmIOverreacting",
+      "risk_level": "critical",
+      "hate_score": 49.0,
+      "violence_score": 35.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "Extreme violence keyword: 'genocide'",
+        "High violence keyword: 'assault'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.234679",
+    "updated_at": "2025-11-29 16:48:05.234681"
+  },
+  {
+    "id": 72,
+    "username": "_exboyfriendmaterial",
+    "post_id": "1p9stiy",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 63,
+    "description": "High-risk post detected: privilege of family",
+    "details": {
+      "subreddit": "BlackMentalHealth",
+      "risk_level": "high",
+      "hate_score": 36.0,
+      "violence_score": 27.0,
+      "flags": [
+        "High hate keyword: 'racist'",
+        "Medium hate keyword: 'hell'",
+        "Medium hate keyword: 'shit'",
+        "High violence keyword: 'hurt'",
+        "Medium violence keyword: 'angry'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.282075",
+    "updated_at": "2025-11-29 16:48:05.282077"
+  },
+  {
+    "id": 73,
+    "username": "shsl_diver",
+    "post_id": "1p9snkp",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 94,
+    "description": "High-risk post detected: I genuinely believe Juzo Sakakura from Danganronpa is the worst character in Fiction.",
+    "details": {
+      "subreddit": "CharacterRant",
+      "risk_level": "critical",
+      "hate_score": 66.5,
+      "violence_score": 28.0,
+      "flags": [
+        "High hate keyword: 'bitch'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'hate'",
+        "Medium hate keyword: 'shit'",
+        "Medium hate keyword: 'trash'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.330638",
+    "updated_at": "2025-11-29 16:48:05.330640"
+  },
+  {
+    "id": 74,
+    "username": "Scramjet1",
+    "post_id": "1p9skas",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 56,
+    "description": "High-risk post detected: Are guys going to pushback against bodyshaming that has been normalised against us ?",
+    "details": {
+      "subreddit": "askteenboys",
+      "risk_level": "high",
+      "hate_score": 49.0,
+      "violence_score": 7.0,
+      "flags": [
+        "High hate keyword: 'dick'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'bigot'",
+        "Medium hate keyword: 'asshole'",
+        "Medium violence keyword: 'aggressive'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.380007",
+    "updated_at": "2025-11-29 16:48:05.380012"
+  },
+  {
+    "id": 75,
+    "username": "LouisscienceCalm",
+    "post_id": "1p9s6av",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 87,
+    "description": "High-risk post detected: I (25 Gay Man) feel increasingly politically disconnected from the LGBTQ+ community",
+    "details": {
+      "subreddit": "AITAH",
+      "risk_level": "critical",
+      "hate_score": 52.5,
+      "violence_score": 35.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'racist'",
+        "High hate keyword: 'discrimination'",
+        "Extreme violence keyword: 'genocide'",
+        "High violence keyword: 'fight'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.430910",
+    "updated_at": "2025-11-29 16:48:05.430914"
+  },
+  {
+    "id": 76,
+    "username": "PhoemixFox2728",
+    "post_id": "1p9s5xk",
+    "alert_type": "high_risk_post",
+    "severity": "critical",
+    "risk_score": 100,
+    "description": "High-risk post detected: The Fairest Essay in the Land? RWBY Analysis Part 2 of 2.",
+    "details": {
+      "subreddit": "CharacterRant",
+      "risk_level": "critical",
+      "hate_score": 117.5,
+      "violence_score": 150.0,
+      "flags": [
+        "Extreme hate keyword: 'genocide'",
+        "High hate keyword: 'bitch'",
+        "High hate keyword: 'dick'",
+        "High hate keyword: 'cock'",
+        "High hate keyword: 'racist'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.483372",
+    "updated_at": "2025-11-29 16:48:05.483375"
+  },
+  {
+    "id": 77,
+    "username": "_marti_89",
+    "post_id": "1p9q8gp",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "TrueCrimeMystery",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.535486",
+    "updated_at": "2025-11-29 16:48:05.535492"
+  },
+  {
+    "id": 78,
+    "username": "_marti_89",
+    "post_id": "1p9q6r0",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "PodcastPromoting",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.591613",
+    "updated_at": "2025-11-29 16:48:05.591616"
+  },
+  {
+    "id": 79,
+    "username": "_marti_89",
+    "post_id": "1p9q5p8",
+    "alert_type": "high_risk_post",
+    "severity": "high",
+    "risk_score": 60,
+    "description": "High-risk post detected: Episode 5 - Angelo Izzo \"I Am The Black Man\"",
+    "details": {
+      "subreddit": "Promote_Your_Channel",
+      "risk_level": "high",
+      "hate_score": 0,
+      "violence_score": 60,
+      "flags": [
+        "Extreme violence keyword: 'murder'",
+        "Extreme violence keyword: 'massacre'"
+      ]
+    },
+    "status": "new",
+    "reviewed_at": null,
+    "reviewed_by": null,
+    "resolution_notes": null,
+    "created_at": "2025-11-29 16:48:05.649668",
+    "updated_at": "2025-11-29 16:48:05.649671"
+  }
+]

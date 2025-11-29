@@ -60,7 +60,6 @@ data/hate_speech_lexicon.json
 !data/hurtlex_processed.json
 !data/README.md
 logs/
-*.csv
 *.db
 *.sqlite
 # Ignore JSON data dumps but not config/documentation
