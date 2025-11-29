@@ -1,4 +1,5 @@
 """Main entry point for the Reddit Hate Speech Detection Scraper"""
+import sys
 import time
 from pathlib import Path
 
@@ -9,9 +10,78 @@ from src.pipeline import DataPipeline
 logger = setup_logging()
 
 
-def run():
-    """Run pipeline continuously with minimal delay"""
-    logger.info("Running pipeline continuously - will execute repeatedly")
+def run_single():
+    """Run pipeline once and exit (includes daily monitoring of flagged users)"""
+    logger.info("Running in SINGLE mode - will execute once and exit")
+
+    pipeline = DataPipeline()
+
+    try:
+        results = pipeline.run_full_pipeline(
+            subreddits=settings.subreddits_list,
+            posts_per_subreddit=settings.posts_per_subreddit,
+            max_users_to_enrich=settings.max_users_to_enrich,
+            search_terms=settings.search_terms_list,
+            posts_per_search=settings.posts_per_search
+        )
+
+        logger.info("=" * 80)
+        logger.info("PIPELINE COMPLETED SUCCESSFULLY!")
+        logger.info("=" * 80)
+
+        return results
+
+    except KeyboardInterrupt:
+        logger.warning("\nPipeline interrupted by user")
+    except Exception as e:
+        logger.error(f"\nPipeline failed: {e}", exc_info=True)
+        raise
+
+
+def run_scheduler():
+    """Run pipeline on a schedule (every 2 hours) - includes daily monitoring"""
+    logger.info("Running in SCHEDULER mode - will execute every 2 hours")
+    logger.info("Each run includes monitoring of previously flagged users")
+    logger.info("Press Ctrl+C to stop")
+
+    pipeline = DataPipeline()
+    run_count = 0
+
+    try:
+        while True:
+            run_count += 1
+            logger.info(f"\n{'=' * 80}")
+            logger.info(f"Starting scheduled run #{run_count}")
+            logger.info(f"{'=' * 80}")
+
+            try:
+                results = pipeline.run_full_pipeline(
+                    subreddits=settings.subreddits_list,
+                    posts_per_subreddit=settings.posts_per_subreddit,
+                    max_users_to_enrich=settings.max_users_to_enrich,
+                    search_terms=settings.search_terms_list,
+                    posts_per_search=settings.posts_per_search
+                )
+                logger.info(f"Scheduled run #{run_count} completed successfully")
+
+            except Exception as e:
+                logger.error(f"Scheduled run #{run_count} failed: {e}", exc_info=True)
+
+            # Wait 2 hours before next run
+            wait_seconds = 2 * 60 * 60  # 2 hours
+            logger.info(f"Waiting 2 hours until next run...")
+            logger.info(f"Next run scheduled at: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time() + wait_seconds))}")
+            time.sleep(wait_seconds)
+
+    except KeyboardInterrupt:
+        logger.warning("\nScheduler stopped by user")
+        logger.info(f"Total runs completed: {run_count}")
+
+
+def run_continuous():
+    """Run pipeline continuously with minimal delay - includes daily monitoring"""
+    logger.info("Running in CONTINUOUS mode - will execute repeatedly")
+    logger.info("Each run includes monitoring of previously flagged users")
     logger.info("Press Ctrl+C to stop")
 
     pipeline = DataPipeline()
@@ -25,7 +95,7 @@ def run():
             logger.info(f"{'=' * 80}")
 
             try:
-                pipeline.run_full_pipeline(
+                results = pipeline.run_full_pipeline(
                     subreddits=settings.subreddits_list,
                     posts_per_subreddit=settings.posts_per_subreddit,
                     max_users_to_enrich=settings.max_users_to_enrich,
@@ -57,8 +127,17 @@ def main():
     logger.info(f"Configuration loaded: {len(settings.subreddits_list)} subreddits, "
                f"{settings.posts_per_subreddit} posts each")
 
-    # Run the pipeline
-    run()
+    # Execute based on RUN_MODE
+    if settings.run_mode == 'single':
+        run_single()
+    elif settings.run_mode == 'scheduler':
+        run_scheduler()
+    elif settings.run_mode == 'continuous':
+        run_continuous()
+    else:
+        logger.error(f"Invalid RUN_MODE: {settings.run_mode}. "
+                    f"Must be 'single', 'scheduler', or 'continuous'")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

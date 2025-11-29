@@ -5,7 +5,7 @@ from src.collectors.reddit_scraper import RedditScraper
 from src.enrichers.user_enricher import UserEnricher
 from src.scorers.hate_speech_scorer import HateSpeechScorer
 from src.api_client import APIClient
-from src.config import settings
+from src.monitoring import UserMonitor
 
 logger = logging.getLogger(__name__)
 
@@ -103,7 +103,7 @@ class DataPipeline:
 
         for i, username in enumerate(users_to_enrich, 1):
             logger.info(f"  Processing user {i}/{len(users_to_enrich)}: u/{username}")
-            user_history = self.scraper.get_user_history(username, user_history_days=settings.user_history_days)
+            user_history = self.scraper.get_user_history(username, limit=100)
 
             # Skip users with no content (new users, private profiles, deleted accounts)
             if user_history['total_posts'] == 0 and user_history['total_comments'] == 0:
@@ -155,6 +155,13 @@ class DataPipeline:
         logger.info("[API EXPORT] Sending data to API...")
         logger.info("=" * 80)
         self._send_to_api(scored_posts, scored_users)
+
+        # Auto-flag high-risk users for monitoring and create alerts
+        self._flag_high_risk_users_for_monitoring(scored_users)
+        self._create_alerts_for_high_risk_content(scored_posts, scored_users)
+
+        # Run daily monitoring of previously flagged users
+        self._run_daily_monitoring()
 
         return {
             'posts': scored_posts,
@@ -214,3 +221,121 @@ class DataPipeline:
                 risk = user['risk_assessment']
                 logger.info(f"  {i}. u/{user['username']}: {risk['overall_risk_score']:.1f}/100 "
                            f"({risk['risk_level'].upper()})")
+
+    def _flag_high_risk_users_for_monitoring(self, scored_users):
+        """Auto-flag high-risk users for daily monitoring"""
+        high_risk_threshold = 50  # Users with risk >= 50 get flagged
+
+        high_risk_users = [u for u in scored_users
+                          if u['risk_assessment']['overall_risk_score'] >= high_risk_threshold]
+
+        if not high_risk_users:
+            logger.info("No high-risk users to flag for monitoring")
+            return
+
+        logger.info(f"\n[MONITORING] Flagging {len(high_risk_users)} high-risk users for daily monitoring...")
+
+        flagged_count = 0
+        for user in high_risk_users:
+            username = user['username']
+            try:
+                self.api_client.set_user_monitored(username, is_monitored=True)
+                flagged_count += 1
+                logger.info(f"  Flagged u/{username} for monitoring (risk: {user['risk_assessment']['overall_risk_score']:.1f})")
+            except Exception as e:
+                logger.error(f"  Failed to flag u/{username}: {e}")
+
+        logger.info(f"[MONITORING] Flagged {flagged_count}/{len(high_risk_users)} users for monitoring")
+
+    def _create_alerts_for_high_risk_content(self, scored_posts, scored_users):
+        """Create alerts for high-risk posts and users"""
+        critical_threshold = 70
+        high_threshold = 50
+
+        alerts_created = 0
+
+        # Create alerts for critical/high-risk posts
+        high_risk_posts = [p for p in scored_posts
+                          if p['risk_assessment']['risk_score'] >= high_threshold]
+
+        logger.info(f"\n[ALERTS] Creating alerts for {len(high_risk_posts)} high-risk posts...")
+
+        for post in high_risk_posts:
+            risk = post['risk_assessment']
+            severity = 'critical' if risk['risk_score'] >= critical_threshold else 'high'
+
+            alert = {
+                'username': post['author'],
+                'post_id': post['id'],
+                'alert_type': 'high_risk_post',
+                'severity': severity,
+                'risk_score': int(risk['risk_score']),
+                'description': f"High-risk post detected: {post['title'][:100]}",
+                'details': {
+                    'subreddit': post['subreddit'],
+                    'risk_level': risk['risk_level'],
+                    'hate_score': risk['hate_score'],
+                    'violence_score': risk['violence_score'],
+                    'flags': risk.get('flags', [])[:5]  # Limit flags
+                },
+                'status': 'new'
+            }
+
+            try:
+                self.api_client.create_alert(alert)
+                alerts_created += 1
+                logger.warning(f"  ALERT [{severity.upper()}]: Post by u/{post['author']} - "
+                             f"Risk: {risk['risk_score']:.0f}")
+            except Exception as e:
+                logger.error(f"  Failed to create alert for post {post['id']}: {e}")
+
+        # Create alerts for critical-risk users
+        critical_users = [u for u in scored_users
+                         if u['risk_assessment']['overall_risk_score'] >= critical_threshold]
+
+        for user in critical_users:
+            risk = user['risk_assessment']
+
+            alert = {
+                'username': user['username'],
+                'alert_type': 'critical_risk_user',
+                'severity': 'critical',
+                'risk_score': int(risk['overall_risk_score']),
+                'description': f"Critical-risk user detected: u/{user['username']}",
+                'details': {
+                    'risk_level': risk['risk_level'],
+                    'hate_score': risk.get('average_hate_score', 0),
+                    'violence_score': risk.get('average_violence_score', 0),
+                    'high_risk_content_count': risk.get('high_risk_content_count', 0)
+                },
+                'status': 'new'
+            }
+
+            try:
+                self.api_client.create_alert(alert)
+                alerts_created += 1
+                logger.warning(f"  ALERT [CRITICAL]: User u/{user['username']} - "
+                             f"Risk: {risk['overall_risk_score']:.0f}")
+            except Exception as e:
+                logger.error(f"  Failed to create alert for user {user['username']}: {e}")
+
+        logger.info(f"[ALERTS] Created {alerts_created} alerts")
+
+    def _run_daily_monitoring(self):
+        """Run daily monitoring scan for all previously flagged users"""
+        logger.info("\n" + "=" * 80)
+        logger.info("[DAILY MONITORING] Scanning previously flagged users...")
+        logger.info("=" * 80)
+
+        try:
+            monitor = UserMonitor(
+                high_risk_threshold=50,
+                critical_risk_threshold=70
+            )
+            summary = monitor.run_daily_monitoring()
+
+            logger.info(f"[DAILY MONITORING] Completed: {summary['users_scanned']} users scanned, "
+                       f"{summary['total_alerts_generated']} new alerts")
+
+        except Exception as e:
+            logger.error(f"[DAILY MONITORING] Failed: {e}", exc_info=True)

@@ -201,3 +201,89 @@ class APIClient:
         users_result = self.send_users(users)
 
         return SendAllResult(posts=posts_result, users=users_result)
+
+    def get_monitored_users(self) -> List[Dict[str, Any]]:
+        """
+        Get list of users marked for monitoring
+
+        Returns:
+            List of monitored user dictionaries
+        """
+        try:
+            response = self.session.get(
+                f"{self.base_url}/users",
+                params={'is_monitored': True, 'limit': 1000},
+                timeout=self.timeout
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.RequestException as e:
+            logger.error(f"Failed to get monitored users: {e}")
+            return []
+
+    def create_alert(self, alert: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Create a new alert in the API
+
+        Args:
+            alert: Alert data dictionary
+
+        Returns:
+            Created alert data
+        """
+        try:
+            response = self.session.post(
+                f"{self.base_url}/alerts",
+                json=alert,
+                timeout=self.timeout
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.RequestException as e:
+            logger.error(f"Failed to create alert: {e}")
+            raise
+
+    def create_monitoring_log(self, log_entry: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Create a monitoring log entry in the API
+
+        Args:
+            log_entry: Monitoring log data dictionary
+
+        Returns:
+            Created log entry data
+        """
+        try:
+            response = self.session.post(
+                f"{self.base_url}/monitoring-logs",
+                json=log_entry,
+                timeout=self.timeout
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.RequestException as e:
+            logger.error(f"Failed to create monitoring log: {e}")
+            raise
+
+    def set_user_monitored(self, username: str, is_monitored: bool = True) -> Dict[str, Any]:
+        """
+        Set a user's monitoring status
+
+        Args:
+            username: Reddit username
+            is_monitored: Whether to monitor the user
+
+        Returns:
+            Updated user data
+        """
+        try:
+            response = self.session.patch(
+                f"{self.base_url}/users/{username}",
+                json={'is_monitored': is_monitored},
+                timeout=self.timeout
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.RequestException as e:
+            logger.error(f"Failed to update user monitoring status: {e}")
+            raise
