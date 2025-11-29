@@ -57,20 +57,30 @@ class DataPipeline:
                            if post['author'] not in ['[deleted]', 'AutoModerator', '[removed]'])
         logger.info(f"Found {len(unique_authors)} unique authors")
 
-        # Prioritize authors from high-risk posts
-        high_risk_authors = set(p['author'] for p in high_risk_posts
-                              if p['author'] not in ['[deleted]', 'AutoModerator', '[removed]'])
+        # Prioritize authors from high-risk posts by their highest risk score
+        author_max_risk = {}
+        for post in high_risk_posts:
+            author = post['author']
+            if author not in ['[deleted]', 'AutoModerator', '[removed]']:
+                risk_score = post['risk_assessment']['risk_score']
+                if author not in author_max_risk or risk_score > author_max_risk[author]:
+                    author_max_risk[author] = risk_score
 
-        # Select users to enrich (prioritize high-risk authors)
-        users_to_enrich = list(high_risk_authors)[:max_users_to_enrich]
+        # Sort authors by their highest risk score (descending)
+        high_risk_authors_sorted = sorted(author_max_risk.keys(),
+                                         key=lambda a: author_max_risk[a],
+                                         reverse=True)
+
+        # Select users to enrich (prioritize top riskiest authors)
+        users_to_enrich = high_risk_authors_sorted[:max_users_to_enrich]
         remaining_slots = max_users_to_enrich - len(users_to_enrich)
 
         if remaining_slots > 0:
-            other_authors = [u for u in unique_authors if u not in high_risk_authors]
+            other_authors = [u for u in unique_authors if u not in author_max_risk]
             users_to_enrich.extend(other_authors[:remaining_slots])
 
         logger.info(f"Selected {len(users_to_enrich)} users for enrichment "
-                   f"({len(high_risk_authors)} high-risk priority)")
+                   f"({len(author_max_risk)} high-risk priority)")
 
         # Step 4: Enrich user data
         logger.info(f"\n[STEP 4/5] Enriching user data (fetching 2+ months history)...")
