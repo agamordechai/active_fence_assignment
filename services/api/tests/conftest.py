@@ -10,7 +10,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.pool import StaticPool
 
 from src.database.database import get_db
-from src.database.models import Base, Post, User
+from src.database.models import Base, Post, User, Alert, MonitoringLog
 
 
 # Create in-memory SQLite database for testing
@@ -369,3 +369,93 @@ def db_with_post(db_with_user: tuple[Session, User], sample_post_data: dict) -> 
     db_session.commit()
     db_session.refresh(post)
     return db_session, post
+
+
+# ==================== Alert Fixtures ====================
+
+@pytest.fixture
+def sample_alert_data() -> dict:
+    """Sample alert data for testing"""
+    return {
+        "username": "test_user",
+        "post_id": "abc123",
+        "alert_type": "high_risk_content",
+        "severity": "high",
+        "risk_score": 75,
+        "description": "High-risk content detected in post",
+        "details": {"flags": ["hate_speech"], "context": "Detected offensive language"}
+    }
+
+
+@pytest.fixture
+def sample_alert_data_api() -> dict:
+    """Sample alert data for API tests"""
+    return {
+        "username": "test_user",
+        "post_id": "abc123",
+        "alert_type": "high_risk_content",
+        "severity": "high",
+        "risk_score": 75,
+        "description": "High-risk content detected in post",
+        "details": {"flags": ["hate_speech"], "context": "Detected offensive language"}
+    }
+
+
+@pytest.fixture
+def db_with_alert(db_with_user: tuple[Session, User], sample_alert_data: dict) -> tuple[Session, Alert]:
+    """Create a database session with a pre-existing alert (and user)"""
+    db_session, user = db_with_user
+    alert = Alert(
+        username=sample_alert_data["username"],
+        post_id=sample_alert_data["post_id"],
+        alert_type=sample_alert_data["alert_type"],
+        severity=sample_alert_data["severity"],
+        risk_score=sample_alert_data["risk_score"],
+        description=sample_alert_data["description"],
+        details=sample_alert_data["details"],
+        status="new"
+    )
+    db_session.add(alert)
+    db_session.commit()
+    db_session.refresh(alert)
+    return db_session, alert
+
+
+# ==================== Monitoring Log Fixtures ====================
+
+@pytest.fixture
+def sample_monitoring_log_data() -> dict:
+    """Sample monitoring log data for testing"""
+    return {
+        "username": "test_user",
+        "activity_type": "post_review",
+        "description": "Reviewed user posts for potential violations",
+        "findings": {"posts_reviewed": 10, "flagged": 2, "action_taken": "none"}
+    }
+
+
+@pytest.fixture
+def sample_monitoring_log_data_api() -> dict:
+    """Sample monitoring log data for API tests"""
+    return {
+        "username": "test_user",
+        "activity_type": "post_review",
+        "description": "Reviewed user posts for potential violations",
+        "findings": {"posts_reviewed": 10, "flagged": 2, "action_taken": "none"}
+    }
+
+
+@pytest.fixture
+def db_with_monitoring_log(db_with_user: tuple[Session, User], sample_monitoring_log_data: dict) -> tuple[Session, MonitoringLog]:
+    """Create a database session with a pre-existing monitoring log (and user)"""
+    db_session, user = db_with_user
+    log = MonitoringLog(
+        username=sample_monitoring_log_data["username"],
+        activity_type=sample_monitoring_log_data["activity_type"],
+        description=sample_monitoring_log_data["description"],
+        findings=sample_monitoring_log_data["findings"]
+    )
+    db_session.add(log)
+    db_session.commit()
+    db_session.refresh(log)
+    return db_session, log

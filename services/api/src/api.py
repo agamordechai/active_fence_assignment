@@ -285,6 +285,103 @@ async def bulk_create_users(users: List[schemas.UserCreate], db: Session = Depen
     }
 
 
+# ==================== Alert Endpoints ====================
+
+@app.post("/alerts", response_model=schemas.AlertResponse, status_code=status.HTTP_201_CREATED, tags=["Alerts"])
+async def create_alert(alert: schemas.AlertCreate, db: Session = Depends(get_db)):
+    """Create a new alert"""
+    return crud.create_alert(db, alert.model_dump())
+
+
+@app.get("/alerts", response_model=List[schemas.AlertResponse], tags=["Alerts"])
+async def get_alerts(
+    skip: int = Query(0, ge=0),
+    limit: int = Query(100, ge=1, le=1000),
+    username: Optional[str] = None,
+    severity: Optional[str] = None,
+    status: Optional[str] = None,
+    days_back: Optional[int] = None,
+    db: Session = Depends(get_db)
+):
+    """Get alerts with optional filtering"""
+    return crud.get_alerts(
+        db,
+        skip=skip,
+        limit=limit,
+        username=username,
+        severity=severity,
+        status=status,
+        days_back=days_back
+    )
+
+
+@app.get("/alerts/{alert_id}", response_model=schemas.AlertResponse, tags=["Alerts"])
+async def get_alert(alert_id: int, db: Session = Depends(get_db)):
+    """Get a specific alert by ID"""
+    alert = crud.get_alert(db, alert_id)
+    if not alert:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Alert {alert_id} not found"
+        )
+    return alert
+
+
+@app.patch("/alerts/{alert_id}", response_model=schemas.AlertResponse, tags=["Alerts"])
+async def update_alert(
+    alert_id: int,
+    alert_update: schemas.AlertUpdate,
+    db: Session = Depends(get_db)
+):
+    """Update an alert"""
+    updated_alert = crud.update_alert(db, alert_id, alert_update.model_dump(exclude_unset=True))
+    if not updated_alert:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Alert {alert_id} not found"
+        )
+    return updated_alert
+
+
+@app.delete("/alerts/{alert_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Alerts"])
+async def delete_alert(alert_id: int, db: Session = Depends(get_db)):
+    """Delete an alert"""
+    success = crud.delete_alert(db, alert_id)
+    if not success:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Alert {alert_id} not found"
+        )
+
+
+# ==================== Monitoring Log Endpoints ====================
+
+@app.post("/monitoring-logs", response_model=schemas.MonitoringLogResponse, status_code=status.HTTP_201_CREATED, tags=["Monitoring"])
+async def create_monitoring_log(log: schemas.MonitoringLogCreate, db: Session = Depends(get_db)):
+    """Create a new monitoring log entry"""
+    return crud.create_monitoring_log(db, log.model_dump())
+
+
+@app.get("/monitoring-logs", response_model=List[schemas.MonitoringLogResponse], tags=["Monitoring"])
+async def get_monitoring_logs(
+    skip: int = Query(0, ge=0),
+    limit: int = Query(100, ge=1, le=1000),
+    username: Optional[str] = None,
+    activity_type: Optional[str] = None,
+    days_back: Optional[int] = Query(7, ge=1),
+    db: Session = Depends(get_db)
+):
+    """Get monitoring logs with optional filtering"""
+    return crud.get_monitoring_logs(
+        db,
+        username=username,
+        activity_type=activity_type,
+        days_back=days_back,
+        skip=skip,
+        limit=limit
+    )
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)

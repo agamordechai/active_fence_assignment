@@ -3,7 +3,7 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
-from src.database.models import User, Post
+from src.database.models import User, Post, Alert, MonitoringLog
 
 
 class TestHealthEndpoint:
@@ -377,3 +377,240 @@ class TestBulkEndpoints:
         data = response.json()
         assert data["created"] == 0
         assert data["skipped"] == 0
+
+
+class TestAlertEndpoints:
+    """Tests for alert-related endpoints"""
+
+    def test_create_alert(
+        self, client: TestClient, db_with_user: tuple[Session, User], sample_alert_data_api: dict
+    ):
+        """Test creating a new alert"""
+        response = client.post("/alerts", json=sample_alert_data_api)
+        assert response.status_code == 201
+        data = response.json()
+        assert data["username"] == sample_alert_data_api["username"]
+        assert data["alert_type"] == sample_alert_data_api["alert_type"]
+        assert data["severity"] == sample_alert_data_api["severity"]
+        assert data["risk_score"] == sample_alert_data_api["risk_score"]
+        assert data["description"] == sample_alert_data_api["description"]
+        assert data["status"] == "new"
+        assert "id" in data
+        assert "created_at" in data
+
+    def test_create_alert_minimal_data(self, client: TestClient, db_with_user: tuple[Session, User]):
+        """Test creating an alert with minimal required data"""
+        minimal_alert = {
+            "username": "test_user",
+            "alert_type": "risk_threshold",
+            "severity": "medium",
+            "risk_score": 50,
+            "description": "User exceeded risk threshold"
+        }
+        response = client.post("/alerts", json=minimal_alert)
+        assert response.status_code == 201
+        data = response.json()
+        assert data["post_id"] is None
+        assert data["details"] is None
+
+    def test_get_alerts_empty(self, client: TestClient):
+        """Test getting alerts when database is empty"""
+        response = client.get("/alerts")
+        assert response.status_code == 200
+        assert response.json() == []
+
+    def test_get_alerts_with_data(
+        self, client: TestClient, db_with_alert: tuple[Session, Alert]
+    ):
+        """Test getting alerts with data"""
+        response = client.get("/alerts")
+        assert response.status_code == 200
+        data = response.json()
+        assert len(data) == 1
+        assert data[0]["username"] == "test_user"
+        assert data[0]["severity"] == "high"
+
+    def test_get_alerts_with_filters(
+        self, client: TestClient, db_with_alert: tuple[Session, Alert]
+    ):
+        """Test getting alerts with various filters"""
+        # Filter by username
+        response = client.get("/alerts", params={"username": "test_user"})
+        assert response.status_code == 200
+        assert len(response.json()) == 1
+
+        # Filter by non-existent username
+        response = client.get("/alerts", params={"username": "nonexistent"})
+        assert response.status_code == 200
+        assert len(response.json()) == 0
+
+        # Filter by severity
+        response = client.get("/alerts", params={"severity": "high"})
+        assert response.status_code == 200
+        assert len(response.json()) == 1
+
+        # Filter by status
+        response = client.get("/alerts", params={"status": "new"})
+        assert response.status_code == 200
+        assert len(response.json()) == 1
+
+    def test_get_alerts_pagination(
+        self, client: TestClient, db_with_alert: tuple[Session, Alert]
+    ):
+        """Test alerts pagination"""
+        response = client.get("/alerts", params={"skip": 0, "limit": 10})
+        assert response.status_code == 200
+
+        response = client.get("/alerts", params={"skip": 100, "limit": 10})
+        assert response.status_code == 200
+        assert len(response.json()) == 0
+
+    def test_get_alert_by_id(
+        self, client: TestClient, db_with_alert: tuple[Session, Alert]
+    ):
+        """Test getting a specific alert by ID"""
+        _, alert = db_with_alert
+        response = client.get(f"/alerts/{alert.id}")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["id"] == alert.id
+        assert data["username"] == "test_user"
+
+    def test_get_alert_not_found(self, client: TestClient):
+        """Test getting a non-existent alert"""
+        response = client.get("/alerts/99999")
+        assert response.status_code == 404
+        assert "not found" in response.json()["detail"]
+
+    def test_update_alert(
+        self, client: TestClient, db_with_alert: tuple[Session, Alert]
+    ):
+        """Test updating an alert"""
+        _, alert = db_with_alert
+        update_data = {
+            "status": "reviewed",
+            "reviewed_by": "admin_user",
+            "resolution_notes": "Reviewed and confirmed as valid alert"
+        }
+        response = client.patch(f"/alerts/{alert.id}", json=update_data)
+        assert response.status_code == 200
+        data = response.json()
+        assert data["status"] == "reviewed"
+        assert data["reviewed_by"] == "admin_user"
+        assert data["resolution_notes"] == "Reviewed and confirmed as valid alert"
+
+    def test_update_alert_not_found(self, client: TestClient):
+        """Test updating a non-existent alert"""
+        update_data = {"status": "reviewed"}
+        response = client.patch("/alerts/99999", json=update_data)
+        assert response.status_code == 404
+
+    def test_delete_alert(
+        self, client: TestClient, db_with_alert: tuple[Session, Alert]
+    ):
+        """Test deleting an alert"""
+        _, alert = db_with_alert
+        response = client.delete(f"/alerts/{alert.id}")
+        assert response.status_code == 204
+
+        # Verify alert is deleted
+        response = client.get(f"/alerts/{alert.id}")
+        assert response.status_code == 404
+
+    def test_delete_alert_not_found(self, client: TestClient):
+        """Test deleting a non-existent alert"""
+        response = client.delete("/alerts/99999")
+        assert response.status_code == 404
+
+
+class TestMonitoringLogEndpoints:
+    """Tests for monitoring log endpoints"""
+
+    def test_create_monitoring_log(
+        self, client: TestClient, db_with_user: tuple[Session, User], sample_monitoring_log_data_api: dict
+    ):
+        """Test creating a new monitoring log"""
+        response = client.post("/monitoring-logs", json=sample_monitoring_log_data_api)
+        assert response.status_code == 201
+        data = response.json()
+        assert data["username"] == sample_monitoring_log_data_api["username"]
+        assert data["activity_type"] == sample_monitoring_log_data_api["activity_type"]
+        assert data["description"] == sample_monitoring_log_data_api["description"]
+        assert data["findings"] == sample_monitoring_log_data_api["findings"]
+        assert "id" in data
+        assert "created_at" in data
+
+    def test_create_monitoring_log_minimal_data(
+        self, client: TestClient, db_with_user: tuple[Session, User]
+    ):
+        """Test creating a monitoring log with minimal required data"""
+        minimal_log = {
+            "username": "test_user",
+            "activity_type": "scheduled_check"
+        }
+        response = client.post("/monitoring-logs", json=minimal_log)
+        assert response.status_code == 201
+        data = response.json()
+        assert data["description"] is None
+        assert data["findings"] is None
+
+    def test_get_monitoring_logs_empty(self, client: TestClient):
+        """Test getting monitoring logs when database is empty"""
+        response = client.get("/monitoring-logs")
+        assert response.status_code == 200
+        assert response.json() == []
+
+    def test_get_monitoring_logs_with_data(
+        self, client: TestClient, db_with_monitoring_log: tuple[Session, MonitoringLog]
+    ):
+        """Test getting monitoring logs with data"""
+        response = client.get("/monitoring-logs")
+        assert response.status_code == 200
+        data = response.json()
+        assert len(data) == 1
+        assert data[0]["username"] == "test_user"
+        assert data[0]["activity_type"] == "post_review"
+
+    def test_get_monitoring_logs_with_filters(
+        self, client: TestClient, db_with_monitoring_log: tuple[Session, MonitoringLog]
+    ):
+        """Test getting monitoring logs with various filters"""
+        # Filter by username
+        response = client.get("/monitoring-logs", params={"username": "test_user"})
+        assert response.status_code == 200
+        assert len(response.json()) == 1
+
+        # Filter by non-existent username
+        response = client.get("/monitoring-logs", params={"username": "nonexistent"})
+        assert response.status_code == 200
+        assert len(response.json()) == 0
+
+        # Filter by activity_type
+        response = client.get("/monitoring-logs", params={"activity_type": "post_review"})
+        assert response.status_code == 200
+        assert len(response.json()) == 1
+
+    def test_get_monitoring_logs_pagination(
+        self, client: TestClient, db_with_monitoring_log: tuple[Session, MonitoringLog]
+    ):
+        """Test monitoring logs pagination"""
+        response = client.get("/monitoring-logs", params={"skip": 0, "limit": 10})
+        assert response.status_code == 200
+
+        response = client.get("/monitoring-logs", params={"skip": 100, "limit": 10})
+        assert response.status_code == 200
+        assert len(response.json()) == 0
+
+    def test_get_monitoring_logs_days_back(
+        self, client: TestClient, db_with_monitoring_log: tuple[Session, MonitoringLog]
+    ):
+        """Test filtering monitoring logs by days_back"""
+        # Recent logs (within 7 days - default)
+        response = client.get("/monitoring-logs", params={"days_back": 7})
+        assert response.status_code == 200
+        assert len(response.json()) == 1
+
+        # Very old logs filter (logs from last 1 day should still include recent)
+        response = client.get("/monitoring-logs", params={"days_back": 1})
+        assert response.status_code == 200
+        # Log was just created, should be included

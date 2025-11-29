@@ -54,7 +54,6 @@ class Settings(BaseSettings):
     posts_per_search: int = 25
 
     user_history_days: int = 60
-    max_user_content: int = 100
 
     @cached_property
     def subreddits_list(self) -> list[str]:
