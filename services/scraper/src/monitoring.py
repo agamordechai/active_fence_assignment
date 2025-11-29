@@ -7,6 +7,7 @@ from src.collectors.reddit_scraper import RedditScraper
 from src.enrichers.user_enricher import UserEnricher
 from src.scorers.hate_speech_scorer import HateSpeechScorer
 from src.api_client import APIClient
+from src.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -56,7 +57,7 @@ class UserMonitor:
 
         try:
             # Fetch recent user activity
-            user_history = self.scraper.get_user_history(username, limit=50)
+            user_history = self.scraper.get_user_history(username, user_history_days=settings.user_history_days)
 
             if user_history['total_posts'] == 0 and user_history['total_comments'] == 0:
                 logger.warning(f"  u/{username}: No content found (private/deleted/suspended)")

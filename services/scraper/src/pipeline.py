@@ -6,6 +6,7 @@ from src.enrichers.user_enricher import UserEnricher
 from src.scorers.hate_speech_scorer import HateSpeechScorer
 from src.api_client import APIClient
 from src.monitoring import UserMonitor
+from src.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -103,7 +104,7 @@ class DataPipeline:
 
         for i, username in enumerate(users_to_enrich, 1):
             logger.info(f"  Processing user {i}/{len(users_to_enrich)}: u/{username}")
-            user_history = self.scraper.get_user_history(username, limit=100)
+            user_history = self.scraper.get_user_history(username, user_history_days=settings.user_history_days)
 
             # Skip users with no content (new users, private profiles, deleted accounts)
             if user_history['total_posts'] == 0 and user_history['total_comments'] == 0:
