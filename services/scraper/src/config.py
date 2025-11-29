@@ -45,9 +45,14 @@ class Settings(BaseSettings):
     user_agent: str = "Mozilla/5.0"
 
     # Data Collection Settings (target_subreddits as comma-separated string)
-    target_subreddits: str = "news,politics,unpopularopinion,racism,goodanimemes,RoastMe"
+    target_subreddits: str = "news,politics,unpopularopinion,racism,goodanimemes,RoastMe,conspiracy,controversialopinions,TrueOffMyChest,fightporn,ActualPublicFreakouts,rage,iamatotalpieceofshit,NoahGetTheBoat,awfuleverything,PoliticalDiscussion,TrueCrime"
     posts_per_subreddit: int = 10
     max_users_to_enrich: int = 20
+
+    # Search terms for finding controversial/harmful content
+    search_terms: str = "hate,violence,threat,kill,attack,racist,extremist"
+    posts_per_search: int = 25
+
     user_history_days: int = 60
     max_user_content: int = 100
 
@@ -55,6 +60,11 @@ class Settings(BaseSettings):
     def subreddits_list(self) -> list[str]:
         """Get target subreddits as a list"""
         return [s.strip() for s in self.target_subreddits.split(",")]
+
+    @cached_property
+    def search_terms_list(self) -> list[str]:
+        """Get search terms as a list"""
+        return [s.strip() for s in self.search_terms.split(",")]
 
     # Risk Score Configuration
     critical_risk_threshold: int = 70
@@ -140,6 +150,8 @@ class Config:
     MIN_POST_LENGTH = settings.min_post_length
     FILTER_BOTS = settings.filter_bots
     FILTER_DELETED = settings.filter_deleted
+    SEARCH_TERMS = settings.search_terms_list
+    POSTS_PER_SEARCH = settings.posts_per_search
 
     @classmethod
     def get_log_level(cls):

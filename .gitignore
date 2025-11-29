@@ -71,6 +71,7 @@ data/users_*.json
 # Environment
 .env
 .env.local
+services/*/.env
 
 # MyPy
 .mypy_cache/

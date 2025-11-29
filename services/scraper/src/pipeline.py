@@ -20,7 +20,8 @@ class DataPipeline:
 
 
     def run_full_pipeline(self, subreddits: list, posts_per_subreddit: int = 25,
-                         max_users_to_enrich: int = 20):
+                         max_users_to_enrich: int = 20,
+                         search_terms: list = None, posts_per_search: int = 25):
         """
         Run complete pipeline: collection -> enrichment -> scoring
 
@@ -28,59 +29,71 @@ class DataPipeline:
             subreddits: List of subreddit names to collect from
             posts_per_subreddit: Number of posts per subreddit
             max_users_to_enrich: Maximum number of users to enrich with history
+            search_terms: List of search terms for finding controversial content
+            posts_per_search: Number of posts to fetch per search term
         """
         logger.info("=" * 80)
         logger.info("STARTING DATA PROCESSING PIPELINE")
         logger.info("=" * 80)
 
-        # Step 1: Collect posts
+        # Step 1a: Collect posts from subreddits
         logger.info(f"\n[STEP 1/5] Collecting posts from {len(subreddits)} subreddits...")
         all_posts = self.scraper.collect_from_multiple_subreddits(
             subreddits=subreddits,
             posts_per_subreddit=posts_per_subreddit
         )
-        logger.info(f"Collected {len(all_posts)} posts")
+        logger.info(f"Collected {len(all_posts)} posts from subreddits")
+
+        # Step 1b: Collect posts using search terms
+        if search_terms:
+            logger.info(f"\n[STEP 1b/5] Searching for posts with {len(search_terms)} search terms...")
+            seen_ids = {p['id'] for p in all_posts}
+            for term in search_terms:
+                search_results = self.scraper.search_posts(query=term, limit=posts_per_search)
+                # Deduplicate - only add posts we haven't seen
+                new_posts = [p for p in search_results if p['id'] not in seen_ids]
+                for p in new_posts:
+                    seen_ids.add(p['id'])
+                all_posts.extend(new_posts)
+                logger.info(f"  Search '{term}': found {len(search_results)} posts, {len(new_posts)} new")
+            logger.info(f"Total posts after search: {len(all_posts)}")
 
         # Step 2: Score posts
         logger.info(f"\n[STEP 2/5] Scoring {len(all_posts)} posts for hate speech and violence...")
         scored_posts = self.scorer.score_multiple_posts(all_posts)
 
+        # Filter to keep only posts with controversial, harmful, or violent content (risk_score > 0)
+        scored_posts = [p for p in scored_posts
+                        if p['risk_assessment']['risk_score'] > 0]
+        logger.info(f"Filtered to {len(scored_posts)} posts with harmful/violent content")
+
         # Filter high-risk posts
         high_risk_posts = [p for p in scored_posts
                           if p['risk_assessment']['risk_score'] >= 50]
-        logger.info(f"Scored all posts. Found {len(high_risk_posts)} high-risk posts")
+        logger.info(f"Found {len(high_risk_posts)} high-risk posts")
 
 
-        # Step 3: Extract authors and enrich
-        logger.info(f"\n[STEP 3/5] Extracting unique authors...")
-        unique_authors = set(post['author'] for post in all_posts
+        # Step 3: Extract authors from harmful posts only
+        logger.info(f"\n[STEP 3/5] Extracting authors from harmful content posts...")
+        # Only consider authors from posts with harmful content (scored_posts already filtered)
+        unique_authors = set(post['author'] for post in scored_posts
                            if post['author'] not in ['[deleted]', 'AutoModerator', '[removed]'])
-        logger.info(f"Found {len(unique_authors)} unique authors")
+        logger.info(f"Found {len(unique_authors)} unique authors from harmful content")
 
-        # Prioritize authors from high-risk posts by their highest risk score
-        author_max_risk = {}
-        for post in high_risk_posts:
-            author = post['author']
-            if author not in ['[deleted]', 'AutoModerator', '[removed]']:
-                risk_score = post['risk_assessment']['risk_score']
-                if author not in author_max_risk or risk_score > author_max_risk[author]:
-                    author_max_risk[author] = risk_score
+        # Prioritize authors from high-risk posts
+        high_risk_authors = set(p['author'] for p in high_risk_posts
+                              if p['author'] not in ['[deleted]', 'AutoModerator', '[removed]'])
 
-        # Sort authors by their highest risk score (descending)
-        high_risk_authors_sorted = sorted(author_max_risk.keys(),
-                                         key=lambda a: author_max_risk[a],
-                                         reverse=True)
-
-        # Select users to enrich (prioritize top riskiest authors)
-        users_to_enrich = high_risk_authors_sorted[:max_users_to_enrich]
+        # Select users to enrich (prioritize high-risk authors)
+        users_to_enrich = list(high_risk_authors)[:max_users_to_enrich]
         remaining_slots = max_users_to_enrich - len(users_to_enrich)
 
         if remaining_slots > 0:
-            other_authors = [u for u in unique_authors if u not in author_max_risk]
+            other_authors = [u for u in unique_authors if u not in high_risk_authors]
             users_to_enrich.extend(other_authors[:remaining_slots])
 
         logger.info(f"Selected {len(users_to_enrich)} users for enrichment "
-                   f"({len(author_max_risk)} high-risk priority)")
+                   f"({len(high_risk_authors)} high-risk priority)")
 
         # Step 4: Enrich user data
         logger.info(f"\n[STEP 4/5] Enriching user data (fetching 2+ months history)...")
@@ -99,6 +112,11 @@ class DataPipeline:
         # Step 5: Score users
         logger.info(f"\n[STEP 5/5] Scoring {len(enriched_users)} users...")
         scored_users = self.scorer.score_multiple_users(enriched_users)
+
+        # Filter to keep only users with harmful/violent content (overall_risk_score > 0)
+        scored_users = [u for u in scored_users
+                        if u['risk_assessment']['overall_risk_score'] > 0]
+        logger.info(f"Filtered to {len(scored_users)} users with harmful/violent content")
 
         # Sort by risk score
         scored_users.sort(key=lambda u: u['risk_assessment']['overall_risk_score'],

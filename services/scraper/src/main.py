@@ -20,7 +20,9 @@ def run_single():
         results = pipeline.run_full_pipeline(
             subreddits=Config.TARGET_SUBREDDITS,
             posts_per_subreddit=Config.POSTS_PER_SUBREDDIT,
-            max_users_to_enrich=Config.MAX_USERS_TO_ENRICH
+            max_users_to_enrich=Config.MAX_USERS_TO_ENRICH,
+            search_terms=Config.SEARCH_TERMS,
+            posts_per_search=Config.POSTS_PER_SEARCH
         )
 
         logger.info("=" * 80)
@@ -55,7 +57,9 @@ def run_scheduler():
                 results = pipeline.run_full_pipeline(
                     subreddits=Config.TARGET_SUBREDDITS,
                     posts_per_subreddit=Config.POSTS_PER_SUBREDDIT,
-                    max_users_to_enrich=Config.MAX_USERS_TO_ENRICH
+                    max_users_to_enrich=Config.MAX_USERS_TO_ENRICH,
+                    search_terms=Config.SEARCH_TERMS,
+                    posts_per_search=Config.POSTS_PER_SEARCH
                 )
                 logger.info(f"Scheduled run #{run_count} completed successfully")
 
@@ -92,7 +96,9 @@ def run_continuous():
                 results = pipeline.run_full_pipeline(
                     subreddits=Config.TARGET_SUBREDDITS,
                     posts_per_subreddit=Config.POSTS_PER_SUBREDDIT,
-                    max_users_to_enrich=Config.MAX_USERS_TO_ENRICH
+                    max_users_to_enrich=Config.MAX_USERS_TO_ENRICH,
+                    search_terms=Config.SEARCH_TERMS,
+                    posts_per_search=Config.POSTS_PER_SEARCH
                 )
                 logger.info(f"Continuous run #{run_count} completed successfully")
 
