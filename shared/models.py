@@ -39,7 +39,8 @@ class ScoredPost(BaseModel):
     upvote_ratio: float = 0.0
     num_comments: int = 0
     permalink: Optional[str] = None
-    url: Optional[str] = None
+    url: Optional[str] = None  # Reddit post URL
+    external_url: Optional[str] = None  # External URL that the post links to
     is_self: bool = False
     over_18: bool = False
     spoiler: bool = False
@@ -78,6 +79,7 @@ class ScoredPost(BaseModel):
             num_comments=data.get('num_comments', 0),
             permalink=data.get('permalink'),
             url=data.get('url'),
+            external_url=data.get('external_url'),
             is_self=data.get('is_self', False),
             over_18=data.get('over_18', False),
             spoiler=data.get('spoiler', False),

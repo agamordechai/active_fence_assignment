@@ -67,7 +67,8 @@ class RedditScraper:
                     'upvote_ratio': post_data.get('upvote_ratio', 0),
                     'num_comments': post_data['num_comments'],
                     'permalink': post_data['permalink'],
-                    'url': post_data['url'],
+                    'url': f"https://www.reddit.com{post_data['permalink']}",  # Use actual Reddit post URL
+                    'external_url': post_data['url'],  # Store the external/linked URL separately
                     'is_self': post_data['is_self'],
                     'over_18': post_data.get('over_18', False),
                     'spoiler': post_data.get('spoiler', False),
@@ -317,7 +318,8 @@ class RedditScraper:
                     'score': post_data['score'],
                     'num_comments': post_data['num_comments'],
                     'permalink': post_data['permalink'],
-                    'url': post_data['url'],
+                    'url': f"https://www.reddit.com{post_data['permalink']}",  # Use actual Reddit post URL
+                    'external_url': post_data['url'],  # Store the external/linked URL separately
                 })
 
             logger.info(f"Found {len(posts)} posts matching '{query}'")

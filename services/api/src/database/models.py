@@ -25,7 +25,8 @@ class Post(Base):
     upvote_ratio = Column(Float, default=0.0)
     num_comments = Column(Integer, default=0)
     permalink = Column(String(500))
-    url = Column(Text)
+    url = Column(Text)  # Reddit post URL
+    external_url = Column(Text)  # External URL that the post links to
     is_self = Column(Boolean, default=False)
     over_18 = Column(Boolean, default=False)
     spoiler = Column(Boolean, default=False)
