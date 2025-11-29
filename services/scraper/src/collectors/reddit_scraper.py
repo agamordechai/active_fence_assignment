@@ -3,7 +3,7 @@ import requests
 import json
 import time
 from typing import List, Dict, Optional
-from datetime import datetime
+from datetime import datetime, timedelta
 import logging
 
 logger = logging.getLogger(__name__)
@@ -89,110 +89,172 @@ class RedditScraper:
 
         return posts
 
-    def get_user_posts(self, username: str, limit: int = 100) -> List[Dict]:
+    def get_user_posts(self, username: str, user_history_days: int = 60) -> List[Dict]:
         """
-        Fetch a user's recent posts
+        Fetch all user's posts within the configured time window using pagination
 
         Args:
             username: Reddit username (without u/)
-            limit: Maximum number of posts to fetch
+            user_history_days: Number of days to look back for posts (default: 60)
 
         Returns:
-            List of post dictionaries
+            List of post dictionaries from the last user_history_days
         """
         posts = []
-        url = f"https://www.reddit.com/user/{username}/submitted.json?limit={min(limit, 100)}"
+        cutoff_time = (datetime.now() - timedelta(days=user_history_days)).timestamp()
+        after = None
+        should_continue = True
+        page_count = 0
 
-        try:
-            logger.info(f"Fetching posts from u/{username}...")
-            response = self.session.get(url, timeout=10)
-            response.raise_for_status()
-            data = response.json()
+        logger.info(f"Fetching all posts from u/{username} (last {user_history_days} days)...")
 
-            for post in data['data']['children']:
-                post_data = post['data']
-                posts.append({
-                    'id': post_data['id'],
-                    'title': post_data.get('title', ''),
-                    'selftext': post_data.get('selftext', ''),
-                    'subreddit': post_data['subreddit'],
-                    'created_utc': post_data['created_utc'],
-                    'created_date': datetime.fromtimestamp(post_data['created_utc']).isoformat(),
-                    'score': post_data['score'],
-                    'num_comments': post_data['num_comments'],
-                    'permalink': post_data['permalink'],
-                })
+        while should_continue:
+            page_count += 1
+            url = f"https://www.reddit.com/user/{username}/submitted.json?limit=100"
+            if after:
+                url += f"&after={after}"
 
-            logger.info(f"Successfully fetched {len(posts)} posts from u/{username}")
-            self._wait()
+            try:
+                response = self.session.get(url, timeout=10)
+                response.raise_for_status()
+                data = response.json()
 
-        except requests.exceptions.HTTPError as e:
-            if e.response.status_code == 404:
-                logger.warning(f"User u/{username} not found or deleted")
-            elif e.response.status_code == 403:
-                logger.warning(f"User u/{username} has a private or suspended profile")
-            else:
-                logger.error(f"HTTP error fetching posts from u/{username}: {e}")
-        except Exception as e:
-            logger.error(f"Error fetching posts from u/{username}: {e}")
+                items = data['data']['children']
+                if not items:
+                    # No more items to fetch
+                    break
 
+                for post in items:
+                    post_data = post['data']
+                    created_utc = post_data['created_utc']
+
+                    # Stop if we've gone past our time window
+                    if created_utc < cutoff_time:
+                        should_continue = False
+                        break
+
+                    posts.append({
+                        'id': post_data['id'],
+                        'title': post_data.get('title', ''),
+                        'selftext': post_data.get('selftext', ''),
+                        'subreddit': post_data['subreddit'],
+                        'created_utc': created_utc,
+                        'created_date': datetime.fromtimestamp(created_utc).isoformat(),
+                        'score': post_data['score'],
+                        'num_comments': post_data['num_comments'],
+                        'permalink': post_data['permalink'],
+                    })
+
+                # Get pagination token for next page
+                after = data['data'].get('after')
+                if not after:
+                    # No more pages
+                    break
+
+                logger.debug(f"Fetched page {page_count} for u/{username} posts (total: {len(posts)})")
+                self._wait()
+
+            except requests.exceptions.HTTPError as e:
+                if e.response.status_code == 404:
+                    logger.warning(f"User u/{username} not found or deleted")
+                elif e.response.status_code == 403:
+                    logger.warning(f"User u/{username} has a private or suspended profile")
+                else:
+                    logger.error(f"HTTP error fetching posts from u/{username}: {e}")
+                break
+            except Exception as e:
+                logger.error(f"Error fetching posts from u/{username}: {e}")
+                break
+
+        logger.info(f"Successfully fetched {len(posts)} posts from u/{username} ({page_count} pages)")
         return posts
 
-    def get_user_comments(self, username: str, limit: int = 100) -> List[Dict]:
+    def get_user_comments(self, username: str, user_history_days: int = 60) -> List[Dict]:
         """
-        Fetch a user's recent comments
+        Fetch all user's comments within the configured time window using pagination
 
         Args:
             username: Reddit username (without u/)
-            limit: Maximum number of comments to fetch
+            user_history_days: Number of days to look back for comments (default: 60)
 
         Returns:
-            List of comment dictionaries
+            List of comment dictionaries from the last user_history_days
         """
         comments = []
-        url = f"https://www.reddit.com/user/{username}/comments.json?limit={min(limit, 100)}"
+        cutoff_time = (datetime.now() - timedelta(days=user_history_days)).timestamp()
+        after = None
+        should_continue = True
+        page_count = 0
 
-        try:
-            logger.info(f"Fetching comments from u/{username}...")
-            response = self.session.get(url, timeout=10)
-            response.raise_for_status()
-            data = response.json()
+        logger.info(f"Fetching all comments from u/{username} (last {user_history_days} days)...")
 
-            for comment in data['data']['children']:
-                comment_data = comment['data']
-                comments.append({
-                    'id': comment_data['id'],
-                    'body': comment_data['body'],
-                    'subreddit': comment_data['subreddit'],
-                    'created_utc': comment_data['created_utc'],
-                    'created_date': datetime.fromtimestamp(comment_data['created_utc']).isoformat(),
-                    'score': comment_data['score'],
-                    'permalink': comment_data['permalink'],
-                    'link_title': comment_data.get('link_title', ''),
-                })
+        while should_continue:
+            page_count += 1
+            url = f"https://www.reddit.com/user/{username}/comments.json?limit=100"
+            if after:
+                url += f"&after={after}"
 
-            logger.info(f"Successfully fetched {len(comments)} comments from u/{username}")
-            self._wait()
+            try:
+                response = self.session.get(url, timeout=10)
+                response.raise_for_status()
+                data = response.json()
 
-        except requests.exceptions.HTTPError as e:
-            if e.response.status_code == 404:
-                logger.warning(f"User u/{username} not found or deleted")
-            elif e.response.status_code == 403:
-                logger.warning(f"User u/{username} has a private or suspended profile")
-            else:
-                logger.error(f"HTTP error fetching comments from u/{username}: {e}")
-        except Exception as e:
-            logger.error(f"Error fetching comments from u/{username}: {e}")
+                items = data['data']['children']
+                if not items:
+                    # No more items to fetch
+                    break
 
+                for comment in items:
+                    comment_data = comment['data']
+                    created_utc = comment_data['created_utc']
+
+                    # Stop if we've gone past our time window
+                    if created_utc < cutoff_time:
+                        should_continue = False
+                        break
+
+                    comments.append({
+                        'id': comment_data['id'],
+                        'body': comment_data['body'],
+                        'subreddit': comment_data['subreddit'],
+                        'created_utc': created_utc,
+                        'created_date': datetime.fromtimestamp(created_utc).isoformat(),
+                        'score': comment_data['score'],
+                        'permalink': comment_data['permalink'],
+                        'link_title': comment_data.get('link_title', ''),
+                    })
+
+                # Get pagination token for next page
+                after = data['data'].get('after')
+                if not after:
+                    # No more pages
+                    break
+
+                logger.debug(f"Fetched page {page_count} for u/{username} comments (total: {len(comments)})")
+                self._wait()
+
+            except requests.exceptions.HTTPError as e:
+                if e.response.status_code == 404:
+                    logger.warning(f"User u/{username} not found or deleted")
+                elif e.response.status_code == 403:
+                    logger.warning(f"User u/{username} has a private or suspended profile")
+                else:
+                    logger.error(f"HTTP error fetching comments from u/{username}: {e}")
+                break
+            except Exception as e:
+                logger.error(f"Error fetching comments from u/{username}: {e}")
+                break
+
+        logger.info(f"Successfully fetched {len(comments)} comments from u/{username} ({page_count} pages)")
         return comments
 
-    def get_user_history(self, username: str, limit: int = 100) -> Dict:
+    def get_user_history(self, username: str, user_history_days: int = 60) -> Dict:
         """
         Fetch complete user history (posts and comments)
 
         Args:
             username: Reddit username (without u/)
-            limit: Maximum number of items to fetch per type
+            user_history_days: Number of days to look back for user content (default: 60)
 
         Returns:
             Dictionary containing username, posts, and comments
@@ -201,8 +263,8 @@ class RedditScraper:
 
         user_data = {
             'username': username,
-            'posts': self.get_user_posts(username, limit),
-            'comments': self.get_user_comments(username, limit),
+            'posts': self.get_user_posts(username, user_history_days),
+            'comments': self.get_user_comments(username, user_history_days),
             'total_posts': 0,
             'total_comments': 0,
             'fetched_at': datetime.now().isoformat(),
