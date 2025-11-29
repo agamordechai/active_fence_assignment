@@ -5,7 +5,7 @@ from unittest.mock import patch, MagicMock
 from pathlib import Path
 import os
 
-from src.config import Settings, LogLevel, RunMode, setup_logging
+from src.config import Settings, LogLevel, setup_logging
 
 
 class TestLogLevelEnum:
@@ -20,16 +20,6 @@ class TestLogLevelEnum:
         assert LogLevel.CRITICAL == "CRITICAL"
 
 
-class TestRunModeEnum:
-    """Tests for RunMode enum"""
-
-    def test_run_modes_exist(self):
-        """Test all expected run modes exist"""
-        assert RunMode.SINGLE == "single"
-        assert RunMode.SCHEDULER == "scheduler"
-        assert RunMode.CONTINUOUS == "continuous"
-
-
 class TestSettings:
     """Tests for Settings class"""
 
@@ -39,7 +29,6 @@ class TestSettings:
             settings = Settings()
 
             assert settings.log_level == LogLevel.INFO
-            assert settings.run_mode == RunMode.SINGLE
             assert settings.rate_limit_delay == 2.0
             assert settings.request_timeout == 10
             assert settings.posts_per_subreddit == 10
@@ -56,7 +45,6 @@ class TestSettings:
         """Test settings can be loaded from environment variables"""
         env_vars = {
             "LOG_LEVEL": "DEBUG",
-            "RUN_MODE": "scheduler",
             "RATE_LIMIT_DELAY": "3.5",
             "POSTS_PER_SUBREDDIT": "50",
             "API_URL": "http://example.com:8080",
@@ -65,7 +53,6 @@ class TestSettings:
             settings = Settings()
 
             assert settings.log_level == LogLevel.DEBUG
-            assert settings.run_mode == RunMode.SCHEDULER
             assert settings.rate_limit_delay == 3.5
             assert settings.posts_per_subreddit == 50
             assert settings.api_url == "http://example.com:8080"

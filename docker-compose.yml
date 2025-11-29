@@ -35,7 +35,6 @@ services:
       - POSTS_PER_SUBREDDIT=${POSTS_PER_SUBREDDIT:-10}
       - MAX_USERS_TO_ENRICH=${MAX_USERS_TO_ENRICH:-20}
       - TARGET_SUBREDDITS=${TARGET_SUBREDDITS:-news,politics,unpopularopinion,racism,goodanimemes,RoastMe}
-      - RUN_MODE=continuous
       - API_URL=http://api:8000
     env_file:
       - ./services/scraper/.env

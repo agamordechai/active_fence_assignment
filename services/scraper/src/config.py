@@ -16,13 +16,6 @@ class LogLevel(StrEnum):
     CRITICAL = "CRITICAL"
 
 
-class RunMode(StrEnum):
-    """Run mode options"""
-    SINGLE = "single"
-    SCHEDULER = "scheduler"
-    CONTINUOUS = "continuous"
-
-
 class Settings(BaseSettings):
     """Scraper service settings from environment variables"""
 
@@ -35,9 +28,6 @@ class Settings(BaseSettings):
 
     # Logging
     log_level: LogLevel = LogLevel.INFO
-
-    # Run Mode
-    run_mode: RunMode = RunMode.SINGLE
 
     # Web Scraping Settings
     rate_limit_delay: float = 2.0
@@ -104,7 +94,6 @@ class Settings(BaseSettings):
         logger.info("=" * 80)
         logger.info("SCRAPER CONFIGURATION")
         logger.info("=" * 80)
-        logger.info(f"  Run Mode: {self.run_mode}")
         logger.info(f"  Log Level: {self.log_level}")
         logger.info(f"  Target subreddits: {self.subreddits_list}")
         logger.info(f"  Posts per subreddit: {self.posts_per_subreddit}")
