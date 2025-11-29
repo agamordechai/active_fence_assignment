@@ -128,7 +128,9 @@ class RedditScraper:
 
         except requests.exceptions.HTTPError as e:
             if e.response.status_code == 404:
-                logger.warning(f"User u/{username} not found or has no posts")
+                logger.warning(f"User u/{username} not found or deleted")
+            elif e.response.status_code == 403:
+                logger.warning(f"User u/{username} has a private or suspended profile")
             else:
                 logger.error(f"HTTP error fetching posts from u/{username}: {e}")
         except Exception as e:
@@ -174,7 +176,9 @@ class RedditScraper:
 
         except requests.exceptions.HTTPError as e:
             if e.response.status_code == 404:
-                logger.warning(f"User u/{username} not found or has no comments")
+                logger.warning(f"User u/{username} not found or deleted")
+            elif e.response.status_code == 403:
+                logger.warning(f"User u/{username} has a private or suspended profile")
             else:
                 logger.error(f"HTTP error fetching comments from u/{username}: {e}")
         except Exception as e:

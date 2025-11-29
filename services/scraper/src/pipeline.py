@@ -98,12 +98,21 @@ class DataPipeline:
         # Step 4: Enrich user data
         logger.info(f"\n[STEP 4/5] Enriching user data (fetching 2+ months history)...")
         raw_user_data = []
+        skipped_users = 0
 
         for i, username in enumerate(users_to_enrich, 1):
             logger.info(f"  Processing user {i}/{len(users_to_enrich)}: u/{username}")
             user_history = self.scraper.get_user_history(username, limit=100)
+
+            # Skip users with no content (new users, private profiles, deleted accounts)
+            if user_history['total_posts'] == 0 and user_history['total_comments'] == 0:
+                logger.warning(f"  Skipping u/{username}: no posts or comments (new user, private, or deleted)")
+                skipped_users += 1
+                continue
+
             raw_user_data.append(user_history)
 
+        logger.info(f"Fetched data for {len(raw_user_data)} users, skipped {skipped_users} users with no content")
 
         # Enrich user data with metrics
         enriched_users = self.enricher.enrich_multiple_users(raw_user_data)
