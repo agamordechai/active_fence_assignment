@@ -1,1 +1,3317 @@
-[]
+[
+  {
+    "id": 1,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 18:19:48.207182"
+  },
+  {
+    "id": 2,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 18:28:56.436768"
+  },
+  {
+    "id": 3,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 18:38:46.306550"
+  },
+  {
+    "id": 4,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 18:47:29.393239"
+  },
+  {
+    "id": 5,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 18:53:43.025349"
+  },
+  {
+    "id": 6,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 18:59:33.231309"
+  },
+  {
+    "id": 7,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 19:08:09.015858"
+  },
+  {
+    "id": 8,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 19:16:48.096583"
+  },
+  {
+    "id": 9,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 19:24:36.985178"
+  },
+  {
+    "id": 10,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 19:32:27.982879"
+  },
+  {
+    "id": 11,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 19:38:46.760438"
+  },
+  {
+    "id": 12,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 19:47:33.714648"
+  },
+  {
+    "id": 13,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 19:56:31.840997"
+  },
+  {
+    "id": 14,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 20:05:28.490792"
+  },
+  {
+    "id": 15,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 20:13:36.371261"
+  },
+  {
+    "id": 16,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 20:19:23.701886"
+  },
+  {
+    "id": 17,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 20:28:28.700320"
+  },
+  {
+    "id": 18,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 20:37:40.850145"
+  },
+  {
+    "id": 19,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 20:47:22.626783"
+  },
+  {
+    "id": 20,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 21:02:24.136531"
+  },
+  {
+    "id": 21,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 21:09:48.613549"
+  },
+  {
+    "id": 22,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 21:38:26.506238"
+  },
+  {
+    "id": 23,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 21:48:19.297280"
+  },
+  {
+    "id": 24,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 21:56:15.588489"
+  },
+  {
+    "id": 25,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:04:11.527842"
+  },
+  {
+    "id": 26,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:11:49.034149"
+  },
+  {
+    "id": 27,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:11:51.861002"
+  },
+  {
+    "id": 28,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:18:42.056858"
+  },
+  {
+    "id": 29,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:18:44.921267"
+  },
+  {
+    "id": 30,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:26:41.144907"
+  },
+  {
+    "id": 31,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:26:43.894566"
+  },
+  {
+    "id": 32,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 51.97,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:26:44.624324"
+  },
+  {
+    "id": 33,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:34:34.529365"
+  },
+  {
+    "id": 34,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:34:37.292965"
+  },
+  {
+    "id": 35,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 1,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 36.4,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:34:38.138283"
+  },
+  {
+    "id": 36,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:42:32.660607"
+  },
+  {
+    "id": 37,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:42:35.652451"
+  },
+  {
+    "id": 38,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 2,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 29.53,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:42:36.456818"
+  },
+  {
+    "id": 39,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:49:06.224946"
+  },
+  {
+    "id": 40,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:49:09.152012"
+  },
+  {
+    "id": 41,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 2,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 29.53,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:49:09.885858"
+  },
+  {
+    "id": 42,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:56:55.012948"
+  },
+  {
+    "id": 43,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:56:57.970184"
+  },
+  {
+    "id": 44,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 3,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 22.68,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 22:56:58.704906"
+  },
+  {
+    "id": 45,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:04:46.983959"
+  },
+  {
+    "id": 46,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:04:49.827067"
+  },
+  {
+    "id": 47,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 5,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 15.43,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:04:50.502002"
+  },
+  {
+    "id": 48,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:13:39.961071"
+  },
+  {
+    "id": 49,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:13:42.774466"
+  },
+  {
+    "id": 50,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:13:43.508272"
+  },
+  {
+    "id": 51,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:19:33.345846"
+  },
+  {
+    "id": 52,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:19:36.187156"
+  },
+  {
+    "id": 53,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:19:36.901897"
+  },
+  {
+    "id": 54,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:27:57.511769"
+  },
+  {
+    "id": 55,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:28:00.272994"
+  },
+  {
+    "id": 56,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:28:00.953463"
+  },
+  {
+    "id": 57,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:36:20.241266"
+  },
+  {
+    "id": 58,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:36:23.260556"
+  },
+  {
+    "id": 59,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:36:23.993615"
+  },
+  {
+    "id": 60,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:44:05.984896"
+  },
+  {
+    "id": 61,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:44:09.014020"
+  },
+  {
+    "id": 62,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:44:09.744626"
+  },
+  {
+    "id": 63,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:52:57.254061"
+  },
+  {
+    "id": 64,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:53:00.099195"
+  },
+  {
+    "id": 65,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:53:00.805599"
+  },
+  {
+    "id": 66,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:59:14.283017"
+  },
+  {
+    "id": 67,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:59:17.097947"
+  },
+  {
+    "id": 68,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-29 23:59:17.733294"
+  },
+  {
+    "id": 69,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:07:44.930382"
+  },
+  {
+    "id": 70,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:07:47.762421"
+  },
+  {
+    "id": 71,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:07:48.509594"
+  },
+  {
+    "id": 72,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:16:39.560374"
+  },
+  {
+    "id": 73,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:16:42.365284"
+  },
+  {
+    "id": 74,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:16:43.036676"
+  },
+  {
+    "id": 75,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:25:29.750117"
+  },
+  {
+    "id": 76,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:25:32.618331"
+  },
+  {
+    "id": 77,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:25:33.269738"
+  },
+  {
+    "id": 78,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:33:42.402479"
+  },
+  {
+    "id": 79,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:33:45.286758"
+  },
+  {
+    "id": 80,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:33:47.382455"
+  },
+  {
+    "id": 81,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:39:45.028179"
+  },
+  {
+    "id": 82,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:39:47.849109"
+  },
+  {
+    "id": 83,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:39:48.481752"
+  },
+  {
+    "id": 84,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:48:05.181010"
+  },
+  {
+    "id": 85,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:48:08.027702"
+  },
+  {
+    "id": 86,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:48:08.665870"
+  },
+  {
+    "id": 87,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:56:41.065575"
+  },
+  {
+    "id": 88,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:56:43.943676"
+  },
+  {
+    "id": 89,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 00:56:44.603892"
+  },
+  {
+    "id": 90,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:05:59.854922"
+  },
+  {
+    "id": 91,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:06:02.667346"
+  },
+  {
+    "id": 92,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:06:03.563898"
+  },
+  {
+    "id": 93,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:15:30.621972"
+  },
+  {
+    "id": 94,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:15:33.463364"
+  },
+  {
+    "id": 95,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:15:34.120484"
+  },
+  {
+    "id": 96,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:25:14.414433"
+  },
+  {
+    "id": 97,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:25:17.322579"
+  },
+  {
+    "id": 98,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:25:18.071958"
+  },
+  {
+    "id": 99,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:34:33.546624"
+  },
+  {
+    "id": 100,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:34:36.738052"
+  },
+  {
+    "id": 101,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:34:37.451451"
+  },
+  {
+    "id": 102,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:39:46.209061"
+  },
+  {
+    "id": 103,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:39:49.068283"
+  },
+  {
+    "id": 104,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:39:49.759415"
+  },
+  {
+    "id": 105,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:49:18.125827"
+  },
+  {
+    "id": 106,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:49:21.029936"
+  },
+  {
+    "id": 107,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:49:21.702300"
+  },
+  {
+    "id": 108,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:58:50.660644"
+  },
+  {
+    "id": 109,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:58:53.704511"
+  },
+  {
+    "id": 110,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 01:58:54.375047"
+  },
+  {
+    "id": 111,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:08:18.655828"
+  },
+  {
+    "id": 112,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:08:21.458204"
+  },
+  {
+    "id": 113,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:08:22.177674"
+  },
+  {
+    "id": 114,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:17:49.004750"
+  },
+  {
+    "id": 115,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:17:51.849224"
+  },
+  {
+    "id": 116,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:17:52.485578"
+  },
+  {
+    "id": 117,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:27:29.571421"
+  },
+  {
+    "id": 118,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:27:32.415598"
+  },
+  {
+    "id": 119,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:27:33.086739"
+  },
+  {
+    "id": 120,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:37:11.761324"
+  },
+  {
+    "id": 121,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:37:14.613965"
+  },
+  {
+    "id": 122,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:37:15.290625"
+  },
+  {
+    "id": 123,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:46:30.145251"
+  },
+  {
+    "id": 124,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:46:32.878619"
+  },
+  {
+    "id": 125,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:46:33.592245"
+  },
+  {
+    "id": 126,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:55:46.896608"
+  },
+  {
+    "id": 127,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:55:49.740116"
+  },
+  {
+    "id": 128,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 02:55:50.543610"
+  },
+  {
+    "id": 129,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:05:27.899567"
+  },
+  {
+    "id": 130,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:05:30.730297"
+  },
+  {
+    "id": 131,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:05:31.415895"
+  },
+  {
+    "id": 132,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:15:03.237657"
+  },
+  {
+    "id": 133,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:15:06.097540"
+  },
+  {
+    "id": 134,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:15:06.770672"
+  },
+  {
+    "id": 135,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:24:22.869941"
+  },
+  {
+    "id": 136,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:24:25.705206"
+  },
+  {
+    "id": 137,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:24:26.337924"
+  },
+  {
+    "id": 138,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:29:29.376642"
+  },
+  {
+    "id": 139,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:29:32.325073"
+  },
+  {
+    "id": 140,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:29:32.966736"
+  },
+  {
+    "id": 141,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:38:53.654722"
+  },
+  {
+    "id": 142,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:38:56.487033"
+  },
+  {
+    "id": 143,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:38:57.132559"
+  },
+  {
+    "id": 144,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:48:16.332426"
+  },
+  {
+    "id": 145,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:48:19.202158"
+  },
+  {
+    "id": 146,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:48:19.828620"
+  },
+  {
+    "id": 147,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:57:59.258338"
+  },
+  {
+    "id": 148,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:58:02.077797"
+  },
+  {
+    "id": 149,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 03:58:02.746338"
+  },
+  {
+    "id": 150,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:07:39.678033"
+  },
+  {
+    "id": 151,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:07:42.528998"
+  },
+  {
+    "id": 152,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:07:43.249075"
+  },
+  {
+    "id": 153,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:17:12.005664"
+  },
+  {
+    "id": 154,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:17:14.823977"
+  },
+  {
+    "id": 155,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:17:15.556109"
+  },
+  {
+    "id": 156,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:26:46.475868"
+  },
+  {
+    "id": 157,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:26:49.454329"
+  },
+  {
+    "id": 158,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:26:50.129859"
+  },
+  {
+    "id": 159,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:36:20.578332"
+  },
+  {
+    "id": 160,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:36:23.402354"
+  },
+  {
+    "id": 161,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:36:24.070480"
+  },
+  {
+    "id": 162,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:45:42.972972"
+  },
+  {
+    "id": 163,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:45:45.881127"
+  },
+  {
+    "id": 164,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:45:46.516744"
+  },
+  {
+    "id": 165,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:55:14.242504"
+  },
+  {
+    "id": 166,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:55:17.408937"
+  },
+  {
+    "id": 167,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 04:55:18.102274"
+  },
+  {
+    "id": 168,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:04:41.547428"
+  },
+  {
+    "id": 169,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:04:44.411236"
+  },
+  {
+    "id": 170,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:04:45.099342"
+  },
+  {
+    "id": 171,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:09:48.134828"
+  },
+  {
+    "id": 172,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:09:50.985820"
+  },
+  {
+    "id": 173,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:09:51.789489"
+  },
+  {
+    "id": 174,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:19:37.620459"
+  },
+  {
+    "id": 175,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:19:40.422915"
+  },
+  {
+    "id": 176,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:19:41.109849"
+  },
+  {
+    "id": 177,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:29:24.393555"
+  },
+  {
+    "id": 178,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:29:27.441769"
+  },
+  {
+    "id": 179,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:29:28.554578"
+  },
+  {
+    "id": 180,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:38:46.091814"
+  },
+  {
+    "id": 181,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:38:48.922859"
+  },
+  {
+    "id": 182,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:38:49.663730"
+  },
+  {
+    "id": 183,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:48:06.744084"
+  },
+  {
+    "id": 184,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:48:09.683544"
+  },
+  {
+    "id": 185,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:48:10.398322"
+  },
+  {
+    "id": 186,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:57:29.110684"
+  },
+  {
+    "id": 187,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:57:31.909689"
+  },
+  {
+    "id": 188,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 05:57:32.653078"
+  },
+  {
+    "id": 189,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:06:47.603912"
+  },
+  {
+    "id": 190,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:06:50.407621"
+  },
+  {
+    "id": 191,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:06:51.052108"
+  },
+  {
+    "id": 192,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:15:54.016386"
+  },
+  {
+    "id": 193,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:15:56.874356"
+  },
+  {
+    "id": 194,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:15:57.672376"
+  },
+  {
+    "id": 195,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:25:02.462640"
+  },
+  {
+    "id": 196,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:25:05.333419"
+  },
+  {
+    "id": 197,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:25:06.200992"
+  },
+  {
+    "id": 198,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:34:21.989057"
+  },
+  {
+    "id": 199,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:34:24.747253"
+  },
+  {
+    "id": 200,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:34:25.438280"
+  },
+  {
+    "id": 201,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:39:28.507316"
+  },
+  {
+    "id": 202,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:39:31.383990"
+  },
+  {
+    "id": 203,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:39:32.056993"
+  },
+  {
+    "id": 204,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:48:41.139364"
+  },
+  {
+    "id": 205,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:48:44.038007"
+  },
+  {
+    "id": 206,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:48:44.679775"
+  },
+  {
+    "id": 207,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:57:49.354985"
+  },
+  {
+    "id": 208,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:57:52.440815"
+  },
+  {
+    "id": 209,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 06:57:53.112681"
+  },
+  {
+    "id": 210,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:06:53.317055"
+  },
+  {
+    "id": 211,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:06:56.125228"
+  },
+  {
+    "id": 212,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:06:56.875832"
+  },
+  {
+    "id": 213,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:16:03.375670"
+  },
+  {
+    "id": 214,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:16:06.175325"
+  },
+  {
+    "id": 215,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:16:06.930418"
+  },
+  {
+    "id": 216,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:25:20.340547"
+  },
+  {
+    "id": 217,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:25:23.412917"
+  },
+  {
+    "id": 218,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:25:24.097746"
+  },
+  {
+    "id": 219,
+    "username": "Substantial-Emu-7725",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/Substantial-Emu-7725",
+    "findings": {
+      "posts_scanned": 1,
+      "comments_scanned": 0,
+      "high_risk_items": 1,
+      "alerts_generated": 1,
+      "max_risk_score": 61.95,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:34:44.059285"
+  },
+  {
+    "id": 220,
+    "username": "dopabeanes",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/dopabeanes",
+    "findings": {
+      "posts_scanned": 13,
+      "comments_scanned": 0,
+      "high_risk_items": 12,
+      "alerts_generated": 12,
+      "max_risk_score": 57.45,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:34:46.924619"
+  },
+  {
+    "id": 221,
+    "username": "fadinsketches",
+    "activity_type": "daily_scan",
+    "description": "Daily monitoring scan for u/fadinsketches",
+    "findings": {
+      "posts_scanned": 0,
+      "comments_scanned": 5,
+      "high_risk_items": 0,
+      "alerts_generated": 0,
+      "max_risk_score": 5.04,
+      "status": "success"
+    },
+    "created_at": "2025-11-30 07:34:47.582763"
+  }
+]
