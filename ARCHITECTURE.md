@@ -9,7 +9,7 @@ A microservices-based system for automated detection, analysis, and monitoring o
 ## Project Structure
 
 ```
-active_fence_assignment/
+reddit-hatespeach-detector/
 ├── services/
 │   ├── api/                      # FastAPI REST service
 │   │   ├── src/

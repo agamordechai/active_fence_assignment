@@ -186,7 +186,7 @@ sqlite> .schema posts
 ## Project Structure
 
 ```
-active_fence_assignment/
+reddit-hatespeach-detector/
 ├── services/
 │   ├── api/                 # FastAPI REST service
 │   │   ├── src/
